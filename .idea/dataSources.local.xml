@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - payment_system@localhost" uuid="cdfac754-ab80-41cc-9d31-3b967c5c1758">
+      <secret-storage>memory</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>payment_system.*</schema-pattern>
+      <default-schemas>payment_system.*</default-schemas>
+    </data-source>
+  </component>
+</project>

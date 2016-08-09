@@ -10,7 +10,7 @@ public class LoginServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        req.getRequestDispatcher("loginPage.jsp").include(req, resp);
+        req.getRequestDispatcher("/webapp/loginPage.jsp").include(req, resp);
     }
 
     @Override

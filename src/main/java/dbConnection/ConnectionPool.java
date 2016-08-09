@@ -48,10 +48,14 @@ public class ConnectionPool {
 
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver()");
-            Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/payment_system", "root", "root");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/bench", "root", "root");
             return con;
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

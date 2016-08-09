@@ -1,31 +1,12 @@
 package service;
 
-import entity.Entity;
+import entity.User;
 
-import java.util.List;
+public interface UserService extends Service<User> {
 
-public class UserService implements Service{
-    public boolean update(Entity entity) {
-        return false;
-    }
+    public User getById(Long id);
 
-    public boolean create(Entity entity) {
-        return false;
-    }
+    public boolean deleteById(Long id);
 
-    public Entity getById(Integer id) {
-        return null;
-    }
-
-    public List<Entity> getAll() {
-        return null;
-    }
-
-    public boolean deleteById(Integer id) {
-        return false;
-    }
-
-    public boolean deleteAll() {
-        return false;
-    }
+    public User getByEmail(String email) throws ClassNotFoundException;
 }

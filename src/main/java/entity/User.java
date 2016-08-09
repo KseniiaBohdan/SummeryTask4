@@ -1,6 +1,6 @@
 package entity;
 
-public class User implements Entity{
+public class User extends Entity {
     private Long id;
     private String firstName;
     private String secondName;
@@ -10,6 +10,20 @@ public class User implements Entity{
     private BlockStatus status;
     private Integer roleId;
     private String phoneNumber;
+
+    public User(Long id, String firstName, String secondName, String patronymic,
+                String email, String password, BlockStatus status, Integer roleId,
+                String phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.patronymic = patronymic;
+        this.email = email;
+        this.password = password;
+        this.status = status;
+        this.roleId = roleId;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Long getId() {
         return id;

@@ -2,7 +2,7 @@ package entity;
 
 import java.util.Date;
 
-public class Payment implements Entity{
+public class Payment extends Entity{
     private Long id;
     private Date date;
     private Long number;

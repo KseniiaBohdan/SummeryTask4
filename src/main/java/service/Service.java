@@ -2,18 +2,15 @@ package service;
 
 import entity.Entity;
 
+import java.sql.SQLException;
 import java.util.List;
 
-public interface Service {
-    public boolean update(Entity entity);
+public interface Service <Entity> {
+    public boolean update(Entity entity) throws SQLException;
 
     public boolean create(Entity entity);
 
-    public Entity getById(Integer id);
-
     public List<Entity> getAll();
-
-    public boolean deleteById(Integer id);
 
     public boolean deleteAll();
 }

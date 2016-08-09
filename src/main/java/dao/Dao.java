@@ -2,18 +2,19 @@ package dao;
 
 import entity.Entity;
 
+import java.sql.SQLException;
 import java.util.List;
 
-public interface Dao {
-    public boolean update(Entity entity);
+public interface Dao<Entity> {
+    public boolean update(Entity entity) throws SQLException;
 
-    public boolean create(Entity entity);
+    public boolean create(Entity entity) throws SQLException;
 
-    public Entity getById(Integer id);
+    public Entity getById(Long id) throws SQLException;
 
-    public List<Entity> getAll();
+    public List<Entity> getAll() throws SQLException;
 
-    public boolean deleteById(Integer id);
+    public boolean deleteById(Long id) throws SQLException;
 
-    public boolean deleteAll();
+    public boolean deleteAll() throws SQLException;
 }

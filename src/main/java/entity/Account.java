@@ -1,6 +1,6 @@
 package entity;
 
-public class Account implements Entity{
+public class Account extends Entity{
     private Long id;
     private Long balance;
     private Integer number;

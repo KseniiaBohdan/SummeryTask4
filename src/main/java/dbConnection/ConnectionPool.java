@@ -1,73 +1,81 @@
 package dbConnection;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import java.sql.*;
 
 import java.util.Vector;
+import java.util.logging.Logger;
 
 public class ConnectionPool {
-    private Vector<Connection> freeConnection;
-    private Vector<Connection> usedConnection;
-    private String url;
-    private String user;
-    private String password;
-    private int connectionNumb;
+    private Vector<Connection> freeConnections;
+    private Vector<Connection> usedConnections;
+    private final static String url = "jdbc:mysql://localhost:3306/payment_system";
+    private final static String userName = "root";
+    private final static String password = "root";
+    //private final static String driverName = ;
+    private final static int size = 10;
+
+    /*
+        private static Connection test(){
+            try {
+                Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/payment_system", "root", "root");
+                return con;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
 
 
-    public static void main(String[] args) {
-        String URL = "jdbc:mysql://localhost:3306/payment_system?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        String username = "root";
-        String password = "root";
+        public ConnectionPool(String url, int size, String userName, String password, String driverName) {
+            this.userName = userName;
+            this.driverName = driverName;
+            this.password = password;
+            this.size = size;
+            /*try {
+                Class.forName(this.driverName).newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }*/
+      /*  this.url = url;
+        for (int i = 0; i < this.size; i++) {
+            freeConnections.addElement(getConnection());
+        }
+*/
 
-        ConnectionPool connectionPool = new ConnectionPool(URL, 10, username, password);
-
-    }
-
-
-    public ConnectionPool(String url, int size, String user, String password) {
-        this.user = user;
-        this.password = password;
-        connectionNumb = size;
+    public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-        } catch (Exception e) {
+            Class.forName("com.mysql.jdbc.Driver()");
+            Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/payment_system", "root", "root");
+            return con;
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-        this.url = url;
-        for (int i = 0; i < connectionNumb; i++) {
-            freeConnection.addElement(getConnection());
-        }
-    }
-
-    public Connection getConnection() {
-        Connection connection = null;
-        try {
-
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/payment_system", "root", "root");
-            return connection;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return null;
     }
-
-    public synchronized Connection getFreeConnection() {
-        if (freeConnection.size() > 0) {
+/*
+    public synchronized Connection getFreeConnections() {
+        if (freeConnections.size() > 0) {
             Connection con = null;
-            con = freeConnection.lastElement();
-            freeConnection.removeElement(con);
-            usedConnection.addElement(con);
+            con = freeConnections.lastElement();
+            freeConnections.removeElement(con);
+            usedConnections.addElement(con);
             return con;
         } else {
-            return this.getFreeConnection();
+            return this.getFreeConnections();
         }
     }
 
     public synchronized boolean putUnUsedConnection(Connection connection) {
-        if (!freeConnection.contains(connection) && freeConnection.size() < connectionNumb) {
-            freeConnection.addElement(connection);
+        if (!freeConnections.contains(connection) && freeConnections.size() < size) {
+            freeConnections.addElement(connection);
             return true;
         }
         return false;   //exception
-    }
+    }*/
 }

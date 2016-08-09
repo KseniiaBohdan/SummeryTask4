@@ -1,6 +1,6 @@
 package entity;
 
-public class Role implements Entity{
+public class Role extends Entity{
     private Integer id;
     private String role_name;
 

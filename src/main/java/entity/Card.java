@@ -1,6 +1,6 @@
 package entity;
 
-public class Card implements Entity{
+public class Card extends Entity{
     private Long cardNumber;
     private Long userId;
     private Integer pin;

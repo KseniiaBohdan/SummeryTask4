@@ -1,6 +1,6 @@
 package servlets;
 
-import service.Test;
+import entity.User;
 import service.implementation.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,6 @@ public class ProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      /*  resp.setContentType("text/html");
         HttpSession session = req.getSession();
         session.setAttribute("email", req.getParameter("email"));
         session.setAttribute("password", req.getParameter("password"));
@@ -27,24 +26,18 @@ public class ProfileServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         if (user != null && user.getPassword().equals(password)) {
-            req.getRequestDispatcher("profilePage.jsp");
+            resp.setContentType("text/html");
+            req.getRequestDispatcher("profilePage.jsp").include(req, resp);
         } else {
-            req.getRequestDispatcher("errorPage.jsp");
-        }*/
-        UserServiceImpl userService = new UserServiceImpl();
-        try {
-            userService.getByEmail("root");
-            req.getRequestDispatcher("profilePage.jsp");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            resp.setContentType("text/html");
+            req.getRequestDispatcher("errorPage.jsp").include(req, resp);;
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+
     }
 
 }

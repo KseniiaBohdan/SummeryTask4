@@ -13,5 +13,8 @@
     <input type="submit" value="Login" size="40"/>
     </input>
 </form>
+<form id="registration" action="/registration" method="GET">
+    <input type="submit" value="Registration" size="40"/>
+</form>
 </body>
 </html>

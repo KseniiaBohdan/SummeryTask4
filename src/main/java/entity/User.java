@@ -25,6 +25,17 @@ public class User extends Entity {
         this.phoneNumber = phoneNumber;
     }
 
+    public User(String firstName, String secondName, String patronymic,
+                String email, String password, String phoneNumber) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.patronymic = patronymic;
+        this.email = email;
+        this.password = password;
+        this.status = BlockStatus.unblocked;
+        this.phoneNumber = phoneNumber;
+    }
+
     public Long getId() {
         return id;
     }

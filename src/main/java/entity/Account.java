@@ -2,10 +2,35 @@ package entity;
 
 public class Account extends Entity{
     private Long id;
+    private Long userId;
     private Long balance;
     private Integer number;
     private BlockStatus status;
     private String title;
+
+    public Account(Long id, Long userId, Long balance, Integer number, BlockStatus status, String title) {
+        this.id = id;
+        this.userId = userId;
+        this.balance = balance;
+        this.number = number;
+        this.status = status;
+        this.title = title;
+    }
+
+    public Account(Long id, Long balance, String title) {
+        this.id = id;
+        this.balance = balance;
+        this.title = title;
+        this.status = BlockStatus.unblocked;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public Long getId() {
         return id;

@@ -5,6 +5,6 @@
     <title></title>
 </head>
 <body>
-    <jsp:text> smth </jsp:text><br>
+    <jsp:text> smth </jsp:text>
 </body>
 </html>

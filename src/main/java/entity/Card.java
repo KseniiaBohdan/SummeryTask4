@@ -1,6 +1,6 @@
 package entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Card extends Entity{
     private Long cardNumber;
@@ -17,6 +17,16 @@ public class Card extends Entity{
         this.expireDate = expireDate;
         this.pin = pin;
         this.status = status;
+        this.accountId = accountId;
+        this.title = title;
+    }
+
+    public Card(Long cardNumber, Long userId, Date expireDate, Integer pin, Long accountId, String title) {
+        this.cardNumber = cardNumber;
+        this.userId = userId;
+        this.expireDate = expireDate;
+        this.pin = pin;
+        this.status = BlockStatus.unblocked;
         this.accountId = accountId;
         this.title = title;
     }

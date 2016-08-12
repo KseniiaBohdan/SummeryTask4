@@ -33,4 +33,22 @@ public class CardServiceImpl implements CardService {
     public boolean deleteAll() {
         return false;
     }
+
+    public List getByUserId(Long userId) {
+        try {
+            return cardDao.getByUserId(userId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List getByAccountId(Long accountId) {
+        try {
+            cardDao.getByAccountId(accountId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

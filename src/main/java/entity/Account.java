@@ -1,12 +1,15 @@
 package entity;
 
-public class Account extends Entity{
+public class Account extends Entity {
     private Long id;
     private Long userId;
     private Long balance;
     private Integer number;
     private BlockStatus status;
     private String title;
+
+    public Account() {
+    }
 
     public Account(Long id, Long userId, Long balance, Integer number, BlockStatus status, String title) {
         this.id = id;

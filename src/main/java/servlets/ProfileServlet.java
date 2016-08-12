@@ -28,6 +28,7 @@ public class ProfileServlet extends HttpServlet {
         }
         if (user != null && user.getPassword().equals(password)) {
             resp.setContentType("text/html");
+            session.setAttribute("user", user);
             req.getRequestDispatcher("profilePage.jsp").include(req, resp);
         } else {
             resp.setContentType("text/html");

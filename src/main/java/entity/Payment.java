@@ -12,6 +12,17 @@ public class Payment extends Entity{
     private Integer sum;
     private PaymentStatus status;
 
+    public Payment(Long id, Date date, Long number, Long cardNumberReceiver, Long getCardNumberSender, String title, Integer sum, PaymentStatus status) {
+        this.id = id;
+        this.date = date;
+        this.number = number;
+        this.cardNumberReceiver = cardNumberReceiver;
+        this.getCardNumberSender = getCardNumberSender;
+        this.title = title;
+        this.sum = sum;
+        this.status = status;
+    }
+
     public Long getId() {
         return id;
     }

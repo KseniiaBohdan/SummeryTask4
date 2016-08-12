@@ -4,8 +4,6 @@
     <title></title>
 </head>
 <body>
-<jsp:text>
-OK
-</jsp:text>
+<%=session.getAttribute("result")%>
 </body>
 </html>

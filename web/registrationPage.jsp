@@ -2,9 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title> Registration</title>
+    <title></title>
 </head>
-<body>
+<body bgcolor="green">
+<jsp:text>Registration</jsp:text><br>
 <form id="registration_user" action="/result" method="post">
     <table>
         <tr>
@@ -57,8 +58,9 @@
 
                 <jsp:text> Title for card:</jsp:text>
                 <br>
-                <input type="text" align="right" border="10" size="40" name="card_title"><br>
-
+                <input type="text" align="right" border="10" size="40" name="card_title"/><br>
+            </td>
+            <td>
                 <jsp:text> Input your account number:</jsp:text>
                 <br>
                 <input type="number" align="right" border="10" required size="40" name="account_id"><br>
@@ -72,8 +74,6 @@
                 <input type="text" align="right" border="10" size="40" name="account_title"><br>
 
                 <input type="submit" value="Registrate" size="40"/>
-                </input>
-
             </td>
         </tr>
     </table>

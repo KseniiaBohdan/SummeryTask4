@@ -15,11 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 public class ResultServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,14 +34,13 @@ public class ResultServlet extends HttpServlet {
             date = in.parse(parameter);
         } catch (ParseException e) {
             e.printStackTrace();
-        }/*
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String dateForMySql = sdf.format(date);*/
+        }
 
         User user = new User((String) session.getAttribute("first_name"), (String) session.getAttribute("second_name"),
                 (String) session.getAttribute("patronymic"), (String) session.getAttribute("email"),
                 (String) session.getAttribute("password"), (String) session.getAttribute("phone_number"));
-        Card card = new Card(Long.valueOf(session.getAttribute("card_number").toString()), new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()),
+        Card card = new Card(Long.valueOf(session.getAttribute("card_number").toString()),
+                new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()),
                 Integer.valueOf(session.getAttribute("pin").toString()), Long.valueOf(session.getAttribute("account_id").toString()),
                 session.getAttribute("card_title").toString());
         Account account = new Account(Long.valueOf(session.getAttribute("account_id").toString()),

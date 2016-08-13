@@ -6,7 +6,7 @@
 </head>
 <body bgcolor="green">
 <jsp:text>Registration</jsp:text><br>
-<form id="registration_user" action="/result" method="post">
+<form id="registration_user" action="/registration" method="post">
     <table>
         <tr>
             <td>

@@ -32,7 +32,7 @@ public class ProfileServlet extends HttpServlet {
             req.getRequestDispatcher("profilePage.jsp").include(req, resp);
         } else {
             resp.setContentType("text/html");
-            req.getRequestDispatcher("errorPage.jsp").include(req, resp);;
+            req.getRequestDispatcher("errorPage.jsp").include(req, resp);
         }
     }
 

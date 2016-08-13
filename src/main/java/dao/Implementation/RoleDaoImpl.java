@@ -46,7 +46,10 @@ public class RoleDaoImpl implements RoleDao {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = con.prepareStatement(DELETE_BY_ID);
         ps.setInt(1, id);
-        return false;
+        ps.executeUpdate();
+        ps.close();
+        con.close();
+        return true;
     }
 
     public boolean deleteAll() {

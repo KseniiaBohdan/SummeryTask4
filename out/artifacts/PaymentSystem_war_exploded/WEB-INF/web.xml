@@ -40,16 +40,6 @@
     </servlet-mapping>
 
     <servlet>
-        <display-name>ResultServlet</display-name>
-        <servlet-name>ResultServlet</servlet-name>
-        <servlet-class>servlets.ResultServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ResultServlet</servlet-name>
-        <url-pattern>/result</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <display-name>AddNewCardServlet</display-name>
         <servlet-name>AddNewCardServlet</servlet-name>
         <servlet-class>servlets.AddNewCardServlet</servlet-class>
@@ -57,5 +47,15 @@
     <servlet-mapping>
         <servlet-name>AddNewCardServlet</servlet-name>
         <url-pattern>/add_new_card</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DeleteCardServlet</display-name>
+        <servlet-name>DeleteCardServlet</servlet-name>
+        <servlet-class>servlets.DeleteCardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCardServlet</servlet-name>
+        <url-pattern>/delete_card</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -62,6 +62,9 @@ public class AccountDaoImpl implements AccountDao {
                     BlockStatus.valueOf(rs.getString("status")), rs.getString("title"));
             accountList.add(account);
         }
+        rs.close();
+        ps.close();
+        con.close();
         return accountList;
     }
 }

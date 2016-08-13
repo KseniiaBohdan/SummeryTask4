@@ -15,6 +15,7 @@ public class CardDaoImpl implements CardDao {
             " VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String GET_BY_USER_ID = "SELECT * FROM card WHERE user_id=?";
     private static final String GET_BY_ACCOUNT_ID = "SELECT * FROM card WHERE account_id=?";
+    private static final String DELETE_BY_CARD_NUMBER = "DELETE FROM card WHERE card_number = ?";
 
     public boolean update(Card card) {
         return false;
@@ -44,8 +45,14 @@ public class CardDaoImpl implements CardDao {
         return null;
     }
 
-    public boolean deleteById(Long id) {
-        return false;
+    public boolean deleteByCardNumber(Long cardNumber) throws SQLException {
+        Connection con = ConnectionPool.getConnection();
+        PreparedStatement ps = con.prepareStatement(DELETE_BY_CARD_NUMBER);
+        ps.setLong(1, cardNumber);
+        ps.executeUpdate();
+        ps.close();
+        con.close();
+        return  true;
     }
 
     public boolean deleteAll() {
@@ -78,6 +85,7 @@ public class CardDaoImpl implements CardDao {
         while (rs.next()){
             Card card = new Card(rs.getLong("card_number"), rs.getLong("user_id"), rs.getDate("expire_date"),
                     rs.getInt("pin"), BlockStatus.valueOf(rs.getString("status")), rs.getLong("account_id"), rs.getString("title"));
+            cardList.add(card);
         }
         rs.close();
         ps.close();

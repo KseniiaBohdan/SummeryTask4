@@ -33,7 +33,7 @@
 
     <jsp:text> Title for card:</jsp:text>
     <br>
-    <input type="text" align="right" border="10" size="40" name="card_title"/><br>
+    <input type="text" align="right" border="10" size="40" name="title"/><br>
 
     <%
         UserService userService = new UserServiceImpl();

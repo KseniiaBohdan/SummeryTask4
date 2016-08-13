@@ -2,9 +2,7 @@ package service.implementation;
 
 import dao.implementation.CardDaoImpl;
 import entity.Card;
-import entity.Entity;
 import service.CardService;
-import service.Service;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -50,5 +48,14 @@ public class CardServiceImpl implements CardService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean deleteByCardNumber(Long cardNumber) {
+        try {
+            return cardDao.deleteByCardNumber(cardNumber);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

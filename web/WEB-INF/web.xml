@@ -58,4 +58,54 @@
         <servlet-name>DeleteCardServlet</servlet-name>
         <url-pattern>/delete_card</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <display-name>BlockCardServlet</display-name>
+        <servlet-name>BlockCardServlet</servlet-name>
+        <servlet-class>servlets.BlockCardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlockCardServlet</servlet-name>
+        <url-pattern>/block_card</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>BlockAccountServlet</display-name>
+        <servlet-name>BlockAccountServlet</servlet-name>
+        <servlet-class>servlets.BlockAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlockAccountServlet</servlet-name>
+        <url-pattern>/block_account</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DeleteAccountServlet</display-name>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <servlet-class>servlets.DeleteAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <url-pattern>/delete_account</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>AddNewAccountServlet</display-name>
+        <servlet-name>AddNewAccountServlet</servlet-name>
+        <servlet-class>servlets.AddNewAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddNewAccountServlet</servlet-name>
+        <url-pattern>/add_new_account</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>DoPaymentServlet</display-name>
+        <servlet-name>DoPaymentServlet</servlet-name>
+        <servlet-class>servlets.DoPaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DoPaymentServlet</servlet-name>
+        <url-pattern>/do_payment</url-pattern>
+    </servlet-mapping>
 </web-app>

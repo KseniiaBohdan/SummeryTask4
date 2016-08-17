@@ -11,7 +11,12 @@ public class CardServiceImpl implements CardService {
 
     CardDaoImpl cardDao = new CardDaoImpl();
 
-    public boolean update(Card card) throws SQLException {
+    public boolean update(Card card){
+        try {
+            return cardDao.update(card);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
@@ -57,5 +62,14 @@ public class CardServiceImpl implements CardService {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public Card getByCardNumber(Long cardNumber) {
+        try {
+            return cardDao.getById(cardNumber);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

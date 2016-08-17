@@ -22,7 +22,7 @@ public interface UserDao extends Dao<User> {
 
     public User getByCardNumber(long cardNumber) throws SQLException;
 
-    public List<User> getByStatus(String status) throws SQLException;
+    public List<User> getByStatus(Integer statusId) throws SQLException;
 
     public User getByPhoneNumber(String phoneNumber) throws SQLException;
 }

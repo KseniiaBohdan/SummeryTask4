@@ -12,8 +12,13 @@ public class AccountServiceImpl implements AccountService {
 
     AccountDaoImpl accountDao = new AccountDaoImpl();
 
-    public boolean update(Account account) throws SQLException {
-        return false;
+    public boolean update(Account account){
+        try {
+            return accountDao.update(account);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean create(Account account) {
@@ -35,10 +40,23 @@ public class AccountServiceImpl implements AccountService {
 
     public List<Account> getByUserId(Long userId) {
         try {
-            return accountDao.deleteByUserId(userId);
+            return accountDao.getByUserId(userId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public Account getByAccountId(Long id) {
+        return accountDao.getById(id);
+    }
+
+    public boolean deleteById(Long accountId) {
+        try {
+            return accountDao.deleteById(accountId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

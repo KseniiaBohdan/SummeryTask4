@@ -10,9 +10,9 @@ public class Payment extends Entity{
     private Long getCardNumberSender;
     private String title;
     private Integer sum;
-    private PaymentStatus status;
+    private Integer paymentStatusId;
 
-    public Payment(Long id, Date date, Long number, Long cardNumberReceiver, Long getCardNumberSender, String title, Integer sum, PaymentStatus status) {
+    public Payment(Long id, Date date, Long number, Long cardNumberReceiver, Long getCardNumberSender, String title, Integer sum, Integer paymentStatusId) {
         this.id = id;
         this.date = date;
         this.number = number;
@@ -20,7 +20,20 @@ public class Payment extends Entity{
         this.getCardNumberSender = getCardNumberSender;
         this.title = title;
         this.sum = sum;
-        this.status = status;
+        this.paymentStatusId = paymentStatusId;
+    }
+
+    public Payment(Long number, Long cardNumberReceiver, Long getCardNumberSender, String title, Integer sum) {
+        this.cardNumberReceiver = cardNumberReceiver;
+        this.getCardNumberSender = getCardNumberSender;
+        this.title = title;
+        this.sum = sum;
+        this.number = number;
+        this.paymentStatusId = 1;
+    }
+
+    public Payment(){
+
     }
 
     public Long getId() {
@@ -79,11 +92,11 @@ public class Payment extends Entity{
         this.sum = sum;
     }
 
-    public PaymentStatus getStatus() {
-        return status;
+    public Integer getPaymentStatusId() {
+        return paymentStatusId;
     }
 
-    public void setStatus(PaymentStatus status) {
-        this.status = status;
+    public void setPaymentStatusId(Integer paymentStatusId) {
+        this.paymentStatusId = paymentStatusId;
     }
 }

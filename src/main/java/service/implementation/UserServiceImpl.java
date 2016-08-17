@@ -40,8 +40,8 @@ public class UserServiceImpl implements UserService {
             return user;
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public User getByCardNumber(long cardNumber){
@@ -53,16 +53,21 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    public List<User> getByStatus(String status) throws SQLException {
-        return userDao.getByStatus(status);
+    public List<User> getByStatus(Integer statusId) throws SQLException {
+        return userDao.getByStatus(statusId);
     }
 
     public User getByPhoneNumber(String phoneNumber) throws SQLException {
             return userDao.getByPhoneNumber(phoneNumber);
     }
 
-    public boolean update(User user) throws SQLException {
-        return userDao.update(user);
+    public boolean update(User user){
+        try {
+            return userDao.update(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public boolean create(User user) {

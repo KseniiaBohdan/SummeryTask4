@@ -15,11 +15,11 @@ public interface UserService extends Service<User> {
 
     public User getByCardNumber(long cardNumber);
 
-    public List<User> getByStatus(String status) throws SQLException;
+    public List<User> getByStatus(Integer statusId) throws SQLException;
 
     public User getByPhoneNumber(String phoneNumber) throws SQLException;
 
-    public boolean update(User user) throws SQLException;
+    public boolean update(User user);
 
     public boolean create(User user);
 

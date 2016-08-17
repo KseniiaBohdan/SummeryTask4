@@ -2,51 +2,57 @@ package entity;
 
 import java.sql.Date;
 
-public class Card extends Entity{
+public class Card extends Entity {
     private Long cardNumber;
     private Long userId;
-    private Date expireDate;
+    private Date expiryDate;
     private Integer pin;
-    private BlockStatus status;
+    private Integer statusId;
     private Long accountId;
     private String title;
 
-    public Card(Long cardNumber, Long userId, Date expireDate, Integer pin, BlockStatus status, Long accountId, String title) {
+
+
+
+    public Card(Long cardNumber, Long userId, Date expiryDate, Integer pin, Integer statusId, String title, Long accountId) {
         this.cardNumber = cardNumber;
         this.userId = userId;
-        this.expireDate = expireDate;
+        this.expiryDate = expiryDate;
         this.pin = pin;
-        this.status = status;
-        this.accountId = accountId;
+        this.statusId = statusId;
         this.title = title;
+        this.accountId = accountId;
     }
 
-    public Card(Long cardNumber, Long userId, Date expireDate, Integer pin, Long accountId, String title) {
+    public Card(Long cardNumber, Long userId, Date expiryDate, Integer pin, String title, Long accountId) {
         this.cardNumber = cardNumber;
         this.userId = userId;
-        this.expireDate = expireDate;
+        this.expiryDate = expiryDate;
         this.pin = pin;
-        this.status = BlockStatus.unblocked;
-        this.accountId = accountId;
         this.title = title;
+        this.accountId = accountId;
+        this.statusId=1;
     }
 
-    public Date getExpireDate() {
-        return expireDate;
+    public Card() {
+
     }
 
-    public void setExpireDate(Date expireDate) {
-        this.expireDate = expireDate;
+    public Date getExpiryDate() {
+        return expiryDate;
     }
 
-    public Card(Long cardNumber, Date expireDate, Integer pin, Long accountId, String title) {
+    public void setExpiryDate(Date expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public Card(Long cardNumber, Date expiryDate, Integer pin, Long accountId, String title) {
         this.cardNumber = cardNumber;
         this.pin = pin;
-        this.expireDate = expireDate;
-
-        this.status = BlockStatus.unblocked;
+        this.expiryDate = expiryDate;
         this.accountId = accountId;
         this.title = title;
+        this.statusId = 1;
     }
 
     public Long getCardNumber() {
@@ -73,12 +79,12 @@ public class Card extends Entity{
         this.pin = pin;
     }
 
-    public BlockStatus getStatus() {
-        return status;
+    public Integer getStatusId() {
+        return statusId;
     }
 
-    public void setStatus(BlockStatus status) {
-        this.status = status;
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
     }
 
     public Long getAccountId() {

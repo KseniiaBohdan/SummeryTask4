@@ -1,30 +1,44 @@
 package entity;
 
-public class Account extends Entity {
+public class Account extends Entity{
     private Long id;
-    private Long userId;
     private Long balance;
     private Integer number;
-    private BlockStatus status;
+
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
+    }
+
+    private Integer statusId;
     private String title;
+    private Long userId;
 
     public Account() {
     }
 
-    public Account(Long id, Long userId, Long balance, Integer number, BlockStatus status, String title) {
+    public Account(Long id, Long balance, Integer number, Integer statusId, String title, Long userId) {
         this.id = id;
-        this.userId = userId;
         this.balance = balance;
         this.number = number;
-        this.status = status;
+        this.statusId = statusId;
         this.title = title;
+        this.userId = userId;
+    }
+
+    public Account(Long id, Long balance, Integer number, String title, Long userId) {
+        this.id = id;
+        this.balance = balance;
+        this.number = number;
+        this.title = title;
+        this.userId = userId;
+        this.statusId = 1; //create method
     }
 
     public Account(Long id, Long balance, String title) {
         this.id = id;
         this.balance = balance;
         this.title = title;
-        this.status = BlockStatus.unblocked;
+        this.statusId = 1; //create method
     }
 
     public Long getUserId() {
@@ -59,12 +73,12 @@ public class Account extends Entity {
         this.number = number;
     }
 
-    public BlockStatus getStatus() {
-        return status;
+    public int getStatusId() {
+        return statusId;
     }
 
-    public void setStatus(BlockStatus status) {
-        this.status = status;
+    public void setStatus(int status) {
+        this.statusId = statusId;
     }
 
     public String getTitle() {

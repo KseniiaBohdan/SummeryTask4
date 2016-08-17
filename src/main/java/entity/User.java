@@ -7,12 +7,12 @@ public class User extends Entity {
     private String patronymic;
     private String email;
     private String password;
-    private BlockStatus status;
+    private Integer statusId;
     private Integer roleId;
     private String phoneNumber;
 
     public User(Long id, String firstName, String secondName, String patronymic,
-                String email, String password, BlockStatus status, Integer roleId,
+                String email, String password, Integer statusId, Integer roleId,
                 String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
@@ -20,7 +20,7 @@ public class User extends Entity {
         this.patronymic = patronymic;
         this.email = email;
         this.password = password;
-        this.status = status;
+        this.statusId = statusId;
         this.roleId = roleId;
         this.phoneNumber = phoneNumber;
     }
@@ -32,7 +32,7 @@ public class User extends Entity {
         this.patronymic = patronymic;
         this.email = email;
         this.password = password;
-        this.status = BlockStatus.unblocked;
+        this.statusId = 1; //status id create method
         this.phoneNumber = phoneNumber;
     }
 
@@ -84,12 +84,12 @@ public class User extends Entity {
         this.password = password;
     }
 
-    public BlockStatus getStatus() {
-        return status;
+    public Integer getStatus() {
+        return statusId;
     }
 
-    public void setStatus(BlockStatus status) {
-        this.status = status;
+    public void setStatus(Integer statusId) {
+        this.statusId = statusId;
     }
 
     public Integer getRoleId() {

@@ -9,70 +9,93 @@
     <schema name="" catalog="payment_system"/>
     <table name="account" schema="" catalog="payment_system" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="balance" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
       <column name="number" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="status" sqlType="ENUM" precision="9" scale="0" nullable="true" jdbcType="1"/>
+      <column name="status_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="title" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="user_id_in_account_fk" columns="user_id" ref-table="user" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="status_account_id_fk" columns="status_id" ref-table="status" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="user_id_account_fk" columns="user_id" ref-table="user" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <exported-key name="account_id_fk" table="card" schema="" catalog="payment_system" columns="account_id"/>
       <index name="id_UNIQUE" unique="true" columns="id"/>
-      <index name="user_id_in_account_fk" unique="false" columns="user_id"/>
+      <index name="payment_status_fk" unique="false" columns="status_id"/>
+      <index name="user_id_account_fk" unique="false" columns="user_id"/>
     </table>
     <table name="card" schema="" catalog="payment_system" type="TABLE">
       <column name="card_number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="expiry_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
       <column name="pin" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="status" sqlType="ENUM" precision="9" scale="0" nullable="false" jdbcType="1"/>
-      <column name="account_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="status_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="title" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12"/>
+      <column name="account_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="card_number"/>
-      <foreign-key name="account_id_fk" columns="account_id" ref-table="account" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="user_id_fk" columns="user_id" ref-table="user" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="account_id_fk" columns="account_id" ref-table="account" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="status_card_id_fk" columns="status_id" ref-table="status" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="user_id_card_fk" columns="user_id" ref-table="user" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <exported-key name="card_number_receiver_fk" table="payment" schema="" catalog="payment_system" columns="card_number_receiver"/>
       <exported-key name="card_number_sender_fk" table="payment" schema="" catalog="payment_system" columns="card_number_sender"/>
       <index name="card_number_UNIQUE" unique="true" columns="card_number"/>
-      <index name="account_id_index" unique="false" columns="account_id"/>
-      <index name="user_id_index" unique="false" columns="user_id"/>
+      <index name="account_id_fk" unique="false" columns="account_id"/>
+      <index name="status_id_index" unique="false" columns="status_id"/>
+      <index name="user_id_card_fk" unique="false" columns="user_id"/>
     </table>
     <table name="payment" schema="" catalog="payment_system" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
       <column name="number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="card_number_receiver" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="card_number_sender" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="title" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12"/>
       <column name="sum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="status" sqlType="ENUM" precision="9" scale="0" nullable="false" jdbcType="1"/>
+      <column name="payment_status_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="card_number_receiver_fk" columns="card_number_receiver" ref-table="card" ref-schema="" ref-catalog="payment_system" ref-columns="card_number" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="card_number_sender_fk" columns="card_number_sender" ref-table="card" ref-schema="" ref-catalog="payment_system" ref-columns="card_number" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="payment_status_id_fk" columns="payment_status_id" ref-table="payment_status" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="payment_status_id_fk" unique="false" columns="payment_status_id"/>
       <index name="receiver" unique="false" columns="card_number_receiver"/>
       <index name="sender" unique="false" columns="card_number_sender"/>
+    </table>
+    <table name="payment_status" schema="" catalog="payment_system" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="payment_status" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="payment_status_id_fk" table="payment" schema="" catalog="payment_system" columns="payment_status_id"/>
     </table>
     <table name="role" schema="" catalog="payment_system" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="role_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="id_UNIQUE" unique="true" columns="id"/>
-      <index name="role_name_UNIQUE" unique="true" columns="role_name"/>
+      <exported-key name="role_id_fk" table="user" schema="" catalog="payment_system" columns="role_id"/>
+    </table>
+    <table name="status" schema="" catalog="payment_system" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="status" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="status_account_id_fk" table="account" schema="" catalog="payment_system" columns="status_id"/>
+      <exported-key name="status_card_id_fk" table="card" schema="" catalog="payment_system" columns="status_id"/>
+      <exported-key name="status_id_fk" table="user" schema="" catalog="payment_system" columns="status_id"/>
     </table>
     <table name="user" schema="" catalog="payment_system" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="first_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
-      <column name="second_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
-      <column name="patronymic" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
-      <column name="email" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
-      <column name="password" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <column name="status" sqlType="ENUM" precision="10" scale="0" nullable="false" jdbcType="1"/>
-      <column name="id_role" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
-      <column name="phone_number" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="second_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="patronymic" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="phone_number" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="user_id_in_account_fk" table="account" schema="" catalog="payment_system" columns="user_id"/>
-      <exported-key name="user_id_fk" table="card" schema="" catalog="payment_system" columns="user_id"/>
-      <index name="index1" unique="false" columns="id_role"/>
+      <foreign-key name="role_id_fk" columns="role_id" ref-table="role" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="status_id_fk" columns="status_id" ref-table="status" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="user_id_account_fk" table="account" schema="" catalog="payment_system" columns="user_id"/>
+      <exported-key name="user_id_card_fk" table="card" schema="" catalog="payment_system" columns="user_id"/>
+      <index name="email_UNIQUE" unique="true" columns="email"/>
+      <index name="role_id_index" unique="false" columns="role_id"/>
+      <index name="status_id_index" unique="false" columns="status_id"/>
     </table>
   </data-source>
 </component>

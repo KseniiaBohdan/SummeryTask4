@@ -13,27 +13,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RegistrationServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("registrationPage.jsp").include(req, resp);;
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        req.getRequestDispatcher("registrationPage.jsp").include(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        setSessionAtribute(req, session);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
 
         UserServiceImpl userService = new UserServiceImpl();
         CardServiceImpl cardService = new CardServiceImpl();
         AccountServiceImpl accountService = new AccountServiceImpl();
 
         SimpleDateFormat in = new SimpleDateFormat("yyyy-MM-dd");
-        String parameter = (String) session.getAttribute("expire_date");
+        String parameter = req.getParameter("expire_date");
         java.util.Date date = null;
         try {
             date = in.parse(parameter);
@@ -41,48 +46,85 @@ public class RegistrationServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        User user = new User((String) session.getAttribute("first_name"), (String) session.getAttribute("second_name"),
-                (String) session.getAttribute("patronymic"), (String) session.getAttribute("email"),
-                (String) session.getAttribute("password"), (String) session.getAttribute("phone_number"));
-        Card card = new Card(Long.valueOf(session.getAttribute("card_number").toString()),
-                new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()),
-                Integer.valueOf(session.getAttribute("pin").toString()), Long.valueOf(session.getAttribute("account_id").toString()),
-                session.getAttribute("card_title").toString());
-        Account account = new Account(Long.valueOf(session.getAttribute("account_id").toString()),
-                Long.valueOf(session.getAttribute("balance").toString()),
-                session.getAttribute("account_title").toString());
+        User user = setUser(req);
+        Card card = setCard(req, date);
+        Account account = setAccount(req);
 
-        if (userService.create(user)) {
+        boolean flag = false;
+        if (this.accountValid(account, accountService) && this.cardValid(card, cardService) &&
+                this.userValid(user, userService) && userService.create(user)) {
             try {
                 Long userId = userService.getByEmail(user.getEmail()).getId();
                 account.setUserId(userId);
                 int accountNumber = accountService.getByUserId(userId).size() + 1;
                 account.setNumber(accountNumber);
-                boolean flag = accountService.create(account);
+                flag = accountService.create(account);
                 card.setUserId(userId);
                 flag = cardService.create(card);
-                session.setAttribute("result", flag);
-                resp.setContentType("text/html");
-                resp.getWriter().print(flag);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+            if (flag) {
+                HttpSession session = req.getSession();
+                session.setAttribute("user", user);
+                resp.setContentType("text/html");
+                out.print("successful registration");
+            }
+        }
+        out.flush();
+        out.close();
+    }
+
+    private Account setAccount(HttpServletRequest req) {
+        return new Account(Long.valueOf(req.getParameter("account_id")),
+                Long.valueOf(req.getParameter("balance")),
+                req.getParameter("account_title"));
+    }
+
+    private Card setCard(HttpServletRequest req, Date date) {
+        return new Card(Long.valueOf(req.getParameter("card_number")),
+                new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()),
+                Integer.valueOf(req.getParameter("pin")), Long.valueOf(req.getParameter("account_id")),
+                req.getParameter("card_title"));
+    }
+
+    private User setUser(HttpServletRequest req) {
+        return new User(req.getParameter("first_name"), req.getParameter("second_name"),
+                req.getParameter("patronymic"), req.getParameter("email"),
+                req.getParameter("password"), req.getParameter("phone_number"));
+    }
+
+    private boolean userValid(User user, UserServiceImpl service) {
+        try {
+            if (service.getByEmail(user.getEmail()) == null &&
+                    service.getByPhoneNumber(user.getPhoneNumber()) == null) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
-    private void setSessionAtribute(HttpServletRequest req, HttpSession session) {
-        session.setAttribute("email", req.getParameter("email"));
-        session.setAttribute("password", req.getParameter("password"));
-        session.setAttribute("first_name", req.getParameter("first_name"));
-        session.setAttribute("second_name", req.getParameter("second_name"));
-        session.setAttribute("patronymic", req.getParameter("patronymic"));
-        session.setAttribute("phone_number", req.getParameter("phone_number"));
-        session.setAttribute("card_number", req.getParameter("card_number"));
-        session.setAttribute("expire_date", req.getParameter("expire_date"));
-        session.setAttribute("pin", req.getParameter("pin"));
-        session.setAttribute("card_title", req.getParameter("card_title"));
-        session.setAttribute("account_id", req.getParameter("account_id"));
-        session.setAttribute("balance", req.getParameter("balance"));
-        session.setAttribute("account_title", req.getParameter("account_title"));
+    private boolean cardValid(Card card, CardServiceImpl service) {
+        if (service.getByCardNumber(card.getCardNumber()) == null) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
+    private boolean accountValid(Account account, AccountServiceImpl service) {
+        if (service.getByAccountId(account.getId()) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

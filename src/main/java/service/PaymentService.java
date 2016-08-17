@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PaymentService extends Service<Payment> {
 
-    public List getByUserSenderId(Long userId);
+    public List getByUserSenderId(Long userSenderCardId);
 
     public List getByCardSenderId(Long cardSenderId);
 }

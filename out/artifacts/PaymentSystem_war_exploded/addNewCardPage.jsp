@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<%@ page import="service.UserService" %>
-<%@ page import="service.implementation.UserServiceImpl" %>
 <%@ page import="service.AccountService" %>
 <%@ page import="service.implementation.AccountServiceImpl" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Account" %>
+<%@ page import="entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
 </head>
-<body bgcolor="green">
+<body bgcolor="#ffe4c4">
 <jsp:text>Add new card</jsp:text>
 <br>
 
 <form id="add-card" action="/add_new_card" method="post">
     <jsp:text> Input card number:</jsp:text>
     <br>
-    <input type="number" align="right" border="10" required size="40" name="card_number"><br>
+    <input type="number" align="right" border="10" required size="40" name="card_number" pattern="[0-9]{16}"><br>
 
     <jsp:text> Input card expire date:</jsp:text>
     <br>
@@ -25,19 +24,18 @@
 
     <jsp:text> Pin:</jsp:text>
     <br>
-    <input type="password" align="right" border="10" required size="40" name="pin"><br>
+    <input type="password" align="right" border="10" required size="40" name="pin" pattern="[0-9]{4}"><br>
 
     <jsp:text> Repeat pin:</jsp:text>
     <br>
-    <input type="password" align="right" border="10" required size="40" name="repeat_pin"><br>
+    <input type="password" align="right" border="10" required size="40" name="repeat_pin" pattern="[0-9]{4}"><br>
 
     <jsp:text> Title for card:</jsp:text>
     <br>
     <input type="text" align="right" border="10" size="40" name="title"/><br>
 
     <%
-        UserService userService = new UserServiceImpl();
-        Long userId = userService.getByEmail(session.getAttribute("email").toString()).getId();
+        Long userId = ((User) session.getAttribute("user")).getId();
         AccountService accountService = new AccountServiceImpl();
         List<Account> accountList = accountService.getByUserId(userId);
     %>

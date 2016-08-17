@@ -5,8 +5,8 @@
     <title></title>
 </head>
 <body>
-<%
-
+<%=
+    request.getParameter("error").toString()
 %>
 </body>
 </html>

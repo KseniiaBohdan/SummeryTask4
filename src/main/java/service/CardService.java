@@ -11,4 +11,6 @@ public interface CardService extends Service<Card> {
     public List getByAccountId(Long accountId);
 
     public boolean deleteByCardNumber(Long cardNumber);
+
+    public Card getByCardNumber(Long cardNumber);
 }

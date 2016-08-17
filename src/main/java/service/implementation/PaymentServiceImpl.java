@@ -12,11 +12,16 @@ public class PaymentServiceImpl implements PaymentService {
 
     private static PaymentDao paymentDao = new PaymentDaoImpl();
 
-    public boolean update(Payment payment) throws SQLException {
+    public boolean update(Payment payment) {
         return false;
     }
 
     public boolean create(Payment payment) {
+        try {
+            return paymentDao.create(payment);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 

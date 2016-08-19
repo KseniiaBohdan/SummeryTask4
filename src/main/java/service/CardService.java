@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface CardService extends Service<Card> {
 
-    public List getByUserId(Long userId);
+    List getByUserId(Long userId);
 
-    public List getByAccountId(Long accountId);
+    List getByAccountId(Long accountId);
 
-    public boolean deleteByCardNumber(Long cardNumber);
+    boolean deleteByCardNumber(Long cardNumber);
 
-    public Card getByCardNumber(Long cardNumber);
+    Card getByCardNumber(Long cardNumber);
 }

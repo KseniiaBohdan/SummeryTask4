@@ -23,10 +23,10 @@ public class AddNewAccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AccountService accountService = new AccountServiceImpl();
         HttpSession session = req.getSession();
-        Long id = ((User) session.getAttribute("user")).getId();
-        int accountNumber = accountService.getByUserId(id).size() + 1;
+        Long userId = ((User) session.getAttribute("user")).getId();
+        int accountNumber = accountService.getByUserId(userId).size() + 1;
         Account account = new Account(Long.valueOf(req.getParameter("id")), Long.valueOf(req.getParameter("balance")),
-                accountNumber, req.getParameter("title"), id);
+                accountNumber, req.getParameter("title"), userId);
         if (AccountValid(account, accountService)) {
             if (accountService.create(account)) {
                 resp.getWriter().print("OK");

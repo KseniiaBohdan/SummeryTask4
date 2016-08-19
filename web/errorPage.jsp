@@ -6,7 +6,7 @@
 </head>
 <body>
 <%=
-    request.getParameter("error").toString()
+    request.getAttribute("error").toString()
 %>
 </body>
 </html>

@@ -9,4 +9,6 @@ public interface PaymentService extends Service<Payment> {
     public List getByUserSenderId(Long userSenderCardId);
 
     public List getByCardSenderId(Long cardSenderId);
+
+    List getByUserReceiverId(Long userId);
 }

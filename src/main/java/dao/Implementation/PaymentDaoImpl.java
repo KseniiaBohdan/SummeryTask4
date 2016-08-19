@@ -14,9 +14,11 @@ import java.util.List;
 public class PaymentDaoImpl implements PaymentDao {
 
     private static final String GET_BY_USER_SENDER_ID = "SELECT * FROM payment WHERE card_number_sender IN " +
-            "(SELECT id FROM card WHERE user_id = ?)";
+            "(SELECT card_number FROM card WHERE user_id = ?)";
     private static final String CREATE = "INSERT INTO payment(number, card_number_receiver, card_number_sender, title, sum, payment_status_id)" +
             "VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String GET_BY_USER_RECEIVER_ID = "SELECT * FROM payment WHERE card_number_receiver IN " +
+            "(SELECT card_number FROM card WHERE user_id = ?)";
 /*
     private static final String CREATE = "INSERT INTO payment(number, card_number_receiver, card_number_sender, title, sum, payment_status_id)" +
             "VALUES (23, 1111222233334444, 1111444477778888, 'qwe', 100, 1)";*/
@@ -37,7 +39,7 @@ public class PaymentDaoImpl implements PaymentDao {
         int result = ps.executeUpdate();
         ps.close();
         con.close();
-        return (result>0);
+        return (result > 0);
     }
 
     public Payment getById(Long id) {
@@ -62,7 +64,25 @@ public class PaymentDaoImpl implements PaymentDao {
         ps.setLong(1, userId);
         ResultSet rs = ps.executeQuery();
         List paymentList = new ArrayList<Payment>();
-        while (rs.next()){
+        while (rs.next()) {
+            Payment payment = new Payment(rs.getLong("id"), rs.getDate("date"), rs.getLong("number"),
+                    rs.getLong("card_number_receiver"), rs.getLong("card_number_sender"), rs.getString("title"),
+                    rs.getInt("sum"), rs.getInt("payment_status_id"));
+            paymentList.add(payment);
+        }
+        rs.close();
+        ps.close();
+        con.close();
+        return paymentList;
+    }
+
+    public List<Payment> getByUserReceiverId(Long userId) throws SQLException {
+        Connection con = ConnectionPool.getConnection();
+        PreparedStatement ps = con.prepareStatement(GET_BY_USER_RECEIVER_ID);
+        ps.setLong(1, userId);
+        ResultSet rs = ps.executeQuery();
+        List paymentList = new ArrayList<Payment>();
+        while (rs.next()) {
             Payment payment = new Payment(rs.getLong("id"), rs.getDate("date"), rs.getLong("number"),
                     rs.getLong("card_number_receiver"), rs.getLong("card_number_sender"), rs.getString("title"),
                     rs.getInt("sum"), rs.getInt("payment_status"));

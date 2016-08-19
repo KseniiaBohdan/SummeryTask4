@@ -17,7 +17,6 @@
 <body bgcolor="#a52a2a">
 
 <ul class="main-menu">
-    <li><a href="/qwe">qwe</a></li>
     <li><a>Card management</a>
         <ul class="sub-menu">
             <li><a href="/add_new_card">Add new card</a></li>
@@ -38,35 +37,66 @@
 
 <%
     User user = (User) session.getAttribute("user");
-    response.getWriter().print("Hello, " + user.getFirstName() + "!");
+    response.getWriter().print(user.getFirstName() + " " + user.getSecondName() + " " + user.getPatronymic());
     CardService cardService = new CardServiceImpl();
-    UserService userService = new UserServiceImpl();
     List<Card> cardList = cardService.getByUserId(user.getId());
     AccountService accountService = new AccountServiceImpl();
     List<Account> accountList = accountService.getByUserId(user.getId());
 %>
 
-<lable>Here is your cadrs:
+<lable>Cards
 </lable>
-<br><br>
-<%for (int i = 0; i < cardList.size(); i++) {%>
-<%=cardList.get(i).getCardNumber()%><br>
-<%=cardList.get(i).getAccountId()%><br>
-<%=cardList.get(i).getExpiryDate()%><br>
-<%=cardList.get(i).getStatusId()%><br>
-<%=cardList.get(i).getTitle()%><br><br>
-<%}%>
+<br>
+<table bgcolor="#deb887" border="2" bordercolor="white">
+    <tr>
+        <td>Card number</td>
+        <td>Account</td>
+        <td>Expiry date</td>
+        <td>Status</td>
+        <td>Title</td>
+    </tr>
+    <%for (int i = 0; i < cardList.size(); i++) {%>
+    <tr>
+        <td><%=cardList.get(i).getCardNumber()%>
+        </td>
+        <td><%=cardList.get(i).getAccountId()%>
+        </td>
+        <td><%=cardList.get(i).getExpiryDate()%>
+        </td>
+        <td><%=cardList.get(i).getStatusId()%>
+        </td>
+        <td><%=cardList.get(i).getTitle()%>
+        </td>
+    </tr>
+    <%}%>
+</table>
+<br>
 
-<lable>Here is your accounts:
+<lable>Accounts
 </lable>
-<br><br>
-<%for (int i = 0; i < accountList.size(); i++) {%>
-<%=accountList.get(i).getId()%><br>
-<%=accountList.get(i).getBalance()%><br>
-<%=accountList.get(i).getNumber()%><br>
-<%=accountList.get(i).getStatusId()%><br>
-<%=accountList.get(i).getTitle()%><br><br>
-<%}%>
-
+<br>
+<table bgcolor="#deb887" border="2" bordercolor="white">
+    <tr>
+        <td>Number</td>
+        <td>Account</td>
+        <td>Balance</td>
+        <td>Status</td>
+        <td>Title</td>
+    </tr>
+    <%for (int i = 0; i < accountList.size(); i++) {%>
+    <tr>
+        <td><%=accountList.get(i).getId()%>
+        </td>
+        <td><%=accountList.get(i).getBalance()%>
+        </td>
+        <td><%=accountList.get(i).getNumber()%>
+        </td>
+        <td><%=accountList.get(i).getStatusId()%>
+        </td>
+        <td><%=accountList.get(i).getTitle()%>
+        </td>
+    </tr>
+    <%}%>
+</table>
 </body>
 </html>

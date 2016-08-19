@@ -108,4 +108,26 @@
         <servlet-name>DoPaymentServlet</servlet-name>
         <url-pattern>/do_payment</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <display-name>HistoryServlet</display-name>
+        <servlet-name>HistoryServlet</servlet-name>
+        <servlet-class>servlets.HistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HistoryServlet</servlet-name>
+        <url-pattern>/history</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>UserManagement</display-name>
+        <servlet-name>UserManagement</servlet-name>
+        <servlet-class>servlets.UserManagement</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserManagement</servlet-name>
+        <url-pattern>/user_management</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

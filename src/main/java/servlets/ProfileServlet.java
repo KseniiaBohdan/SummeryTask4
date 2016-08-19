@@ -23,9 +23,16 @@ public class ProfileServlet extends HttpServlet {
         try {
             User user = service.getByEmail(email);
             if (user != null && user.getPassword().equals(password)) {
-                session.setAttribute("user", user);
-                resp.setContentType("text/html");
-                req.getRequestDispatcher("profilePage.jsp").include(req, resp);
+                if (user.getRoleId() == 1) {
+                    session.setAttribute("user", user);
+                    resp.setContentType("text/html");
+                    req.getRequestDispatcher("profilePage.jsp").include(req, resp);
+                }
+                if(user.getRoleId() == 2){
+                    session.setAttribute("user", user);
+                    resp.setContentType("text/html");
+                    req.getRequestDispatcher("adminProfile.jsp").include(req, resp);
+                }
             } else {
                 resp.setContentType("text/html");
                 req.setAttribute("error", "wrong email or password");

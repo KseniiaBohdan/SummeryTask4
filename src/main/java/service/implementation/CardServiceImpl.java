@@ -60,8 +60,8 @@ public class CardServiceImpl implements CardService {
             return cardDao.deleteByCardNumber(cardNumber);
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     public Card getByCardNumber(Long cardNumber) {

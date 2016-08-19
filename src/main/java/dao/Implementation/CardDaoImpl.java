@@ -14,7 +14,7 @@ public class CardDaoImpl implements CardDao {
             " VALUES (?, ?, ?, ?, ?, ?, ?)";
     private static final String GET_BY_USER_ID = "SELECT * FROM card WHERE user_id=?";
     private static final String GET_BY_ACCOUNT_ID = "SELECT * FROM card WHERE account_id=?";
-    private static final String DELETE_BY_CARD_NUMBER = "DELETE FROM card WHERE card_number = ?";
+    private static final String DELETE_BY_CARD_NUMBER = "UPDATE card SET status_id = 3 WHERE card_number = ?";
     private static final String GET_BY_ID = "SELECT * FROM card WHERE card_number=?";
     private static final String UPDATE ="UPDATE card SET user_id = ?, expiry_date = ?, pin = ?, status_id = ?, title = ? WHERE card_number = ?;";
 
@@ -76,10 +76,10 @@ public class CardDaoImpl implements CardDao {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = con.prepareStatement(DELETE_BY_CARD_NUMBER);
         ps.setLong(1, cardNumber);
-        ps.executeUpdate();
+        int result = ps.executeUpdate();
         ps.close();
         con.close();
-        return  true;
+        return  (result>0);
     }
 
     public boolean deleteAll() {

@@ -17,7 +17,7 @@ public class AccountDaoImpl implements AccountDao {
     private static final String CREATE = "INSERT INTO account (id, balance, number, status_id, title, user_id)" +
             "VALUES (?, ?, ?, ?, ?, ?)";
     private static final String GET_BY_ACCOUNT_ID = "SELECT * FROM account WHERE id = ?";
-    private static final String DELETE_BY_ID = "DELETE FROM account WHERE id = ?";
+    private static final String DELETE_BY_ID = "UPDATE account SET status_id = 3 WHERE id = ?";
     private static final String UPDATE = "UPDATE account SET balance = ?, status_id = ?, title = ? WHERE id = ?";
 
     public boolean update(Account account) throws SQLException {

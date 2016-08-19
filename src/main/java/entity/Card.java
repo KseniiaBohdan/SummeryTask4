@@ -11,9 +11,6 @@ public class Card extends Entity {
     private Long accountId;
     private String title;
 
-
-
-
     public Card(Long cardNumber, Long userId, Date expiryDate, Integer pin, Integer statusId, String title, Long accountId) {
         this.cardNumber = cardNumber;
         this.userId = userId;

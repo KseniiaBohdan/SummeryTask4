@@ -46,4 +46,13 @@ public class PaymentServiceImpl implements PaymentService {
         return null;
     }
 
+    public List getByUserReceiverId(Long userId) {
+        try {
+            return paymentDao.getByUserReceiverId(userId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

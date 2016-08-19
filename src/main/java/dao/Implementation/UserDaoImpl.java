@@ -77,6 +77,7 @@ public class UserDaoImpl implements UserDao {
     public User getById(Long id) throws SQLException {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = con.prepareStatement(GET_BY_ID);
+        ps.setLong(1, id);
         ResultSet rs = ps.executeQuery();
         User user = null;
         while (rs.next()) {

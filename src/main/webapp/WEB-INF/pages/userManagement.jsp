@@ -26,7 +26,7 @@
         <%for(int i=0; i<userList.size(); i++){%>
         <td><%=userList.get(i).getId()%></td>
         <td><%=userList.get(i).getFirstName()%></td>
-        <td><%=userList.get(i).getStatus()%></td>
+        <td><%=userList.get(i).getStatusId()%></td>
         <td>
             <form id="Delete user" action="/user_managment" method="post">
             </form>

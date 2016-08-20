@@ -1,6 +1,7 @@
 package servlets;
 
 import entity.Account;
+import entity.Status;
 import service.AccountService;
 import service.implementation.AccountServiceImpl;
 
@@ -24,7 +25,7 @@ public class BlockAccountServlet extends HttpServlet {
         AccountService accountService = new AccountServiceImpl();
         Long accountId = Long.valueOf(req.getParameter("account_id"));
         Account account = accountService.getByAccountId(accountId);
-        account.setStatusId(2);
+        account.setStatusId(Status.BLOCKED);
         PrintWriter out = resp.getWriter();
         if (accountService.update(account)) {
             out.print(true);

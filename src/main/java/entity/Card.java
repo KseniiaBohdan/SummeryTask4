@@ -1,8 +1,9 @@
 package entity;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Card extends Entity {
+public class Card extends Entity implements Serializable{
     private Long cardNumber;
     private Long userId;
     private Date expiryDate;
@@ -28,7 +29,7 @@ public class Card extends Entity {
         this.pin = pin;
         this.title = title;
         this.accountId = accountId;
-        this.statusId=1;
+        this.statusId=Status.valueOf("UNBLOCKED").ordinal();
     }
 
     public Card() {
@@ -80,8 +81,8 @@ public class Card extends Entity {
         return statusId;
     }
 
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
+    public void setStatusId(Status status) {
+        this.statusId = status.ordinal();
     }
 
     public Long getAccountId() {

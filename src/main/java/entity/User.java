@@ -1,6 +1,8 @@
 package entity;
 
-public class User extends Entity {
+import java.io.Serializable;
+
+public class User extends Entity implements Serializable{
     private Long id;
     private String firstName;
     private String secondName;
@@ -32,7 +34,7 @@ public class User extends Entity {
         this.patronymic = patronymic;
         this.email = email;
         this.password = password;
-        this.statusId = 1; //status id create method
+        this.statusId = Status.valueOf("UNBLOCKED").ordinal();
         this.phoneNumber = phoneNumber;
     }
 
@@ -84,12 +86,16 @@ public class User extends Entity {
         this.password = password;
     }
 
-    public Integer getStatus() {
+    public Integer getStatusId() {
         return statusId;
     }
 
     public void setStatus(Integer statusId) {
         this.statusId = statusId;
+    }
+
+    public void setStatus(Status status) {
+        this.statusId = status.ordinal();
     }
 
     public Integer getRoleId() {

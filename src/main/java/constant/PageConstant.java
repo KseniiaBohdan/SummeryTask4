@@ -6,5 +6,6 @@ public final class PageConstant {
 
     }
 
-    public static final String LOGIN_PAGE = "WEB-INF/pages/welcome/loginPage.jsp";
+    public static final String LOGIN_PAGE = "/WEB-INF/pages/welcome/loginPage.jsp";
+    public static final String REGISTRATION_PAGE = "/WEB-INF/pages/welcome/registrationPage.jsp";
 }

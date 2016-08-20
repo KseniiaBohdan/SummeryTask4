@@ -1,19 +1,32 @@
 package entity;
 
-public class Account extends Entity{
+import java.io.Serializable;
+
+public class Account extends Entity implements Serializable{
     private Long id;
     private Long balance;
     private Integer number;
-
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
-    }
-
     private Integer statusId;
     private String title;
     private Long userId;
 
     public Account() {
+    }
+
+    public Account(Long id, Long balance, String title) {
+        this.id = id;
+        this.balance = balance;
+        this.title = title;
+        this.statusId = Status.valueOf("UNBLOCKED").ordinal();
+    }
+
+    public Account(Long id, Long balance, Integer number, String title, Long userId) {
+        this.id = id;
+        this.balance = balance;
+        this.number = number;
+        this.title = title;
+        this.userId = userId;
+        this.statusId = Status.valueOf("UNBLOCKED").ordinal();
     }
 
     public Account(Long id, Long balance, Integer number, Integer statusId, String title, Long userId) {
@@ -23,22 +36,6 @@ public class Account extends Entity{
         this.statusId = statusId;
         this.title = title;
         this.userId = userId;
-    }
-
-    public Account(Long id, Long balance, Integer number, String title, Long userId) {
-        this.id = id;
-        this.balance = balance;
-        this.number = number;
-        this.title = title;
-        this.userId = userId;
-        this.statusId = 1; //create method
-    }
-
-    public Account(Long id, Long balance, String title) {
-        this.id = id;
-        this.balance = balance;
-        this.title = title;
-        this.statusId = 1; //create method
     }
 
     public Long getUserId() {
@@ -77,8 +74,12 @@ public class Account extends Entity{
         return statusId;
     }
 
-    public void setStatus(int status) {
+    public void setStatusId(Integer status) {
         this.statusId = statusId;
+    }
+
+    public void setStatusId(Status status) {
+        this.statusId = status.ordinal();
     }
 
     public String getTitle() {

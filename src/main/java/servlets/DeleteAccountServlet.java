@@ -1,5 +1,7 @@
 package servlets;
 
+import entity.Account;
+import entity.Status;
 import service.AccountService;
 import service.implementation.AccountServiceImpl;
 
@@ -22,7 +24,9 @@ public class DeleteAccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AccountService accountService = new AccountServiceImpl();
         PrintWriter out = resp.getWriter();
-        if (accountService.deleteById(Long.valueOf(req.getParameter("account_id")))) {
+        Account account = accountService.getByAccountId(Long.valueOf(req.getParameter("account_id")));
+        account.setStatusId(Status.DELETED);
+        if (accountService.update(account)) {
             out.print("true");
         } else {
             out.print("false");

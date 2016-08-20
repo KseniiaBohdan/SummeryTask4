@@ -1,5 +1,6 @@
 package servlets;
 
+import constant.PageConstant;
 import entity.Account;
 import entity.Card;
 import entity.User;
@@ -25,7 +26,7 @@ public class RegistrationServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        req.getRequestDispatcher("registrationPage.jsp").include(req, resp);
+        req.getRequestDispatcher(PageConstant.REGISTRATION_PAGE).include(req, resp);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package servlets;
 
 import entity.Card;
+import entity.Status;
 import service.CardService;
 import service.implementation.CardServiceImpl;
 
@@ -23,7 +24,7 @@ public class BlockCardServlet extends HttpServlet{
         CardService cardService = new CardServiceImpl();
         Long cardNumber = Long.valueOf(req.getParameter("card_number"));
         Card card = cardService.getByCardNumber(cardNumber);
-        card.setStatusId(2);
+        card.setStatusId(Status.BLOCKED);
         PrintWriter out = resp.getWriter();
         if(cardService.update(card)){
             out.print(true);

@@ -1,5 +1,7 @@
 package servlets;
 
+import entity.Card;
+import entity.Status;
 import service.CardService;
 import service.implementation.CardServiceImpl;
 
@@ -22,7 +24,9 @@ public class DeleteCardServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CardService cardService = new CardServiceImpl();
         PrintWriter out = resp.getWriter();
-        if(cardService.deleteByCardNumber(Long.valueOf(req.getParameter("card_number")))){
+        Card card = cardService.getByCardNumber(Long.valueOf(req.getParameter("card_number")));
+        card.setStatusId(Status.DELETED);
+        if(cardService.update(card)){
             out.print("true");
             out.flush();
             out.close();

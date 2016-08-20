@@ -1,23 +1,26 @@
 package entity;
 
-public class Status {
+import java.io.Serializable;
 
-    private Integer id;
-    private String status;
+public enum Status implements Serializable{
+    BLOCKED, UNBLOCKED, DELETED;
 
-    public Integer getId() {
-        return id;
+    public static Status getStatus(User entity) {
+        long statusId = entity.getStatusId();
+        return Status.values()[(int) statusId];
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public static Status getStatus(Card entity) {
+        long statusId = entity.getStatusId();
+        return Status.values()[(int) statusId];
     }
 
-    public String getStatus() {
-        return status;
+    public static Status getStatus(Account entity) {
+        long statusId = entity.getStatusId();
+        return Status.values()[(int) statusId];
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public String getName() {
+        return name().toLowerCase();
     }
 }

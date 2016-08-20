@@ -1,8 +1,9 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Payment extends Entity{
+public class Payment extends Entity implements Serializable{
     private Long id;
     private Date date;
     private Long number;
@@ -29,7 +30,7 @@ public class Payment extends Entity{
         this.title = title;
         this.sum = sum;
         this.number = number;
-        this.paymentStatusId = 1;
+        this.paymentStatusId = PaymentStatus.valueOf("PREPARED").ordinal();
     }
 
     public Payment(){
@@ -98,5 +99,9 @@ public class Payment extends Entity{
 
     public void setPaymentStatusId(Integer paymentStatusId) {
         this.paymentStatusId = paymentStatusId;
+    }
+
+    public void setPaymentStatusId(PaymentStatus paymentStatus) {
+        this.paymentStatusId = paymentStatus.ordinal();
     }
 }

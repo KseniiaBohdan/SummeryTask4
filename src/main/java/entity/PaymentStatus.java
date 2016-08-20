@@ -1,23 +1,17 @@
 package entity;
 
-public class PaymentStatus {
+import java.io.Serializable;
 
-    private Integer id;
-    private String paymentStatus;
+public enum PaymentStatus implements Serializable{
+    CLIENT, ADMIN;
 
-    public Integer getId() {
-        return id;
+    public static PaymentStatus getPaymentStatus(Payment payment) {
+        long paymentStatusId = payment.getPaymentStatusId();
+        return PaymentStatus.values()[(int) paymentStatusId];
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
+    public String getName() {
+        return name().toLowerCase();
     }
 }
+

@@ -17,7 +17,7 @@ public class Account extends Entity implements Serializable{
         this.id = id;
         this.balance = balance;
         this.title = title;
-        this.statusId = Status.valueOf("UNBLOCKED").ordinal();
+        this.statusId = Status.valueOf("UNBLOCKED").ordinal()+1;
     }
 
     public Account(Long id, Long balance, Integer number, String title, Long userId) {
@@ -26,7 +26,7 @@ public class Account extends Entity implements Serializable{
         this.number = number;
         this.title = title;
         this.userId = userId;
-        this.statusId = Status.valueOf("UNBLOCKED").ordinal();
+        this.statusId = Status.valueOf("UNBLOCKED").ordinal()+1;
     }
 
     public Account(Long id, Long balance, Integer number, Integer statusId, String title, Long userId) {
@@ -79,7 +79,7 @@ public class Account extends Entity implements Serializable{
     }
 
     public void setStatusId(Status status) {
-        this.statusId = status.ordinal();
+        this.statusId = status.ordinal()+1;
     }
 
     public String getTitle() {

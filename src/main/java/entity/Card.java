@@ -12,6 +12,10 @@ public class Card extends Entity implements Serializable{
     private Long accountId;
     private String title;
 
+    public Card() {
+
+    }
+
     public Card(Long cardNumber, Long userId, Date expiryDate, Integer pin, Integer statusId, String title, Long accountId) {
         this.cardNumber = cardNumber;
         this.userId = userId;
@@ -29,11 +33,7 @@ public class Card extends Entity implements Serializable{
         this.pin = pin;
         this.title = title;
         this.accountId = accountId;
-        this.statusId=Status.valueOf("UNBLOCKED").ordinal();
-    }
-
-    public Card() {
-
+        this.statusId=Status.valueOf("UNBLOCKED").ordinal()+1;
     }
 
     public Date getExpiryDate() {
@@ -50,7 +50,7 @@ public class Card extends Entity implements Serializable{
         this.expiryDate = expiryDate;
         this.accountId = accountId;
         this.title = title;
-        this.statusId = 1;
+        this.statusId = Status.valueOf("UNBLOCKED").ordinal()+1;
     }
 
     public Long getCardNumber() {
@@ -82,7 +82,11 @@ public class Card extends Entity implements Serializable{
     }
 
     public void setStatusId(Status status) {
-        this.statusId = status.ordinal();
+        this.statusId = status.ordinal()+1;
+    }
+
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
     }
 
     public Long getAccountId() {

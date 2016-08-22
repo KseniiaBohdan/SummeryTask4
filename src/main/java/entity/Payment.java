@@ -30,7 +30,7 @@ public class Payment extends Entity implements Serializable{
         this.title = title;
         this.sum = sum;
         this.number = number;
-        this.paymentStatusId = PaymentStatus.valueOf("PREPARED").ordinal();
+        this.paymentStatusId = PaymentStatus.valueOf("PREPARED").ordinal()+1;
     }
 
     public Payment(){

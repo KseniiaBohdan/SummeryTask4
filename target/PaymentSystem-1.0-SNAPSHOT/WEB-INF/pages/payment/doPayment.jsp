@@ -7,25 +7,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>Do payment</title>
 </head>
 <body bgcolor="#b8860b">
 
-<form id="do_payment" action="/do_payment" method="post">
+<form id="do payment" action="/do-payment" method="post">
 
     <lable>Sender:</lable>
     <br>
 
     <%
         CardService cardService = new CardServiceImpl();
-        Long user_id = ((User) session.getAttribute("user")).getId();
-        List<Card> cardList = cardService.getByUserId(Long.valueOf(user_id));
+        Long userId = ((User) session.getAttribute("user")).getId();
+        List<Card> cardList = cardService.getByUserId(Long.valueOf(userId));
     %>
     <label>
         Select card
     </label>
     <br>
-    <select name="sender_card_number">
+    <select name="sender card number">
         <%for (int i = 0; i < cardList.size(); i++) {%>
         <option>
             <%=cardList.get(i).getCardNumber()%>
@@ -48,7 +48,7 @@
 
     <label>Receiver: </label><br>
     <label>Card number: </label><br>
-    <input name="receiver_card_number" pattern="[0-9]{16}" border="10" required size="40" type="number"><br>
+    <input name="receiver card number" pattern="[0-9]{16}" border="10" required size="40" type="number"><br>
     <input type="submit" value="Do payment" size="40"/>
 
 </form>

@@ -1,5 +1,7 @@
 package dbConnection;
 
+import constant.DbUtilConstant;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -12,10 +14,6 @@ import java.util.logging.Logger;
 public class ConnectionPool {
     private Vector<Connection> freeConnections;
     private Vector<Connection> usedConnections;
-    private final static String url = "jdbc:mysql://localhost:3306/payment_system";
-    private final static String userName = "root";
-    private final static String password = "root";
-    //private final static String driverName = ;
     private final static int size = 10;
 
     /*
@@ -48,8 +46,8 @@ public class ConnectionPool {
 
     public static Connection getConnection() {
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/payment_system", "root", "root");
+            Class.forName(DbUtilConstant.DRIVER).newInstance();
+            Connection con =  DriverManager.getConnection(DbUtilConstant.DB_URL, DbUtilConstant.USER_NAME, DbUtilConstant.PASSWORD);
             return con;
         } catch (SQLException e) {
             e.printStackTrace();

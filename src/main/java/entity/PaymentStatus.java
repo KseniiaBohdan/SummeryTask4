@@ -3,7 +3,7 @@ package entity;
 import java.io.Serializable;
 
 public enum PaymentStatus implements Serializable{
-    CLIENT, ADMIN;
+    PREPARED,COMPLETED;
 
     public static PaymentStatus getPaymentStatus(Payment payment) {
         long paymentStatusId = payment.getPaymentStatusId();

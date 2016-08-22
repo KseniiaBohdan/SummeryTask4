@@ -19,9 +19,6 @@ public class PaymentDaoImpl implements PaymentDao {
             "VALUES (?, ?, ?, ?, ?, ?)";
     private static final String GET_BY_USER_RECEIVER_ID = "SELECT * FROM payment WHERE card_number_receiver IN " +
             "(SELECT card_number FROM card WHERE user_id = ?)";
-/*
-    private static final String CREATE = "INSERT INTO payment(number, card_number_receiver, card_number_sender, title, sum, payment_status_id)" +
-            "VALUES (23, 1111222233334444, 1111444477778888, 'qwe', 100, 1)";*/
 
     public boolean update(Payment payment) {
         return false;
@@ -66,8 +63,8 @@ public class PaymentDaoImpl implements PaymentDao {
         List paymentList = new ArrayList<Payment>();
         while (rs.next()) {
             Payment payment = new Payment(rs.getLong("id"), rs.getDate("date"), rs.getLong("number"),
-                    rs.getLong("card_number_receiver"), rs.getLong("card_number_sender"), rs.getString("title"),
-                    rs.getInt("sum"), rs.getInt("payment_status_id"));
+                    rs.getLong("card number receiver"), rs.getLong("card number sender"), rs.getString("title"),
+                    rs.getInt("sum"), rs.getInt("payment status id"));
             paymentList.add(payment);
         }
         rs.close();
@@ -84,8 +81,8 @@ public class PaymentDaoImpl implements PaymentDao {
         List paymentList = new ArrayList<Payment>();
         while (rs.next()) {
             Payment payment = new Payment(rs.getLong("id"), rs.getDate("date"), rs.getLong("number"),
-                    rs.getLong("card_number_receiver"), rs.getLong("card_number_sender"), rs.getString("title"),
-                    rs.getInt("sum"), rs.getInt("payment_status"));
+                    rs.getLong("card number receiver"), rs.getLong("card number sender"), rs.getString("title"),
+                    rs.getInt("sum"), rs.getInt("payment status"));
             paymentList.add(payment);
         }
         rs.close();

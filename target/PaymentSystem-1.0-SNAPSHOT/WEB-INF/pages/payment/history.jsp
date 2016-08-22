@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>History</title>
 </head>
 <body bgcolor="#ff7f50">
 <%
@@ -60,16 +60,6 @@
 </table>
 <br>
 <br>
-<%for (int i = 0; i < paymentReceiveList.size(); i++) {%>
-<%=paymentReceiveList.get(i).getId()%>
-<%=paymentReceiveList.get(i).getTitle()%>
-<%=paymentReceiveList.get(i).getNumber()%>
-<%=paymentReceiveList.get(i).getCardNumberReceiver()%>
-<%=paymentReceiveList.get(i).getDate()%>
-<%=paymentReceiveList.get(i).getGetCardNumberSender()%>
-<%=paymentReceiveList.get(i).getSum()%>
-<%=paymentReceiveList.get(i).getPaymentStatusId()%>
-<br>
-<%}%>
+
 </body>
 </html>

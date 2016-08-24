@@ -5,8 +5,6 @@
     <title></title>
 </head>
 <body>
-<%=
-    request.getAttribute("error").toString()
-%>
+
 </body>
 </html>

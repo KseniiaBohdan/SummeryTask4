@@ -1,8 +1,5 @@
 package service;
 
-import entity.Entity;
-
-import java.sql.SQLException;
 import java.util.List;
 
 public interface Service <Entity> {

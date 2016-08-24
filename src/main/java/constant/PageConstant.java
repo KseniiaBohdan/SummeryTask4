@@ -20,4 +20,10 @@ public final class PageConstant {
     public static final String ADD_ACCOUNT = "/WEB-INF/pages/account/add.jsp";
     public static final String BLOCK_ACCOUNT = "/WEB-INF/pages/account/block.jsp";
     public static final String DELETE_ACCOUNT = "/WEB-INF/pages/account/delete.jsp";
+
+    public static final String ADMIN_PROFILE = "/WEB-INF/pages/admin/profile.jsp";
+    public static final String USER_MANAGEMENT = "/WEB-INF/pages/admin/users.jsp";
+    public static final String PAYMENTS_HISTORY = "/WEB-INF/pages/admin/history.jsp";
+
+    public static final String USER_MANAGEMENT_SERVLET = "/user/management";
 }

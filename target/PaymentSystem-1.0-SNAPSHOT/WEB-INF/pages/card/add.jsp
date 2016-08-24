@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<%@ page import="service.AccountService" %>
-<%@ page import="service.implementation.AccountServiceImpl" %>
-<%@ page import="java.util.List" %>
-<%@ page import="entity.Account" %>
-<%@ page import="entity.User" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Add card</title>
 </head>
 <body bgcolor="#ffe4c4">
-<jsp:text>Add new card</jsp:text>
-<br>
+
+<ul class="main-menu">
+    <li><a>Card management</a>
+        <ul class="sub-menu">
+            <li><a href="/card/add">Add new card</a></li>
+            <li><a href="/card/delete">Delete card</a></li>
+            <li><a href="/card/block">Block card</a></li>
+        </ul>
+    </li>
+    <li><a>Account management</a>
+        <ul class="sub-menu">
+            <li><a href="/account/add">Add new account</a></li>
+            <li><a href="/account/delete">Delete account</a></li>
+            <li><a href="/account/block">Block account</a></li>
+        </ul>
+    </li>
+    <li><a href="/do-payment">Do payment</a></li>
+    <li><a href="/history">Show history</a></li>
+</ul>
+
+Add new card <br>
 
 <form id="add-card" action="/card/add" method="post">
-    <jsp:text> Input card number:</jsp:text>
-    <br>
+    Input card number:<br>
     <input type="number" align="right" border="10" required size="40" name="card number" pattern="[0-9]{16}"><br>
 
-    <jsp:text> Input card expire date:</jsp:text>
-    <br>
+    Input card expire date:<br>
     <input type="date" align="right" border="10" required size="40" name="expire date"><br>
 
-    <jsp:text> Pin:</jsp:text>
-    <br>
+    Pin:<br>
     <input type="password" align="right" border="10" required size="40" name="pin" pattern="[0-9]{4}"><br>
 
-    <jsp:text> Repeat pin:</jsp:text>
-    <br>
+    Repeat pin:<br>
     <input type="password" align="right" border="10" required size="40" name="repeat pin" pattern="[0-9]{4}"><br>
 
-    <jsp:text> Title for card:</jsp:text>
-    <br>
+    Title for card:<br>
     <input type="text" align="right" border="10" size="40" name="title"/><br>
 
-    <%
-        Long userId = ((User) session.getAttribute("user")).getId();
-        AccountService accountService = new AccountServiceImpl();
-        List<Account> accountList = accountService.getByUserId(userId);
-    %>
-    <label>
-        Select account
-    </label>
-    <br>
-    <select name = "account id">
-        <%for (int i = 0; i < accountList.size(); i++) {%>
-        <option>
-            <%=accountList.get(i).getId()%>
-        </option>
-        <%}%>
+    Select account<br>
+    <select name="account id">
+        <c:forEach var="account" items="${requestScope.accountList}">
+            <option> ${account.id} </option>
+        </c:forEach>
     </select>
     <br>
     <input type="submit" value="Add card" size="40"/>

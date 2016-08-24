@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<%@ page import="java.util.List" %>
-<%@ page import="entity.Payment" %>
-<%@ page import="entity.User" %>
-<%@ page import="service.PaymentService" %>
-<%@ page import="service.implementation.PaymentServiceImpl" %>
-<%@ page import="service.UserService" %>
-<%@ page import="service.implementation.UserServiceImpl" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -13,13 +7,25 @@
     <title>History</title>
 </head>
 <body bgcolor="#ff7f50">
-<%
-    UserService userService = new UserServiceImpl();
-    User user = (User) session.getAttribute("user");
-    PaymentService paymentService = new PaymentServiceImpl();
-    List<Payment> paymentList = paymentService.getByUserSenderId(user.getId());
-    paymentList.addAll(paymentService.getByUserReceiverId(user.getId()));
-%>
+
+<ul class="main-menu">
+    <li><a>Card management</a>
+        <ul class="sub-menu">
+            <li><a href="/card/add">Add new card</a></li>
+            <li><a href="/card/delete">Delete card</a></li>
+            <li><a href="/card/block">Block card</a></li>
+        </ul>
+    </li>
+    <li><a>Account management</a>
+        <ul class="sub-menu">
+            <li><a href="/account/add">Add new account</a></li>
+            <li><a href="/account/delete">Delete account</a></li>
+            <li><a href="/account/block">Block account</a></li>
+        </ul>
+    </li>
+    <li><a href="/do-payment">Do payment</a></li>
+    <li><a href="/history">Show history</a></li>
+</ul>
 
 <table bgcolor="#deb887" border="2" bordercolor="white">
     <tr>
@@ -31,31 +37,19 @@
         <td>Title</td>
         <td>Status</td>
     </tr>
-    <%for (int i = 0; i < paymentList.size(); i++) {%>
-    <tr>
-        <td><%=paymentList.get(i).getNumber()%>
-        </td>
-        <td>Card <%=paymentList.get(i).getGetCardNumberSender()%>
-        </td>
-        <td>
-            <%
-                Long cardNumber = paymentList.get(i).getCardNumberReceiver();
-                User userReceiver = userService.getByCardNumber(cardNumber);
-                String name = userReceiver.getFirstName() + " " + userReceiver.getSecondName() + " " + userReceiver.getPatronymic();
-            %>
-            <%=name%>
-            Card <%=paymentList.get(i).getCardNumberReceiver()%>
-        </td>
-        <td><%=paymentList.get(i).getSum()%>
-        </td>
-        <td><%=paymentList.get(i).getTitle()%>
-        </td>
-        <td><%=paymentList.get(i).getDate()%>
-        </td>
-        <td><%=paymentList.get(i).getPaymentStatusId()%>
-        </td>
-    </tr>
-    <%}%>
+    <c:forEach var="payment" items="${requestScope.paymentList}">
+        <tr>
+            <td> ${payment.number} </td>
+            <td> ${payment.cardNumberSender} </td>
+            <!--how to get name?-->
+            <td> ${payment.cardNumberReceiver} </td>
+            <!--how to get name?-->
+            <td> ${payment.sum} </td>
+            <td> ${payment.title} </td>
+            <td> ${payment.date} </td>
+            <td> ${payment.paymentStatus} </td>
+        </tr>
+    </c:forEach>
 </table>
 <br>
 <br>

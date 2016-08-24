@@ -1,44 +1,43 @@
 <!DOCTYPE html>
-<%@ page import="service.AccountService" %>
-<%@ page import="service.implementation.AccountServiceImpl" %>
-<%@ page import="java.util.List" %>
-<%@ page import="entity.Account" %>
-<%@ page import="entity.User" %>
-<%@ page import="entity.Status" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title></title>
+    <title></title>
 </head>
 <body bgcolor="#5f9ea0">
-<jsp:text>Block account</jsp:text>
-<br>
+
+<ul class="main-menu">
+    <li><a>Card management</a>
+        <ul class="sub-menu">
+            <li><a href="/card/add">Add new card</a></li>
+            <li><a href="/card/delete">Delete card</a></li>
+            <li><a href="/card/block">Block card</a></li>
+        </ul>
+    </li>
+    <li><a>Account management</a>
+        <ul class="sub-menu">
+            <li><a href="/account/add">Add new account</a></li>
+            <li><a href="/account/delete">Delete account</a></li>
+            <li><a href="/account/block">Block account</a></li>
+        </ul>
+    </li>
+    <li><a href="/do-payment">Do payment</a></li>
+    <li><a href="/history">Show history</a></li>
+</ul>
+
+Block account<br>
 
 <form id="block account" action="/account/block" method="post">
 
-  <%
-    AccountService accountService = new AccountServiceImpl();
-    Long userId = ((User)session.getAttribute("user")).getId();
-    List<Account> accountList = accountService.getByUserId(Long.valueOf(userId));
-    for (int i = 0; i < accountList.size() ; i++) {
-      if(accountList.get(i).getStatusId()== Status.BLOCKED.ordinal()+1){
-        accountList.remove(i);
-      }
-    }
-  %>
-  <label>
-    Select account:
-  </label>
-  <br>
-  <select name = "account id">
-    <%for (int i = 0; i < accountList.size(); i++) {%>
-    <option>
-      <%=accountList.get(i).getId()%>
-    </option>
-    <%}%>
-  </select>
-  <br>
-  <input type="submit" value="Block account" size="40"/>
+    Select account: <br>
+    <select name="account id">
+        <c:forEach var="account" items="${requestScope.accountList}">
+            <option> ${account.id} </option>
+        </c:forEach>
+    </select>
+    <br>
+    <input type="submit" value="Block account" size="40"/>
 
 </form>
 </body>

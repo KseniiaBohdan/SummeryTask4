@@ -1,7 +1,7 @@
 package service.implementation;
 
-import dao.implementation.CardDaoImpl;
-import entity.Card;
+import data.dao.impl.CardDaoImpl;
+import data.entity.Card;
 import service.CardService;
 
 import java.sql.SQLException;
@@ -12,21 +12,11 @@ public class CardServiceImpl implements CardService {
     CardDaoImpl cardDao = new CardDaoImpl();
 
     public boolean update(Card card){
-        try {
             return cardDao.update(card);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     public boolean create(Card card) {
-        try {
             return cardDao.create(card);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     public List<Card> getAll() {
@@ -35,6 +25,10 @@ public class CardServiceImpl implements CardService {
 
     public boolean deleteAll() {
         return false;
+    }
+
+    public  List getActiveCardByUserId(Long userId){
+        return cardDao.getNotDeletedByUserId(userId);
     }
 
     public List getByUserId(Long userId) {
@@ -47,12 +41,7 @@ public class CardServiceImpl implements CardService {
     }
 
     public List getByAccountId(Long accountId) {
-        try {
-            cardDao.getByAccountId(accountId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+           return cardDao.getByAccountId(accountId);
     }
 
     public boolean deleteByCardNumber(Long cardNumber) {
@@ -65,11 +54,10 @@ public class CardServiceImpl implements CardService {
     }
 
     public Card getByCardNumber(Long cardNumber) {
-        try {
             return cardDao.getById(cardNumber);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+    }
+
+    public List<Card> getActiveByUserId(Long userId) {
+        return cardDao.getActiveByUserId(userId);
     }
 }

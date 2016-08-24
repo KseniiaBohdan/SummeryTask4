@@ -1,9 +1,12 @@
 package servlets.card;
 
 import constant.PageConstant;
-import entity.Card;
-import entity.User;
+import data.entity.Account;
+import data.entity.Card;
+import data.entity.User;
+import service.AccountService;
 import service.CardService;
+import service.implementation.AccountServiceImpl;
 import service.implementation.CardServiceImpl;
 
 import javax.servlet.ServletException;
@@ -14,11 +17,18 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class AddCardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        Long userId = ((User) session.getAttribute("user")).getId();
+        AccountService accountService = new AccountServiceImpl();
+        List<Account> accountList = accountService.getByUserId(userId);
+        req.setAttribute("accountList", accountList);
+
         req.getRequestDispatcher(PageConstant.ADD_CARD).include(req, resp);
     }
 
@@ -36,9 +46,13 @@ public class AddCardServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         Long id = ((User) session.getAttribute("user")).getId();
-        Card card = new Card(Long.valueOf(req.getParameter("card number")), id,
-                new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()), Integer.valueOf(req.getParameter("pin")),
-                req.getParameter("title"), Long.valueOf(req.getParameter("account id")));
+        Card card = new Card();
+        card.setCardNumber(Long.valueOf(req.getParameter("card number")));
+        card.setUserId(id);
+        card.setExpiryDate(new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()));
+        card.setPin(Integer.valueOf(req.getParameter("pin")));
+        card.setTitle(req.getParameter("title"));
+        card.setAccountId(Long.valueOf(req.getParameter("account id")));
         CardService cardService = new CardServiceImpl();
         if (cardValid(card, cardService)) {
             if (cardService.create(card)) {

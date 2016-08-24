@@ -1,10 +1,10 @@
 package servlets.payment;
 
 import constant.PageConstant;
-import entity.Account;
-import entity.Card;
-import entity.Payment;
-import entity.User;
+import data.entity.Account;
+import data.entity.Card;
+import data.entity.Payment;
+import data.entity.User;
 import service.AccountService;
 import service.CardService;
 import service.PaymentService;
@@ -19,11 +19,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class DoPaymentServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        CardService cardService = new CardServiceImpl();
+        HttpSession session = req.getSession();
+        Long userId = ((User) session.getAttribute("user")).getId();
+        List<Card> cardList = cardService.getByUserId(Long.valueOf(userId));
+        req.setAttribute("cardList", cardList);
+
         req.getRequestDispatcher(PageConstant.DO_PAYMENT).include(req, resp);
     }
 
@@ -49,7 +56,12 @@ public class DoPaymentServlet extends HttpServlet{
         PaymentService paymentService = new PaymentServiceImpl();
         Long userId = ((User)session.getAttribute("user")).getId();
         Long paymentNumber = Long.valueOf(paymentService.getByUserSenderId(userId).size()+1);
-        Payment payment = new Payment(paymentNumber, cardNumberReceiver, cardNumberSender, req.getParameter("title").toString(),sum);
+        Payment payment = new Payment();
+        payment.setNumber(paymentNumber);
+        payment.setCardNumberReceiver(cardNumberReceiver);
+        payment.setCardNumberSender(cardNumberSender);
+        payment.setTitle(req.getParameter("title").toString());
+        payment.setSum(sum);
         out.println(paymentService.create(payment));
 
         out.flush();

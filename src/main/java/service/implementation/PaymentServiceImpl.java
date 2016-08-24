@@ -1,8 +1,8 @@
 package service.implementation;
 
-import dao.PaymentDao;
-import dao.implementation.PaymentDaoImpl;
-import entity.Payment;
+import data.dao.PaymentDao;
+import data.dao.impl.PaymentDaoImpl;
+import data.entity.Payment;
 import service.PaymentService;
 
 import java.sql.SQLException;
@@ -26,7 +26,12 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     public List<Payment> getAll() {
-        return null;
+        try {
+            return paymentDao.getAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public boolean deleteAll() {

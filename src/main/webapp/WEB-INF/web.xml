@@ -40,12 +40,12 @@
     </servlet-mapping>
 
     <servlet>
-        <display-name>AddNewCardServlet</display-name>
-        <servlet-name>AddNewCardServlet</servlet-name>
+        <display-name>AddCardServlet</display-name>
+        <servlet-name>AddCardServlet</servlet-name>
         <servlet-class>servlets.card.AddCardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddNewCardServlet</servlet-name>
+        <servlet-name>AddCardServlet</servlet-name>
         <url-pattern>/card/add</url-pattern>
     </servlet-mapping>
 
@@ -90,12 +90,12 @@
     </servlet-mapping>
 
     <servlet>
-        <display-name>AddNewAccountServlet</display-name>
-        <servlet-name>AddNewAccountServlet</servlet-name>
+        <display-name>AddAccountServlet</display-name>
+        <servlet-name>AddAccountServlet</servlet-name>
         <servlet-class>servlets.account.AddAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddNewAccountServlet</servlet-name>
+        <servlet-name>AddAccountServlet</servlet-name>
         <url-pattern>/account/add</url-pattern>
     </servlet-mapping>
 
@@ -120,14 +120,43 @@
     </servlet-mapping>
 
     <servlet>
-        <display-name>UserManagement</display-name>
-        <servlet-name>UserManagement</servlet-name>
-        <servlet-class>servlets.UserManagement</servlet-class>
+        <display-name>UserManagementServlet</display-name>
+        <servlet-name>UserManagementServlet</servlet-name>
+        <servlet-class>servlets.admin.UserManagementServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserManagement</servlet-name>
+        <servlet-name>UserManagementServlet</servlet-name>
         <url-pattern>/user/management</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>AdminProfileServlet</display-name>
+        <servlet-name>AdminProfileServlet</servlet-name>
+        <servlet-class>servlets.admin.AdminProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminProfileServlet</servlet-name>
+        <url-pattern>/admin/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>PaymentsHistoryServlet</display-name>
+        <servlet-name>PaymentsHistoryServlet</servlet-name>
+        <servlet-class>servlets.admin.PaymentsHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentsHistoryServlet</servlet-name>
+        <url-pattern>/admin/history</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ButtonControllerServlet</display-name>
+        <servlet-name>ButtonControllerServlet</servlet-name>
+        <servlet-class>servlets.admin.AdminActionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ButtonControllerServlet</servlet-name>
+        <url-pattern>/admin/action</url-pattern>
+    </servlet-mapping>
 
 </web-app>

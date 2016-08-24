@@ -1,9 +1,9 @@
 package servlets.welcome;
 
 import constant.PageConstant;
-import entity.Account;
-import entity.Card;
-import entity.User;
+import data.entity.Account;
+import data.entity.Card;
+import data.entity.User;
 import service.implementation.AccountServiceImpl;
 import service.implementation.CardServiceImpl;
 import service.implementation.UserServiceImpl;
@@ -76,22 +76,32 @@ public class RegistrationServlet extends HttpServlet {
     }
 
     private Account setAccount(HttpServletRequest req) {
-        return new Account(Long.valueOf(req.getParameter("account_id")),
-                Long.valueOf(req.getParameter("balance")),
-                req.getParameter("account_title"));
+        Account account = new Account();
+        account.setId(Long.valueOf(req.getParameter("account_id")));
+        account.setBalance(Long.valueOf(req.getParameter("balance")));
+        account.setTitle(req.getParameter("account_title"));
+        return account;
     }
 
     private Card setCard(HttpServletRequest req, Date date) {
-        return new Card(Long.valueOf(req.getParameter("card_number")),
-                new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()),
-                Integer.valueOf(req.getParameter("pin")), Long.valueOf(req.getParameter("account_id")),
-                req.getParameter("card_title"));
+        Card card = new Card();
+        card.setCardNumber(Long.valueOf(req.getParameter("card_number")));
+        card.setExpiryDate(new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()));
+        card.setPin(Integer.valueOf(req.getParameter("pin")));
+        card.setAccountId(Long.valueOf(req.getParameter("account_id")));
+        card.setTitle(req.getParameter("card_title"));
+        return card;
     }
 
     private User setUser(HttpServletRequest req) {
-        return new User(req.getParameter("first_name"), req.getParameter("second_name"),
-                req.getParameter("patronymic"), req.getParameter("email"),
-                req.getParameter("password"), req.getParameter("phone_number"));
+        User user = new User();
+        user.setFirstName(req.getParameter("first_name"));
+        user.setSecondName(req.getParameter("second_name"));
+        user.setPatronymic(req.getParameter("patronymic"));
+        user.setEmail(req.getParameter("email"));
+        user.setPassword(req.getParameter("password"));
+        user.setPhoneNumber(req.getParameter("phone_number"));
+        return user;
     }
 
     private boolean userValid(User user, UserServiceImpl service) {

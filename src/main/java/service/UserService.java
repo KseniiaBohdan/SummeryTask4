@@ -1,6 +1,6 @@
 package service;
 
-import entity.User;
+import data.entity.User;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.List;
 public interface UserService extends Service<User> {
 
     public User getById(Long id);
+    public List<User> getAllUsers();
 
     public boolean deleteById(Long id);
 

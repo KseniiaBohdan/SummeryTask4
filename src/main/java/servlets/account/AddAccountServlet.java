@@ -1,8 +1,8 @@
 package servlets.account;
 
 import constant.PageConstant;
-import entity.Account;
-import entity.User;
+import data.entity.Account;
+import data.entity.User;
 import service.AccountService;
 import service.implementation.AccountServiceImpl;
 
@@ -26,8 +26,12 @@ public class AddAccountServlet extends HttpServlet {
         HttpSession session = req.getSession();
         Long userId = ((User) session.getAttribute("user")).getId();
         int accountNumber = accountService.getByUserId(userId).size() + 1;
-        Account account = new Account(Long.valueOf(req.getParameter("id")), Long.valueOf(req.getParameter("balance")),
-                accountNumber, req.getParameter("title"), userId);
+        Account account = new Account();
+        account.setId(Long.valueOf(req.getParameter("id")));
+        account.setBalance(Long.valueOf(req.getParameter("balance")));
+        account.setNumber(accountNumber);
+        account.setTitle(req.getParameter("title"));
+        account.setUserId(userId);
         if (AccountValid(account, accountService)) {
             if (accountService.create(account)) {
                 resp.getWriter().print("OK");

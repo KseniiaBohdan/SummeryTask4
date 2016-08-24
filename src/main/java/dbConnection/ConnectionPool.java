@@ -1,15 +1,10 @@
 package dbConnection;
 
-import constant.DbUtilConstant;
+import constant.dbConstant.DbUtilConstant;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.*;
 
 import java.util.Vector;
-import java.util.logging.Logger;
 
 public class ConnectionPool {
     private Vector<Connection> freeConnections;

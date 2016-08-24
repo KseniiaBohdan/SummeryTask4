@@ -1,7 +1,7 @@
 package service;
 
 
-import entity.Account;
+import data.entity.Account;
 
 import java.util.List;
 

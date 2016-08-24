@@ -1,7 +1,7 @@
 package service.implementation;
 
-import dao.implementation.AccountDaoImpl;
-import entity.Account;
+import data.dao.impl.AccountDaoImpl;
+import data.entity.Account;
 import service.AccountService;
 
 import java.sql.SQLException;
@@ -52,11 +52,6 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public boolean deleteById(Long accountId) {
-        try {
             return accountDao.deleteById(accountId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
     }
 }

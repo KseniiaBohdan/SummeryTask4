@@ -1,14 +1,9 @@
 package service.implementation;
 
-import dao.UserDao;
-import dao.implementation.UserDaoImpl;
-import dbConnection.ConnectionPool;
-import entity.Entity;
-import entity.User;
+import data.dao.impl.UserDaoImpl;
+import data.entity.User;
 import service.UserService;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -26,12 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public boolean deleteById(Long id) {
-        try {
-            return userDao.deleteById(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
+        return userDao.deleteById(id);
     }
 
     public User getByEmail(String email) throws ClassNotFoundException {
@@ -44,7 +34,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public User getByCardNumber(long cardNumber){
+    public User getByCardNumber(long cardNumber) {
         try {
             return userDao.getByCardNumber(cardNumber);
         } catch (SQLException e) {
@@ -58,10 +48,10 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getByPhoneNumber(String phoneNumber) throws SQLException {
-            return userDao.getByPhoneNumber(phoneNumber);
+        return userDao.getByPhoneNumber(phoneNumber);
     }
 
-    public boolean update(User user){
+    public boolean update(User user) {
         try {
             return userDao.update(user);
         } catch (SQLException e) {
@@ -88,12 +78,16 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    public boolean deleteAll() {
+    public List<User> getAllUsers() {
         try {
-            return userDao.deleteAll();
+            return userDao.getAllUsers();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return null;
+    }
+
+    public boolean deleteAll() {
+        return userDao.deleteAll();
     }
 }

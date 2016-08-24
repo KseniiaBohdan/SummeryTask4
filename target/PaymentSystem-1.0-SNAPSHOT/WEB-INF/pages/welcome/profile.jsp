@@ -1,20 +1,13 @@
 <!DOCTYPE html>
-<%@ page import="entity.User" %>
-<%@ page import="service.CardService" %>
-<%@ page import="service.implementation.CardServiceImpl" %>
-<%@ page import="java.util.List" %>
-<%@ page import="entity.Card" %>
-<%@ page import="service.UserService" %>
-<%@ page import="service.implementation.UserServiceImpl" %>
-<%@ page import="service.AccountService" %>
-<%@ page import="service.implementation.AccountServiceImpl" %>
-<%@ page import="entity.Account" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Profile</title>
 </head>
 <body bgcolor="#a52a2a">
+
+${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondName} ${requestScope.userModel.user.patronymic}
 
 <ul class="main-menu">
     <li><a>Card management</a>
@@ -35,17 +28,7 @@
     <li><a href="/history">Show history</a></li>
 </ul>
 
-<%
-    User user = (User) session.getAttribute("user");
-    response.getWriter().print(user.getFirstName() + " " + user.getSecondName() + " " + user.getPatronymic());
-    CardService cardService = new CardServiceImpl();
-    List<Card> cardList = cardService.getByUserId(user.getId());
-    AccountService accountService = new AccountServiceImpl();
-    List<Account> accountList = accountService.getByUserId(user.getId());
-%>
-
-<lable>Cards
-</lable>
+Cards: ${requestScope.userModel.cards.size()}
 <br>
 <table bgcolor="#deb887" border="2" bordercolor="white">
     <tr>
@@ -55,25 +38,22 @@
         <td>Status</td>
         <td>Title</td>
     </tr>
-    <%for (int i = 0; i < cardList.size(); i++) {%>
-    <tr>
-        <td><%=cardList.get(i).getCardNumber()%>
-        </td>
-        <td><%=cardList.get(i).getAccountId()%>
-        </td>
-        <td><%=cardList.get(i).getExpiryDate()%>
-        </td>
-        <td><%=cardList.get(i).getStatusId()%>
-        </td>
-        <td><%=cardList.get(i).getTitle()%>
-        </td>
-    </tr>
-    <%}%>
+
+    <c:forEach var="cardList" items="${requestScope.userModel.cards}">
+        <c:if test="${cardList.status != Status.DELETED}">
+            <tr>
+                <td> ${cardList.cardNumber} </td>
+                <td> ${cardList.accountId} </td>
+                <td> ${cardList.expiryDate} </td>
+                <td> ${cardList.status} </td>
+                <td> ${cardList.title} </td>
+            </tr>
+        </c:if>
+    </c:forEach>
 </table>
 <br>
 
-<lable>Accounts
-</lable>
+Accounts: ${requestScope.userModel.accounts.size()}
 <br>
 <table bgcolor="#deb887" border="2" bordercolor="white">
     <tr>
@@ -83,20 +63,17 @@
         <td>Status</td>
         <td>Title</td>
     </tr>
-    <%for (int i = 0; i < accountList.size(); i++) {%>
-    <tr>
-        <td><%=accountList.get(i).getId()%>
-        </td>
-        <td><%=accountList.get(i).getBalance()%>
-        </td>
-        <td><%=accountList.get(i).getNumber()%>
-        </td>
-        <td><%=accountList.get(i).getStatusId()%>
-        </td>
-        <td><%=accountList.get(i).getTitle()%>
-        </td>
-    </tr>
-    <%}%>
+    <c:forEach var="accountList" items="${requestScope.userModel.accounts}">
+        <c:if test="${accountList.status != Status.DELETED}">
+            <tr>
+                <td> ${accountList.id} </td>
+                <td> ${accountList.balance} </td>
+                <td> ${accountList.number} </td>
+                <td> ${accountList.status} </td>
+                <td> ${accountList.title} </td>
+            </tr>
+        </c:if>
+    </c:forEach>
 </table>
 </body>
 </html>

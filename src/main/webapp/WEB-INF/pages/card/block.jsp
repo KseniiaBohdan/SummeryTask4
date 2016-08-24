@@ -1,43 +1,42 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<%@ page import="java.util.List" %>
-<%@ page import="service.CardService" %>
-<%@ page import="service.implementation.CardServiceImpl" %>
-<%@ page import="entity.Card" %>
-<%@ page import="entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Block card</title>
+    <title>Block card</title>
 </head>
 <body bgcolor="green">
-<jsp:text>Block card</jsp:text>
-<br>
+
+<ul class="main-menu">
+    <li><a>Card management</a>
+        <ul class="sub-menu">
+            <li><a href="/card/add">Add new card</a></li>
+            <li><a href="/card/delete">Delete card</a></li>
+            <li><a href="/card/block">Block card</a></li>
+        </ul>
+    </li>
+    <li><a>Account management</a>
+        <ul class="sub-menu">
+            <li><a href="/account/add">Add new account</a></li>
+            <li><a href="/account/delete">Delete account</a></li>
+            <li><a href="/account/block">Block account</a></li>
+        </ul>
+    </li>
+    <li><a href="/do-payment">Do payment</a></li>
+    <li><a href="/history">Show history</a></li>
+</ul>
+
+Block card <br>
 
 <form id="block card" action="/card/block" method="post">
-
-  <%
-    CardService cardService = new CardServiceImpl();
-    Long userId = ((User)session.getAttribute("user")).getId();
-    List<Card> cardList = cardService.getByUserId(Long.valueOf(userId));
-    for (int i = 0; i <cardList.size() ; i++) {
-      if(cardList.get(i).getStatusId()==2){
-        cardList.remove(i);
-      }
-    }
-  %>
-  <label>
-    Select card
-  </label>
-  <br>
-  <select name = "card number">
-    <%for (int i = 0; i < cardList.size(); i++) {%>
-    <option>
-      <%=cardList.get(i).getCardNumber()%>
-    </option>
-    <%}%>
-  </select>
-  <br>
-  <input type="submit" value="Block card" size="40"/>
+    Select card <br>
+    <select name="card number">
+        <c:forEach var="card" items="${requestScope.cardList}">
+            <option> ${card.cardNumber} </option>
+        </c:forEach>
+    </select>
+    <br>
+    <input type="submit" value="Block card" size="40"/>
 
 </form>
 </body>

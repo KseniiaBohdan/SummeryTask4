@@ -15,6 +15,7 @@ ${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondNam
             <li><a href="/card/add">Add new card</a></li>
             <li><a href="/card/delete">Delete card</a></li>
             <li><a href="/card/block">Block card</a></li>
+            <li><a href="/card/unblock">Unblock card</a></li>
         </ul>
     </li>
     <li><a>Account management</a>
@@ -27,6 +28,10 @@ ${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondNam
     <li><a href="/do-payment">Do payment</a></li>
     <li><a href="/history">Show history</a></li>
 </ul>
+
+<form id="logout" action="/logout" method="GET">
+    <input type="submit" value="Logout" size="40"/>
+</form>
 
 Cards: ${requestScope.userModel.cards.size()}
 <br>

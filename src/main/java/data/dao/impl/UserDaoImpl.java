@@ -44,69 +44,89 @@ public class UserDaoImpl implements UserDao {
     }
 
 
-    public boolean update(User user) throws SQLException {
+    public boolean update(User user) {
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(UPDATE_USER);
-        ps.setString(1, user.getFirstName());
-        ps.setString(2, user.getSecondName());
-        ps.setString(3, user.getPatronymic());
-        ps.setString(4, user.getEmail());
-        ps.setString(5, user.getPassword());
-        ps.setInt(6, user.getStatus().getId());
-        ps.setInt(7, user.getRole().getId());
-        ps.setString(8, user.getPhoneNumber());
-        ps.setLong(9, user.getId());
-        ps.executeUpdate();
-        ps.close();
-        con.close();
-        return true;
-    }
-
-    public boolean create(User user) throws SQLException {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(CREATE_USER, Statement.RETURN_GENERATED_KEYS);
-        ps.setString(1, user.getFirstName());
-        ps.setString(2, user.getSecondName());
-        ps.setString(3, user.getPatronymic());
-        ps.setString(4, user.getEmail());
-        ps.setString(5, user.getPassword());
-        ps.setInt(6, 1); //method  get bla bla
-        ps.setInt(7, 2);
-        ps.setString(8, user.getPhoneNumber());
-        ps.executeUpdate();
-        ps.close();
-        con.close();
-        return true;
-    }
-
-    public User getById(Long id) throws SQLException {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_BY_ID);
-        ps.setLong(1, id);
-        ResultSet rs = ps.executeQuery();
-        User user = new User();
-        while (rs.next()) {
-            user = getUser(rs);
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(UPDATE_USER);
+            ps.setString(1, user.getFirstName());
+            ps.setString(2, user.getSecondName());
+            ps.setString(3, user.getPatronymic());
+            ps.setString(4, user.getEmail());
+            ps.setString(5, user.getPassword());
+            ps.setInt(6, user.getStatus().getId());
+            ps.setInt(7, user.getRole().getId());
+            ps.setString(8, user.getPhoneNumber());
+            ps.setLong(9, user.getId());
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+            return true;
+        } catch (SQLException e) {
+            return false;
         }
-        rs.close();
-        ps.close();
-        con.close();
-        return user;
     }
 
-    public List<User> getAll() throws SQLException {
+    public boolean create(User user){
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_ALL);
-        ResultSet rs = ps.executeQuery();
-        List<User> userList = new ArrayList();
-        while (rs.next()) {
-            User user = getUser(rs);
-            userList.add(user);
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(CREATE_USER, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, user.getFirstName());
+            ps.setString(2, user.getSecondName());
+            ps.setString(3, user.getPatronymic());
+            ps.setString(4, user.getEmail());
+            ps.setString(5, user.getPassword());
+            ps.setInt(6, 1); //method  get bla bla
+            ps.setInt(7, 2);
+            ps.setString(8, user.getPhoneNumber());
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+            return true;
+        } catch (SQLException e) {
+            return false;
         }
-        rs.close();
-        ps.close();
-        con.close();
-        return userList;
+    }
+
+    public User getById(Long id){
+        Connection con = ConnectionPool.getConnection();
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(GET_BY_ID);
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+            User user = new User();
+            while (rs.next()) {
+                user = getUser(rs);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return user;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
+    public List<User> getAll(){
+        Connection con = ConnectionPool.getConnection();
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(GET_ALL);
+            ResultSet rs = ps.executeQuery();
+            List<User> userList = new ArrayList();
+            while (rs.next()) {
+                User user = getUser(rs);
+                userList.add(user);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return userList;
+        } catch (SQLException e) {
+            return null;
+        }
     }
 
     public boolean deleteById(Long id){
@@ -137,35 +157,45 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public User getByCardNumber(long cardNumber) throws SQLException {
+    public User getByCardNumber(long cardNumber){
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_USER_ID_BY_CARD_NUMBER);
-        ps.setLong(1, cardNumber);
-        ResultSet rs = ps.executeQuery();
-        Long id = 0L;
-        while (rs.next()) {
-            id = rs.getLong(DbFieldConstant.ID);
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(GET_USER_ID_BY_CARD_NUMBER);
+            ps.setLong(1, cardNumber);
+            ResultSet rs = ps.executeQuery();
+            Long id = 0L;
+            while (rs.next()) {
+                id = rs.getLong(DbFieldConstant.ID);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return getById(id);
+        } catch (SQLException e) {
+            return null;
         }
-        rs.close();
-        ps.close();
-        con.close();
-        return getById(id);
     }
 
-    public List<User> getByStatus(Integer statusId) throws SQLException {
+    public List<User> getByStatus(Integer statusId){
         List<User> userList = new ArrayList();
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_BY_STATUS);
-        ps.setInt(1, statusId);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            User user = getUser(rs);
-            userList.add(user);
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(GET_BY_STATUS);
+            ps.setInt(1, statusId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = getUser(rs);
+                userList.add(user);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return userList;
+        } catch (SQLException e) {
+            return null;
         }
-        rs.close();
-        ps.close();
-        con.close();
-        return userList;
     }
 
     public User getByPhoneNumber(String phoneNumber) throws SQLException {

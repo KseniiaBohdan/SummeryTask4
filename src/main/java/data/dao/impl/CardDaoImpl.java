@@ -21,6 +21,7 @@ public class CardDaoImpl implements CardDao {
     private static final String UPDATE = "UPDATE card SET user_id = ?, expiry_date = ?, pin = ?, status_id = ?, title = ? WHERE card_number = ?";
     private static final java.lang.String GET_NOT_DELETED_CARD_BY_USER_ID = "SELECT * FROM card WHERE user_id = ? AND status_id <> ?";
     private static final java.lang.String GET_ACTIVE_CARD_BY_USER_ID = "SELECT * FROM card WHERE user_id = ? AND status_id = ?";
+    private static final String GET_BY_STATUS_ID = "SELECT * FROM card WHERE status_id = ? AND user_id = ?";
 
     public boolean update(Card card) {
         Connection con = ConnectionPool.getConnection();
@@ -167,7 +168,7 @@ public class CardDaoImpl implements CardDao {
         }
     }
 
-    public List getNotDeletedByUserId(Long userId) {
+    public List getNotDeletedCardByUserId(Long userId) {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = null;
         try {
@@ -185,6 +186,27 @@ public class CardDaoImpl implements CardDao {
             return cardList;
         } catch (SQLException e) {
             return null;
+        }
+    }
+
+    public List<Card> getUsersCardByStatus(Status status, Long userId) {
+        int statusId = status.getId();
+        Connection con = ConnectionPool.getConnection();
+        List<Card> cards = new ArrayList();
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_BY_STATUS_ID);
+            ps.setInt(1, statusId);
+            ps.setLong(2, userId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                cards.add(getCard(rs));
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return cards;
+        } catch (SQLException e) {
+            return cards;
         }
     }
 }

@@ -2,175 +2,132 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fc58281-a80c-4253-8f2f-9f69602b09cf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/entity/Account.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/AccountDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/entity/Card.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/CardDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/entity/CardRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/comand/container/CommandConstant.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/comand/container/CommandContainer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/constant/dbConstant/DbFieldConstant.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/entity/Payment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/PaymentDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/entity/PaymentStatus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/entity/Role.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/entity/Status.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/UserDaoImpl.java" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\constant\DbFieldConstant.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\Implementation\AccountDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\Implementation\CardDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\Implementation\PaymentDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\Implementation\UserDaoImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\Account.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\Card.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\Payment.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\PaymentStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\Role.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\Status.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\webapp\WEB-INF\pages\adminProfile.jsp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\webapp\WEB-INF\pages\userManagement.jsp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\constant\DbFieldConstant.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\AccountDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\CardDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\Dao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\PaymentDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\UserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\implementation\AccountDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\implementation\CardDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\implementation\PaymentDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\dao\implementation\UserDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\Account.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\Card.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\Entity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\Payment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\PaymentStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\Role.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\Status.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\entity\User.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\servlets\UserManagement.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\pages\adminProfile.jsp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\pages\userManagement.jsp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\constant\DbFieldConstant.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\AccountDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\CardDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\Dao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\implementation\AccountDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\implementation\CardDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\implementation\PaymentDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\implementation\UserDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\paymentDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\dao\userDao.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\Account.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\Card.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\Entity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\Payment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\PaymentStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\Role.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\Status.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\entity\User.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\servlets\UserManagement.class" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\constant\DbUtilConstant.java" afterPath="$PROJECT_DIR$/src/main/java/constant/dbConstant/DbUtilConstant.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\AccountDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/AccountDao.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\CardDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/CardDao.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\Dao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/Dao.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\PaymentDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/PaymentDao.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\dao\UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/UserDao.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\Entity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entity/Entity.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\entity\User.java" afterPath="$PROJECT_DIR$/src/main/java/data/entity/User.java" />
-      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\servlets\UserManagement.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/admin/UserManagementServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/AccountService.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/AccountService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/AccountService.class" afterPath="$PROJECT_DIR$/target/classes/service/AccountService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/AccountServiceImpl.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/AccountServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/implementation/AccountServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/service/implementation/AccountServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/welcome/LogoutServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/welcome/PutMonneyServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/comand/impl/UnblockCardCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblockRequests.jsp" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\servlets\admin\AdminActionServlet.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\webapp\WEB-INF\pages\admin\cardUnblock.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\constant\PageConstant.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\data\dao\implementation\AccountDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\data\dao\implementation\CardDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\data\dao\implementation\PaymentDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\data\dao\implementation\UserDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\service\implementation\AccountServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\service\implementation\CardServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\service\implementation\PaymentServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\service\implementation\UserServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\servlets\admin\AdminActionServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\PaymentSystem-1.0-SNAPSHOT\WEB-INF\classes\servlets\admin\UserManagementServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\constant\PageConstant.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\data\dao\implementation\AccountDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\data\dao\implementation\CardDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\data\dao\implementation\PaymentDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\data\dao\implementation\UserDaoImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\service\implementation\AccountServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\service\implementation\CardServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\service\implementation\PaymentServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\service\implementation\UserServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\servlets\admin\AdminActionServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\target\classes\servlets\admin\UserManagementServlet.class" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\constant\PageConstant.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/PageConstant.java" />
+      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\service\implementation\AccountServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/impl/AccountServiceImpl.java" />
+      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\service\implementation\CardRequestServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/impl/CardRequestServiceImpl.java" />
+      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\service\implementation\CardServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/impl/CardServiceImpl.java" />
+      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\service\implementation\PaymentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/impl/PaymentServiceImpl.java" />
+      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\service\implementation\UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/impl/UserServiceImpl.java" />
+      <change type="MOVED" beforePath="C:\Users\hp\GoogleDrive\ЕПАМ (Курсы)\PaymentSystem\src\main\java\servlets\admin\UserManagementServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/admin/user/UserManagementServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/data/entity/Account.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/data/entity/Account.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/entity/Account.class" afterPath="$PROJECT_DIR$/target/classes/data/entity/Account.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/account/AddAccountServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/account/AddAccountServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/account/AddAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/account/AddAccountServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/card/AddCardServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/card/AddCardServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/card/AddCardServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/card/AddCardServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/admin/AdminProfileServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/admin/AdminProfileServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/admin/AdminProfileServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/admin/AdminProfileServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/account/BlockAccountServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/account/BlockAccountServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/account/BlockAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/account/BlockAccountServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/card/BlockCardServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/card/BlockCardServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/card/BlockCardServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/card/BlockCardServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/impl/BlockUserCommand.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/impl/BlockUserCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/comand/impl/BlockUserCommand.class" afterPath="$PROJECT_DIR$/target/classes/service/comand/impl/BlockUserCommand.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/CardService.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/CardService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/CardService.class" afterPath="$PROJECT_DIR$/target/classes/service/CardService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/CardServiceImpl.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/CardServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/implementation/CardServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/service/implementation/CardServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/dbConnection/ConnectionPool.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/dbConnection/ConnectionPool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/dbConnection/ConnectionPool.class" afterPath="$PROJECT_DIR$/target/classes/dbConnection/ConnectionPool.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/container/CommandConstant.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/container/CommandConstant.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/comand/container/CommandConstant.class" afterPath="$PROJECT_DIR$/target/classes/service/comand/container/CommandConstant.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/container/CommandContainer$1.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/container/CommandContainer$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/comand/container/CommandContainer$1.class" afterPath="$PROJECT_DIR$/target/classes/service/comand/container/CommandContainer$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/container/CommandContainer.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/container/CommandContainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/comand/container/CommandContainer.class" afterPath="$PROJECT_DIR$/target/classes/service/comand/container/CommandContainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/data/dao/Dao.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/data/dao/Dao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/dao/Dao.class" afterPath="$PROJECT_DIR$/target/classes/data/dao/Dao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/account/DeleteAccountServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/account/DeleteAccountServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/account/DeleteAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/account/DeleteAccountServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/card/DeleteCardServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/card/DeleteCardServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/card/DeleteCardServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/card/DeleteCardServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/impl/DeleteUserCommand.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/impl/DeleteUserCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/comand/impl/DeleteUserCommand.class" afterPath="$PROJECT_DIR$/target/classes/service/comand/impl/DeleteUserCommand.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/payment/DoPaymentServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/payment/DoPaymentServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/payment/DoPaymentServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/payment/DoPaymentServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/payment/HistoryServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/payment/HistoryServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/payment/HistoryServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/payment/HistoryServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/constant/PageConstant.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/constant/PageConstant.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/constant/PageConstant.class" afterPath="$PROJECT_DIR$/target/classes/constant/PageConstant.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/PaymentService.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/PaymentService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/PaymentService.class" afterPath="$PROJECT_DIR$/target/classes/service/PaymentService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/PaymentServiceImpl.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/PaymentServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/implementation/PaymentServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/service/implementation/PaymentServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/welcome/LoginServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/welcome/LoginServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/welcome/LoginServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/welcome/LoginServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/admin/PaymentsHistoryServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/admin/PaymentsHistoryServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/admin/PaymentsHistoryServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/admin/PaymentsHistoryServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/welcome/ProfileServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/welcome/ProfileServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/welcome/ProfileServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/welcome/ProfileServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/welcome/RegistrationServlet.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/servlets/welcome/RegistrationServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/welcome/RegistrationServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/welcome/RegistrationServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/UserService.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/implementation/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/implementation/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/service/implementation/UserServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/impl/UnblockUserCommand.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/service/comand/impl/UnblockUserCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/service/comand/impl/UnblockUserCommand.class" afterPath="$PROJECT_DIR$/target/classes/service/comand/impl/UnblockUserCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/data/dao/UserDao.class" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/classes/data/dao/UserDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/dao/UserDao.class" afterPath="$PROJECT_DIR$/target/classes/data/dao/UserDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/AccountService.java" afterPath="$PROJECT_DIR$/src/main/java/service/AccountService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/implementation/AccountServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/implementation/AccountServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entity/Account.java" afterPath="$PROJECT_DIR$/src/main/java/data/entity/Account.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/impl/AccountDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/AccountDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/account/AddAccountServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/account/AddAccountServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/card/AddCardServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/card/AddCardServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/admin/AdminProfileServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/admin/AdminProfileServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/account/BlockAccountServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/account/BlockAccountServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/card/BlockCardServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/card/BlockCardServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/comand/impl/BlockUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/service/comand/impl/BlockUserCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/impl/CardDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/CardDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entity/CardRequest.java" afterPath="$PROJECT_DIR$/src/main/java/data/entity/CardRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/CardRequestDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/CardRequestDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/impl/CardRequestDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/CardRequestDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/CardRequestService.java" afterPath="$PROJECT_DIR$/src/main/java/service/CardRequestService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/CardService.java" afterPath="$PROJECT_DIR$/src/main/java/service/CardService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/implementation/CardServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/implementation/CardServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dbConnection/ConnectionPool.java" afterPath="$PROJECT_DIR$/src/main/java/dbConnection/ConnectionPool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/comand/container/CommandConstant.java" afterPath="$PROJECT_DIR$/src/main/java/service/comand/container/CommandConstant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/comand/container/CommandContainer.java" afterPath="$PROJECT_DIR$/src/main/java/service/comand/container/CommandContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/constant/dbConstant/DbFieldConstant.java" afterPath="$PROJECT_DIR$/src/main/java/constant/dbConstant/DbFieldConstant.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/account/DeleteAccountServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/account/DeleteAccountServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/card/DeleteCardServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/card/DeleteCardServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/comand/impl/DeleteUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/service/comand/impl/DeleteUserCommand.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/payment/DoPaymentServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/payment/DoPaymentServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/payment/HistoryServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/payment/HistoryServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/constant/PageConstant.java" afterPath="$PROJECT_DIR$/src/main/java/constant/PageConstant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/PaymentService.java" afterPath="$PROJECT_DIR$/src/main/java/service/PaymentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/implementation/PaymentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/implementation/PaymentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PaymentSystem.iml" afterPath="$PROJECT_DIR$/PaymentSystem.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/welcome/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/welcome/LoginServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/impl/PaymentDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/PaymentDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/admin/PaymentsHistoryServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/admin/PaymentsHistoryServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/welcome/ProfileServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/welcome/ProfileServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/welcome/RegistrationServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/welcome/RegistrationServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/Service.java" afterPath="$PROJECT_DIR$/src/main/java/service/Service.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/implementation/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/service/implementation/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/comand/impl/UnblockUserCommand.java" afterPath="$PROJECT_DIR$/src/main/java/service/comand/impl/UnblockUserCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/UserDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/impl/UserDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/impl/UserDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/add.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/add.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/account/add.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/account/add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/card/add.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/card/add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/block.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/block.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/block.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/block.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/account/block.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/account/block.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/card/block.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/card/block.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/delete.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/delete.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/delete.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/delete.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/account/delete.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/account/delete.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/card/delete.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/card/delete.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/doPayment.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/doPayment.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/payment/doPayment.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/payment/doPayment.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/error.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/error.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/history.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/history.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/payment/history.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/payment/history.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/login.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/welcome/login.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/welcome/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/profile.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/profile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/profile.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/profile.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/admin/profile.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/admin/profile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/welcome/profile.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/welcome/profile.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/registration.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/registration.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/welcome/registration.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/welcome/registration.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/users.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/users.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/admin/users.jsp" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/pages/admin/users.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/PaymentSystem-1.0-SNAPSHOT/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -227,6 +184,24 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
+        <option name="myItemId" value="payment" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - payment_system@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="payment_system" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
         <option name="myItemId" value="card_request" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
@@ -238,21 +213,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="profile.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/profile.jsp">
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.769231">
-              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="168" column="33" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cardUnblock.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblock.jsp">
+      <file leaf-file-name="UserManagementServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/user/UserManagementServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9270833">
+              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/users.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="29.384615">
+              <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageConstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/PageConstant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="33" column="74" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -266,8 +271,8 @@
         <option value="Enum" />
         <option value="jsf" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -282,57 +287,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/card/AddCardServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/implementation/AccountDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/delete.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/card/DeleteCardServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/card/BlockCardServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/CardService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/implementation/CardServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/CardDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/implementation/CardDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/bean/UaerBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/bean/UserBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dto/UserBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dto/UserDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/entity/PaymentStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/profile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/implementation/AccountDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/implementation/CardDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/implementation/PaymentDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/registration.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/data/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/entity/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/entity/Status.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/welcome/ProfileServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/Comand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/impl/BlockUserComand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/container/UserCommandContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/container/CommandConstant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/container/CommandContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/action.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/impl/BlockUserCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/constant/PageConstant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/ButtonControllerServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/implementation/UserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/impl/DeleteUserCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/comand/impl/UnblockUserCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/UserManagementServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/AdminActionServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/users.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/data/entity/CardRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/implementation/CardRequestService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/Dao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblock.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/service/CardRequestService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/CardRequestDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/constant/dbConstant/DbFieldConstant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/impl/CardRequestDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/comand/impl/UnblockCardCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/implementation/CardRequestServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/Dao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/card/UnblockRequests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/card/Unblock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/implementation/PaymentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/implementation/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/implementation/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/comand/container/CommandContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/card/UnblockRequestsServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/profile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblock.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/constant/PageConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblockRequests.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/service/comand/container/CommandConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/user/UserActionServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/entity/CardRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/impl/CardRequestDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/unblock.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/card/UnblockCardServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/impl/CardDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/entity/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/add.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/account/AddAccountServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/impl/AccountDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/profile.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/welcome/LogoutServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/doPayment.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/impl/PaymentDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/payment/DoPaymentServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/confimPayment.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/payment/ConfirmPayment.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/card/CardActionServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/card/BlockCardServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/impl/CardServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/welcome/RegistrationServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/welcome/PutMonneyServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/PageConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/welcome/ProfileServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/welcome/LoginServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/users.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/admin/user/UserManagementServlet.java" />
       </list>
     </option>
   </component>
@@ -406,8 +411,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -585,8 +588,22 @@
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -607,9 +624,169 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="welcome" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="card" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1135,15 +1312,17 @@
       <workItem from="1470413247600" duration="119297000" />
       <workItem from="1470854647106" duration="10141000" />
       <workItem from="1471336926367" duration="16003000" />
-      <workItem from="1471442598665" duration="149331000" />
+      <workItem from="1471442598665" duration="194563000" />
+      <workItem from="1472208724149" duration="6279000" />
+      <workItem from="1472215175174" duration="5259000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300881000" />
+    <option name="totallyTimeSpent" value="357651000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1155,25 +1334,54 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18381241" sideWeight="0.48979592" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48553056" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3376206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20121029" sideWeight="0.49140048" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20272315" sideWeight="0.49140048" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19288956" sideWeight="0.5085995" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15733737" sideWeight="0.49202734" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13987139" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16944024" sideWeight="0.49202734" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961832" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39871383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.414791" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19969743" sideWeight="0.50797266" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13987139" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18381241" sideWeight="0.48979592" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1354009" sideWeight="0.49202734" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961832" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.414791" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26688102" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48553056" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19969743" sideWeight="0.50797266" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20272315" sideWeight="0.49140048" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19288956" sideWeight="0.5085995" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13987139" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1196,7 +1404,7 @@
           <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="71" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1205,259 +1413,341 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/card/BlockCardServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.539726">
-          <caret line="28" column="77" selection-start-line="28" selection-start-column="77" selection-end-line="28" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/block.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22418879">
-          <caret line="33" column="63" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/CardDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18630137">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/PaymentStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83835614">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-          <folding>
-            <element signature="e#183#184#0" expanded="false" />
-            <element signature="e#211#212#0" expanded="false" />
-            <element signature="e#237#238#0" expanded="false" />
-            <element signature="e#262#263#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18630137">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.021917809">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#1029#1030#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/PaymentDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
-          <folding>
-            <marker date="1472056898137" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..payment..." />
-            <marker date="1472056898137" expanded="true" signature="-1:-1" placeholder="SELECT card_..card..." />
-            <marker date="1472056898137" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1472056898137" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..payment..." />
-            <marker date="1472056898137" expanded="true" signature="-1:-1" placeholder="SELECT card_..card..." />
-            <marker date="1472056898137" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..payment..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/CardDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
-          <folding>
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..card..." />
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..card..." />
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="UPDATE card ..." />
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..card..." />
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="UPDATE card ..." />
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..card..." />
-            <marker date="1472056898593" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..card..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/AccountDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10119048">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="5" />
-          <folding>
-            <marker date="1472056898667" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..account..." />
-            <marker date="1472056898667" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1472056898667" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..account..." />
-            <marker date="1472056898667" expanded="true" signature="-1:-1" placeholder="UPDATE accou..." />
-            <marker date="1472056898667" expanded="true" signature="-1:-1" placeholder="UPDATE accou..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dto/UserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27945206">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="e#262#263#0" expanded="false" />
-            <element signature="e#289#290#0" expanded="false" />
-            <element signature="e#327#328#0" expanded="false" />
-            <element signature="e#359#360#0" expanded="false" />
-            <element signature="e#395#396#0" expanded="false" />
-            <element signature="e#423#424#0" expanded="false" />
-            <element signature="e#469#470#0" expanded="false" />
-            <element signature="e#503#504#0" expanded="false" />
-            <element signature="e#545#546#0" expanded="false" />
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#631#632#0" expanded="false" />
-            <element signature="e#671#672#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/RegistrationServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.958904">
-          <caret line="103" column="20" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5">
-          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
-          <folding>
-            <element signature="e#1346#1347#0" expanded="false" />
-            <element signature="e#1375#1376#0" expanded="false" />
-            <element signature="e#1498#1499#0" expanded="false" />
-            <element signature="e#1554#1555#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/ProfileServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/CardRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="66" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
-          <folding />
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Status.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/CardRequestServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93352604">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Role.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/CardRequestDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6300578">
-          <caret line="23" column="20" selection-start-line="18" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39306358">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33170733">
-          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/comand/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2902439">
+        <state vertical-scroll-proportion="0.30357143">
           <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/user/UserActionServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6994048">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/block.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0451128">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23287672">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4473684">
+          <caret line="7" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/card/unblock.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9398496">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/account/AddAccountServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0479453">
+          <caret line="29" column="60" selection-start-line="29" selection-start-column="60" selection-end-line="29" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/account/add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="31" column="104" selection-start-line="31" selection-start-column="104" selection-end-line="31" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/card/UnblockCardServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="49" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/comand/container/CommandConstant.java">
+    <entry file="jar://D:/apache-tomcat-7.0.70-windows-x64/apache-tomcat-7.0.70/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36603773">
+          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/CardDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding />
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/registration.jsp">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/net/DualStackPlainSocketImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3203125">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
+        <state vertical-scroll-proportion="0.38356164">
+          <caret line="282" column="22" selection-start-line="282" selection-start-column="22" selection-end-line="282" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/styles/js/index.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/dbConnection/ConnectionPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08292683">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.38356164">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38356164">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38356164">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/AccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38356164">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/AccountDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.25">
+          <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/LogoutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59246576">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/PaymentDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.8776042">
+          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/Dao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30989584">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.30989584">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/apache-tomcat-7.0.70-windows-x64/apache-tomcat-7.0.70/lib/servlet-api.jar!/javax/servlet/http/HttpServletRequest.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/PaymentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.259259">
-          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-          <folding />
+        <state vertical-scroll-proportion="0.37760416">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/confimPayment.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment/doPayment.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9791667">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/payment/DoPaymentServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46875">
+          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/styles/css/style.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/payment/ConfirmPayment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37804878">
-          <caret line="169" column="1" selection-start-line="169" selection-start-column="1" selection-end-line="169" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.5755208">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/card/UnblockRequestsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/impl/CardServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91071427">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/CardService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/card/DeleteCardServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/card/BlockCardServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6577381">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/RegistrationServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/PutMonneyServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9114583">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5251397">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/history.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9615384">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/ProfileServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/AdminProfileServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17708333">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/welcome/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3154762">
+          <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/card/CardActionServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6577381">
+          <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblockRequests.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38387096">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/PageConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="74" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="74" />
           <folding />
         </state>
       </provider>
@@ -1465,265 +1755,31 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="22" selection-start-line="158" selection-start-column="22" selection-end-line="158" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/comand/container/CommandContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/9ce2e365/cdfac754-ab80-41cc-9d31-3b967c5c1758/payment_system..user">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6232877">
-          <caret line="58" column="27" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
-          <folding>
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="SELECT * fro..user..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="SELECT * fro..user..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="SELECT * fro..user..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="SELECT user_..card..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="SELECT * fro..user..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="SELECT * fro..user..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="SELECT * fro..user..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="INSERT into ..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="UPDATE user ..." />
-            <marker date="1472056898394" expanded="true" signature="-1:-1" placeholder="UPDATE user ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/implementation/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.510274">
-          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0342466">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/constant/PageConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8356164">
-          <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6090225">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <caret line="168" column="33" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80451125">
-          <caret line="24" column="11" selection-start-line="22" selection-start-column="4" selection-end-line="24" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/comand/impl/BlockUserCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60280377">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/comand/impl/DeleteUserCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44392523">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/AdminProfileServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/comand/impl/UnblockUserCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/AdminActionServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5895954">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <element signature="e#710#726#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/users.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.584375">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state vertical-scroll-proportion="29.384615">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/UserManagementServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/admin/user/UserManagementServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2947977">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/constant/dbConstant/DbFieldConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54046243">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/implementation/CardRequestServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44219652">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entity/CardRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1300578">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#337#338#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-            <element signature="e#727#728#0" expanded="true" />
-            <element signature="e#769#770#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/CardRequestService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24566475">
-          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/impl/CardRequestDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34393063">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/CardRequestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34393063">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/Dao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54046243">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/profile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.769231">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblock.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9270833">
+          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
           <folding />
         </state>
       </provider>

@@ -5,7 +5,7 @@ import data.entity.Status;
 import data.entity.User;
 import service.UserService;
 import service.comand.Command;
-import service.implementation.UserServiceImpl;
+import service.impl.UserServiceImpl;
 
 import javax.naming.Context;
 import java.util.Map;

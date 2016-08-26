@@ -1,12 +1,12 @@
 package servlets.welcome;
 
-import constant.PageConstant;
+import servlets.PageConstant;
 import data.entity.Account;
 import data.entity.Card;
 import data.entity.User;
-import service.implementation.AccountServiceImpl;
-import service.implementation.CardServiceImpl;
-import service.implementation.UserServiceImpl;
+import service.impl.AccountServiceImpl;
+import service.impl.CardServiceImpl;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -67,7 +67,6 @@ public class RegistrationServlet extends HttpServlet {
             if (flag) {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", user);
-                resp.setContentType("text/html");
                 out.print("successful registration");
             }
         }

@@ -46,7 +46,7 @@
     Receiver: <br>
     Card number: <br>
     <input name="receiver card number" pattern="[0-9]{16}" border="10" required size="40" type="number"><br>
-    <input type="submit" value="Do payment" size="40"/>
+    <input type="submit" value="Сonfirm" size="40"/>
 
 </form>
 </body>

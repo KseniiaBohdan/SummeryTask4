@@ -31,5 +31,4 @@ public final class DbFieldConstant {
     public static final String PAYMENT_STATUS = "payment_status";
     public static final String ROLE_NAME = "role_name";
     public static final String STATUS = "status";
-    public static final String UNBLOCK_DATE = "unblock_date";
 }

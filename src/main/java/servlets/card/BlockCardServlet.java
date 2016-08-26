@@ -1,11 +1,11 @@
 package servlets.card;
 
-import constant.PageConstant;
+import servlets.PageConstant;
 import data.entity.Card;
 import data.entity.Status;
 import data.entity.User;
 import service.CardService;
-import service.implementation.CardServiceImpl;
+import service.impl.CardServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +25,6 @@ public class BlockCardServlet extends HttpServlet {
         Long userId = ((User) session.getAttribute("user")).getId();
         List<Card> cardList = cardService.getActiveByUserId(Long.valueOf(userId));
         req.setAttribute("cardList", cardList);
-
         req.getRequestDispatcher(PageConstant.BLOCK_CARD).include(req, resp);
     }
 

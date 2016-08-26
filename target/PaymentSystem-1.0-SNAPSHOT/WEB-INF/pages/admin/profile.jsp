@@ -8,6 +8,7 @@
 <ul class="main-menu">
     <li><a href="/admin/profile">Profile</a></li>
     <li><a href="/user/management">User management</a></li>
+    <li><a href="/admin/card/unblock-requests">Unblock card</a></li>
     <li><a href="/admin/history">Payment History</a></li>
 </ul>
 

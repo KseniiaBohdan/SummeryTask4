@@ -8,17 +8,17 @@ public interface UserDao extends Dao<User> {
 
     public User getByEmail(String email) throws SQLException, ClassNotFoundException;
 
-    public boolean update(User user) throws SQLException;
+    public boolean update(User user);
 
-    public boolean create(User user) throws SQLException;
+    public boolean create(User user);
 
     public User getById(Long id) throws SQLException;
 
-    public List<User> getAll() throws SQLException;
+    public List<User> getAll();
 
     public boolean deleteById(Long id) throws SQLException;
 
-    public boolean deleteAll() throws SQLException;
+    public boolean deleteAll();
 
     public User getByCardNumber(long cardNumber) throws SQLException;
 

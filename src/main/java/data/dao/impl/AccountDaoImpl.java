@@ -21,32 +21,42 @@ public class AccountDaoImpl implements AccountDao {
     private static final String DELETE_BY_ID = "UPDATE account SET status_id = 3 WHERE id = ?";
     private static final String UPDATE = "UPDATE account SET balance = ?, status_id = ?, title = ? WHERE id = ?";
 
-    public boolean update(Account account) throws SQLException {
+    public boolean update(Account account) {
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(UPDATE);
-        ps.setLong(1, account.getBalance());
-        ps.setInt(2, account.getStatus().getId());
-        ps.setString(3, account.getTitle());
-        ps.setLong(4, account.getId());
-        ps.executeUpdate();
-        ps.close();
-        con.close();
-        return true;
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(UPDATE);
+            ps.setLong(1, account.getBalance());
+            ps.setInt(2, account.getStatus().getId());
+            ps.setString(3, account.getTitle());
+            ps.setLong(4, account.getId());
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
-    public boolean create(Account account) throws SQLException {
+    public boolean create(Account account) {
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(CREATE);
-        ps.setLong(1, account.getId());
-        ps.setLong(2, account.getBalance());
-        ps.setInt(3, account.getNumber());
-        ps.setInt(4, account.getStatus().getId());
-        ps.setString(5, account.getTitle());
-        ps.setLong(6, account.getUserId());
-        ps.executeUpdate();
-        ps.close();
-        con.close();
-        return true;
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(CREATE);
+            ps.setLong(1, account.getId());
+            ps.setLong(2, account.getBalance());
+            ps.setInt(3, account.getNumber());
+            ps.setInt(4, account.getStatus().getId());
+            ps.setString(5, account.getTitle());
+            ps.setLong(6, account.getUserId());
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     public Account getById(Long id) {
@@ -56,24 +66,23 @@ public class AccountDaoImpl implements AccountDao {
             PreparedStatement ps = con.prepareStatement(GET_BY_ACCOUNT_ID);
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-                account = new Account();
+            while (rs.next()) {
                 account = getAccount(rs);
-                rs.close();
-                ps.close();
-                con.close();
             }
+            rs.close();
+            ps.close();
+            con.close();
+            return account;
         } catch (SQLException e) {
-            e.printStackTrace();
+            return null;
         }
-        return account;
     }
 
     public List<Account> getAll() {
         return null;
     }
 
-    public boolean deleteById(Long id){
+    public boolean deleteById(Long id) {
         Connection con = ConnectionPool.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(DELETE_BY_ID);
@@ -95,7 +104,7 @@ public class AccountDaoImpl implements AccountDao {
         ps.setLong(1, userId);
         List accountList = new ArrayList<Account>();
         ResultSet rs = ps.executeQuery();
-        while (rs.next()){
+        while (rs.next()) {
             Account account = getAccount(rs);
             accountList.add(account);
         }

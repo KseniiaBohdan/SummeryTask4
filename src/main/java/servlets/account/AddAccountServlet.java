@@ -1,10 +1,10 @@
 package servlets.account;
 
-import constant.PageConstant;
+import servlets.PageConstant;
 import data.entity.Account;
 import data.entity.User;
 import service.AccountService;
-import service.implementation.AccountServiceImpl;
+import service.impl.AccountServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +28,6 @@ public class AddAccountServlet extends HttpServlet {
         int accountNumber = accountService.getByUserId(userId).size() + 1;
         Account account = new Account();
         account.setId(Long.valueOf(req.getParameter("id")));
-        account.setBalance(Long.valueOf(req.getParameter("balance")));
         account.setNumber(accountNumber);
         account.setTitle(req.getParameter("title"));
         account.setUserId(userId);

@@ -1,7 +1,7 @@
 package servlets.admin;
 
-import constant.PageConstant;
-import service.implementation.UserServiceImpl;
+import servlets.PageConstant;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

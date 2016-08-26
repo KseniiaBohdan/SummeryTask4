@@ -70,6 +70,16 @@
     </servlet-mapping>
 
     <servlet>
+        <display-name>UnblockCardServlet</display-name>
+        <servlet-name>UnblockCardServlet</servlet-name>
+        <servlet-class>servlets.card.UnblockCardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UnblockCardServlet</servlet-name>
+        <url-pattern>/card/unblock</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <display-name>BlockAccountServlet</display-name>
         <servlet-name>BlockAccountServlet</servlet-name>
         <servlet-class>servlets.account.BlockAccountServlet</servlet-class>
@@ -110,6 +120,16 @@
     </servlet-mapping>
 
     <servlet>
+        <display-name>ConfirmPayment</display-name>
+        <servlet-name>ConfirmPayment</servlet-name>
+        <servlet-class>servlets.payment.ConfirmPayment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmPayment</servlet-name>
+        <url-pattern>/payment/confirm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <display-name>HistoryServlet</display-name>
         <servlet-name>HistoryServlet</servlet-name>
         <servlet-class>servlets.payment.HistoryServlet</servlet-class>
@@ -122,12 +142,33 @@
     <servlet>
         <display-name>UserManagementServlet</display-name>
         <servlet-name>UserManagementServlet</servlet-name>
-        <servlet-class>servlets.admin.UserManagementServlet</servlet-class>
+        <servlet-class>servlets.admin.user.UserManagementServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserManagementServlet</servlet-name>
         <url-pattern>/user/management</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <display-name>UserActionServlet</display-name>
+        <servlet-name>UserActionServlet</servlet-name>
+        <servlet-class>servlets.admin.user.UserActionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserActionServlet</servlet-name>
+        <url-pattern>/admin/action</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>CardActionServlet</display-name>
+        <servlet-name>CardActionServlet</servlet-name>
+        <servlet-class>servlets.admin.card.CardActionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CardActionServlet</servlet-name>
+        <url-pattern>/admin/card/action</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <display-name>AdminProfileServlet</display-name>
@@ -150,13 +191,23 @@
     </servlet-mapping>
 
     <servlet>
-        <display-name>ButtonControllerServlet</display-name>
-        <servlet-name>ButtonControllerServlet</servlet-name>
-        <servlet-class>servlets.admin.AdminActionServlet</servlet-class>
+        <display-name>UnblockRequestsServlet</display-name>
+        <servlet-name>UnblockRequestsServlet</servlet-name>
+        <servlet-class>servlets.admin.card.UnblockRequestsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ButtonControllerServlet</servlet-name>
-        <url-pattern>/admin/action</url-pattern>
+        <servlet-name>UnblockRequestsServlet</servlet-name>
+        <url-pattern>/admin/card/unblock-requests</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>LogoutServlet</display-name>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>servlets.welcome.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
 </web-app>

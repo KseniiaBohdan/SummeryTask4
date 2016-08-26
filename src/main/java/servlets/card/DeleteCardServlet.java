@@ -1,11 +1,11 @@
 package servlets.card;
 
-import constant.PageConstant;
+import servlets.PageConstant;
 import data.entity.Card;
 import data.entity.Status;
 import data.entity.User;
 import service.CardService;
-import service.implementation.CardServiceImpl;
+import service.impl.CardServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +23,7 @@ public class DeleteCardServlet extends HttpServlet{
         HttpSession session = req.getSession();
         CardService cardService = new CardServiceImpl();
         Long user_id = ((User)session.getAttribute("user")).getId();
-        List<Card> cardList = cardService.getActiveCardByUserId(Long.valueOf(user_id));
+        List<Card> cardList = cardService.getNotDeletedCardByUserId(Long.valueOf(user_id));
         req.setAttribute("cardList", cardList);
 
         req.getRequestDispatcher(PageConstant.DELETE_CARD).include(req,resp);

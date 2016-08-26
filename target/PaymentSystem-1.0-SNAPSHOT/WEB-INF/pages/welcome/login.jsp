@@ -27,11 +27,11 @@
 
     <ul class="tab-group">
         <li class="tab active"><a href="/registration">Register</a></li>
-        <li class="tab"><a href="/">Log In</a></li>
+        <li class="tab"><a href="#">Log In</a></li>
     </ul>
     <div class="tab-content">
         Welcome Back!
-        <form id="login" action="/profile" method="GET">
+        <form id="login" action="/login" method="POST">
             <div class="field-wrap">
                 <label>
                     Email Address<span class="req">*</span>
@@ -49,6 +49,15 @@
         </form>
     </div>
 </div>
+
+Put monney:
+<form method="post" id="put monney" action="/login">
+    Card number:<br>
+    <input type="number" required autocomplete="off" name="card number"/><br>
+    Sum:<br>
+    <input type="number" required autocomplete="off" name="sum"/><br>
+    <button type="submit">Put</button>
+</form>
 
 
 <script src="<c:url value="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" />"></script>

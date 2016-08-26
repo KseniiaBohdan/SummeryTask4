@@ -12,4 +12,6 @@ public final class CommandConstant {
     public static final String BLOCK_USER = "block";
     public static final String UNBLOCK_USER = "unblock";
     public static final String DELETE_USER = "delete";
+
+    public static final String UNBLOCK_CARD = "unblock";
 }

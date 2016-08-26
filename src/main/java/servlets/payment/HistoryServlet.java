@@ -1,12 +1,12 @@
 package servlets.payment;
 
-import constant.PageConstant;
+import servlets.PageConstant;
 import data.entity.Payment;
 import data.entity.User;
 import service.PaymentService;
 import service.UserService;
-import service.implementation.PaymentServiceImpl;
-import service.implementation.UserServiceImpl;
+import service.impl.PaymentServiceImpl;
+import service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -1,6 +1,6 @@
 package servlets.payment;
 
-import constant.PageConstant;
+import servlets.PageConstant;
 import data.entity.Account;
 import data.entity.Card;
 import data.entity.Payment;
@@ -8,9 +8,9 @@ import data.entity.User;
 import service.AccountService;
 import service.CardService;
 import service.PaymentService;
-import service.implementation.AccountServiceImpl;
-import service.implementation.CardServiceImpl;
-import service.implementation.PaymentServiceImpl;
+import service.impl.AccountServiceImpl;
+import service.impl.CardServiceImpl;
+import service.impl.PaymentServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +36,6 @@ public class DoPaymentServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
         HttpSession session = req.getSession();
         Integer sum = Integer.valueOf(req.getParameter("sum"));
         Long cardNumberSender = Long.valueOf(req.getParameter("sender card number"));
@@ -62,9 +61,7 @@ public class DoPaymentServlet extends HttpServlet{
         payment.setCardNumberSender(cardNumberSender);
         payment.setTitle(req.getParameter("title").toString());
         payment.setSum(sum);
-        out.println(paymentService.create(payment));
-
-        out.flush();
-        out.close();
+        paymentService.create(payment);
+        resp.sendRedirect(PageConstant.CONFIRM_PAYMENT_SERVLET);
     }
 }

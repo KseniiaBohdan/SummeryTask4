@@ -5,10 +5,14 @@ import java.sql.Date;
 public class CardRequest extends Entity{
     private Long id;
     private Long cardNumber;
-    private Date unblockDate;
     private String title;
 
     public CardRequest(){
+    }
+
+    public CardRequest(Long cardNumber, String title){
+        this.cardNumber = cardNumber;
+        this.title = title;
     }
 
     public Long getId() {
@@ -25,14 +29,6 @@ public class CardRequest extends Entity{
 
     public void setCardNumber(Long cardNumber) {
         this.cardNumber = cardNumber;
-    }
-
-    public Date getUnblockDate() {
-        return unblockDate;
-    }
-
-    public void setUnblockDate(Date unblockDate) {
-        this.unblockDate = unblockDate;
     }
 
     public String getTitle() {

@@ -12,6 +12,20 @@
     <li><a href="/admin/history">Payment History</a></li>
 </ul>
 
+<form name="filterForm" action="/user/management" method="get">
+    <input type="hidden" name="action" value="checking">
+
+    <div class="filterSelect">
+        <select name="filterSelect" onchange="document.filterForm.submit();">
+            <option value="ALL" >ALL</option>
+            <c:forEach var="status" items="${requestScope.statuses}">
+                <option value="${status.toString()}">${status.toString()}</option>
+            </c:forEach>
+        </select>
+    </div>
+    <br><br>
+</form>
+
 All users: ${requestScope.userList.size()}
 <table bgcolor="#deb887" border="2" bordercolor="white">
     <tr>
@@ -22,6 +36,7 @@ All users: ${requestScope.userList.size()}
         <td> Phone number</td>
         <td> Action</td>
     </tr>
+
     <c:forEach var="user" items="${requestScope.userList}">
         <tr>
             <td> ${user.id}</td>
@@ -33,15 +48,21 @@ All users: ${requestScope.userList.size()}
                 <form method="post" action="/admin/action">
                     <c:choose>
                         <c:when test="${user.status.toString() == 'BLOCKED'}">
-                            <button onclick="location.href='/admin/action?id=${user.id}&action=unblock'">Unblock</button>
+                            <button type="submit" onclick="location.href='/admin/action?id=${user.id}&action=unblock'">
+                                Unblock
+                            </button>
                         </c:when>
                         <c:when test="${user.status.toString() == 'ACTIVE'}">
-                            <button onclick="location.href='/admin/action?id=${user.id}&action=block'">Block</button>
+                            <button type="submit" onclick="location.href='/admin/action?id=${user.id}&action=block'">
+                                Block
+                            </button>
                         </c:when>
                     </c:choose>
-                <c:if test="${user.status.toString() != 'DELETED'}">
-                    <button type="submit" onclick="location.href='/admin/action?id=${user.id}&action=delete'">Delete</button>
-                </c:if>
+                    <c:if test="${user.status.toString() != 'DELETED'}">
+                        <button type="submit" onclick="location.href='/admin/action?id=${user.id}&action=delete'">
+                            Delete
+                        </button>
+                    </c:if>
                 </form>
             </td>
         </tr>

@@ -31,9 +31,6 @@ Add new account <br>
     Input account number: <br>
     <input type="number" align="right" border="10" required size="40" name="id" pattern="[0-9]{16}"><br>
 
-    Balance: <br>
-    <input type="number" align="right" border="10" required size="40" name="balance" pattern="[0-9]*"><br>
-
     Title for account: <br>
     <input type="text" align="right" border="10" size="40" name="title"/><br>
 

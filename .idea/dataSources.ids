@@ -43,9 +43,8 @@
       <index name="user_id_card_fk" unique="false" columns="user_id"/>
     </table>
     <table name="card_request" schema="" catalog="payment_system" type="TABLE">
-      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="card_number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="unblock_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
       <column name="title" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="request_card_number_fk" columns="card_number" ref-table="card" ref-schema="" ref-catalog="payment_system" ref-columns="card_number" update-rule="3" delete-rule="3" deferrability="2"/>

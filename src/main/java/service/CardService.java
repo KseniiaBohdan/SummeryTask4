@@ -8,7 +8,7 @@ public interface CardService extends Service<Card> {
 
     List getByUserId(Long userId);
 
-    List getActiveCardByUserId(Long userId);
+    List getNotDeletedCardByUserId(Long userId);
 
     List getByAccountId(Long accountId);
 

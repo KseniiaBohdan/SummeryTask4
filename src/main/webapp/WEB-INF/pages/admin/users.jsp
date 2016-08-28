@@ -12,18 +12,44 @@
     <li><a href="/admin/history">Payment History</a></li>
 </ul>
 
-<form name="filterForm" action="/user/management" method="get">
-    <input type="hidden" name="action" value="checking">
+Role filter <br>
 
+<form name="filterForm" action="/user/management" method="get">
     <div class="filterSelect">
         <select name="filterSelect" onchange="document.filterForm.submit();">
-            <option value="ALL" >ALL</option>
+            <option value="ALL" <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
+                ALL</option>
             <c:forEach var="status" items="${requestScope.statuses}">
-                <option value="${status.toString()}">${status.toString()}</option>
+                <option value="${status.toString()}"
+                        <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>
+                        >${status.toString()}</option>
             </c:forEach>
         </select>
     </div>
-    <br><br>
+    <br>
+</form>
+
+<form name="sortForm" action="/user/management" method="get">
+    <input type="hidden" name="action" value="checking">
+
+    <div class="sortSelect">
+        <select name="sortSelect" onchange="document.sortForm.submit();">
+            <option value="ALPHABETICAL_ORDER" <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
+                Name</option>
+            <option value="SORT_EMAIL" <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
+                Email</option>
+            <option value="SORT_PHONE_NUMBER" <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
+                Phone number</option>
+        </select>
+    </div>
+    <br>
+</form>
+
+<form name="findForm" action="/user/management" method="get">
+    Name<br>
+    <input name="Name" size="40" type="text"  pattern="(([A-Za-z]*){1,}\s{0,}){0,}"/><br>
+    <input type="submit" value="Find" size="40"/>
+    <br>
 </form>
 
 All users: ${requestScope.userList.size()}
@@ -37,6 +63,7 @@ All users: ${requestScope.userList.size()}
         <td> Action</td>
     </tr>
 
+    <c:set var="userList" value="${requestScope.userList}"/>
     <c:forEach var="user" items="${requestScope.userList}">
         <tr>
             <td> ${user.id}</td>

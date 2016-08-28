@@ -18,6 +18,8 @@ import java.util.List;
 
 public class DeleteCardServlet extends HttpServlet{
 
+    private static final String CARD_NUMBER = "cardNumber";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -33,7 +35,7 @@ public class DeleteCardServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CardService cardService = new CardServiceImpl();
         PrintWriter out = resp.getWriter();
-        Card card = cardService.getByCardNumber(Long.valueOf(req.getParameter("card number")));
+        Card card = cardService.getByCardNumber(Long.valueOf(req.getParameter(CARD_NUMBER)));
         card.setStatus(Status.DELETED);
         if(cardService.update(card)){
             out.print("true");

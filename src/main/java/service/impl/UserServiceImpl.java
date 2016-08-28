@@ -46,11 +46,11 @@ public class UserServiceImpl implements UserService {
     }
 
     public boolean create(User user) {
-            return userDao.create(user);
+        return userDao.create(user);
     }
 
     public List<User> getAll() {
-            return userDao.getAll();
+        return userDao.getAll();
     }
 
     public List<User> getAllUsers() {
@@ -65,4 +65,18 @@ public class UserServiceImpl implements UserService {
     public boolean deleteAll() {
         return userDao.deleteAll();
     }
+
+    public List<User> findByName(List<String> name) {
+        List<User> users = userDao.findByName(name.get(0));
+        for (int i = 1; i < name.size(); i++) {
+            List<User> temp = userDao.findByName(name.get(i));
+            for (int j = 0; j < temp.size(); j++) {
+                if(!users.contains(temp.get(j))){
+                    users.remove(temp.get(j));
+                }
+            }
+        }
+        return users;
+    }
+
 }

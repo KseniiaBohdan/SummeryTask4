@@ -22,6 +22,20 @@ import java.util.Date;
 
 public class RegistrationServlet extends HttpServlet {
 
+    private static final String FIRST_NAME = "FirstName";
+    private static final String SECOND_NAME = "SecondName";
+    private static final String PATRONYMIC = "Patronymic";
+    private static final String PHONE_NUMBER = "PhoneNumber";
+    private static final String PASSWORD1 = "Password1";
+    private static final String EMAIL = "Email";
+    private static final String CARD_NUMBER = "CardNumber";
+    private static final String ACCOUNT_NUMBER = "AccountNumber";
+    private static final String PIN1 = "Pin1";
+    private static final String EXPIRY_DATE = "ExpiryDate";
+    private static final String ACCOUNT_TITLE = "AccountTitle";
+    private static final String CARD_TITLE = "CardTitle";
+    private static final String USER = "user";
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,6 +45,7 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        saveParameter(req);
         PrintWriter out = resp.getWriter();
 
         UserServiceImpl userService = new UserServiceImpl();
@@ -38,7 +53,7 @@ public class RegistrationServlet extends HttpServlet {
         AccountServiceImpl accountService = new AccountServiceImpl();
 
         SimpleDateFormat in = new SimpleDateFormat("yyyy-MM-dd");
-        String parameter = req.getParameter("expire_date");
+        String parameter = req.getParameter(EXPIRY_DATE);
         java.util.Date date = null;
         try {
             date = in.parse(parameter);
@@ -60,13 +75,13 @@ public class RegistrationServlet extends HttpServlet {
                 account.setNumber(accountNumber);
                 flag = accountService.create(account);
                 card.setUserId(userId);
-                flag = cardService.create(card);
+                flag = flag&&cardService.create(card);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
             if (flag) {
                 HttpSession session = req.getSession();
-                session.setAttribute("user", user);
+                session.setAttribute(USER, user);
                 out.print("successful registration");
             }
         }
@@ -76,30 +91,29 @@ public class RegistrationServlet extends HttpServlet {
 
     private Account setAccount(HttpServletRequest req) {
         Account account = new Account();
-        account.setId(Long.valueOf(req.getParameter("account_id")));
-        account.setBalance(Long.valueOf(req.getParameter("balance")));
-        account.setTitle(req.getParameter("account_title"));
+        account.setId(Long.valueOf(req.getParameter(ACCOUNT_NUMBER)));
+        account.setTitle(req.getParameter(ACCOUNT_TITLE));
         return account;
     }
 
     private Card setCard(HttpServletRequest req, Date date) {
         Card card = new Card();
-        card.setCardNumber(Long.valueOf(req.getParameter("card_number")));
+        card.setCardNumber(Long.valueOf(req.getParameter(CARD_NUMBER)));
         card.setExpiryDate(new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()));
-        card.setPin(Integer.valueOf(req.getParameter("pin")));
-        card.setAccountId(Long.valueOf(req.getParameter("account_id")));
-        card.setTitle(req.getParameter("card_title"));
+        card.setPin(Integer.valueOf(req.getParameter(PIN1)));
+        card.setAccountId(Long.valueOf(req.getParameter(ACCOUNT_NUMBER)));
+        card.setTitle(req.getParameter(CARD_TITLE));
         return card;
     }
 
     private User setUser(HttpServletRequest req) {
         User user = new User();
-        user.setFirstName(req.getParameter("first_name"));
-        user.setSecondName(req.getParameter("second_name"));
-        user.setPatronymic(req.getParameter("patronymic"));
-        user.setEmail(req.getParameter("email"));
-        user.setPassword(req.getParameter("password"));
-        user.setPhoneNumber(req.getParameter("phone_number"));
+        user.setFirstName(req.getParameter(FIRST_NAME));
+        user.setSecondName(req.getParameter(SECOND_NAME));
+        user.setPatronymic(req.getParameter(PATRONYMIC));
+        user.setEmail(req.getParameter(EMAIL));
+        user.setPassword(req.getParameter(PASSWORD1));
+        user.setPhoneNumber(req.getParameter(PHONE_NUMBER));
         return user;
     }
 
@@ -134,6 +148,19 @@ public class RegistrationServlet extends HttpServlet {
         } else {
             return false;
         }
+    }
+
+    private static void saveParameter(HttpServletRequest req){
+        req.setAttribute(FIRST_NAME,  req.getParameter(FIRST_NAME));
+        req.setAttribute(SECOND_NAME,  req.getParameter(SECOND_NAME));
+        req.setAttribute(PATRONYMIC,  req.getParameter(PATRONYMIC));
+        req.setAttribute(PHONE_NUMBER,  req.getParameter(PHONE_NUMBER));
+        req.setAttribute(EMAIL,  req.getParameter(EMAIL));
+        req.setAttribute(CARD_NUMBER,  req.getParameter(CARD_NUMBER));
+        req.setAttribute(ACCOUNT_NUMBER,  req.getParameter(ACCOUNT_NUMBER));
+        req.setAttribute(EXPIRY_DATE,  req.getParameter(EXPIRY_DATE));
+        req.setAttribute(ACCOUNT_TITLE,  req.getParameter(ACCOUNT_TITLE));
+        req.setAttribute(CARD_TITLE,  req.getParameter(CARD_TITLE));
     }
 
 }

@@ -27,8 +27,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
+        String email = req.getParameter("Email");
+        String password = req.getParameter("Password");
         HttpSession session = req.getSession();
         UserServiceImpl userService = new UserServiceImpl();
 

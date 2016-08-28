@@ -16,7 +16,12 @@ public enum PaymentStatus implements Serializable {
     }
 
     public static PaymentStatus getPaymentStatus(int paymentStatusId) {
-        return PaymentStatus.values()[paymentStatusId];
+        for(PaymentStatus s : PaymentStatus.values()){
+            if(s.getId()==paymentStatusId){
+                return s;
+            }
+        }
+        return COMPLETED;
     }
 }
 

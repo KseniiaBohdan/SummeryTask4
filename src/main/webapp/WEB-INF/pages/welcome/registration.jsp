@@ -1,150 +1,158 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Register</title>
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/styles/css/normalize.css" media="screen" type="text/css">
-    <link rel="stylesheet" href="/styles/css/style.css" media="screen" type="text/css">
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/styles/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="/styles/assets/css/font-awesome.css" rel="stylesheet"/>
+    <!-- CUSTOM STYLES-->
+    <link href="/styles/assets/css/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+
 </head>
 <body>
-<form id="registration_user" action="/registration" method="post">
-<table>
-<tr>
-<td>
-<jsp:text> Input your email:</jsp:text>
-<br>
-<input type="email" align="right" border="10" required size="40" name="email"
-pattern=".*@[A-Za-z0-9]*.[A-Za-z0-9]*"><br>
+<div class="container">
+    <div class="row text-center  ">
+        <div class="col-md-12">
+            <br/><br/>
+            <h2> Register</h2>
+        </div>
+    </div>
+    <form method="post">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong> Step 1: About You </strong>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <br/>
 
-<jsp:text> Input your password:</jsp:text>
-<br>
-<input type="password" align="right" border="10" required size="40" name="password"
-pattern="[A-Za-z0-9]*"><br>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="text" class="form-control" name="FirstName" placeholder="First Name*"
+                                        value="${requestScope.FirstName}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="text" class="form-control" name="SecondName"
+                                       placeholder="Second Name*" value="${requestScope.SecondName}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="text" class="form-control" name="Patronymic" placeholder="Patronymic*"
+                                       value="${requestScope.Patronymic}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="text" class="form-control" pattern="+[0-9]{12}" name="PhoneNumber"
+                                       placeholder="Phone number*" value="${requestScope.PhoneNumber}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">@</span>
+                                <input type="text" class="form-control" name="Email" placeholder="Your Email*"
+                                       value="${requestScope.Email}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" name="Password1"
+                                       placeholder="Enter Password*"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" name="Password2"
+                                       placeholder="Retype Password*"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<jsp:text> Repeat password:</jsp:text>
-<br>
-<input type="password" align="right" border="10" required size="40" name="repeat_password"
-pattern="[A-Za-z0-9]*"><br>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong> Step 2: Your first card </strong>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <br/>
 
-<jsp:text> Input your first_name:</jsp:text>
-<br>
-<input type="text" align="right" border="10" required size="40" name="first_name"
-pattern="[A-ZА-Я][a-zа-я]*"><br>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="number" class="form-control" pattern="[0-9]{16}" name="CardNumber"
+                                       placeholder="Card number*" value="${requestScope.CardNumber}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="date" class="form-control" name="ExpiryDate"
+                                       placeholder="Expiry date*" value="${requestScope.ExpiryDate}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" name="Pin1"
+                                       placeholder="Enter Pin*"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" name="Pin2"
+                                       placeholder="Retype Pin*"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="text" class="form-control" name="CardTitle" placeholder="Title"
+                                       value="${requestScope.CardTitle}"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<jsp:text> Input your second_name:</jsp:text>
-<br>
-<input type="text" align="right" border="10" required size="40" name="second_name"
-pattern="[A-ZА-Я][a-zа-я]*"><br>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong> Step 3: Your first account </strong>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <br/>
 
-<jsp:text> Input your patronymic:</jsp:text>
-<br>
-<input type="text" align="right" border="10" required size="40" name="patronymic"
-pattern="[A-ZА-Я][a-zа-я]*"><br>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="number" class="form-control" pattern="[0-9]{16}" name="AccountNumber"
+                                       placeholder="Account number*" value="${requestScope.AccountNumber}"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
+                                <input type="text" class="form-control" name="AccountTitle"
+                                       placeholder="Title" value="${requestScope.AccountTitle}"/>
+                            </div>
 
-<jsp:text> Input your phone_number:</jsp:text>
-<br>
-<input type="text" align="right" border="10" required size="40" name="phone_number"
-pattern="\+[0-9]{12}"><br>
-</input>
-</td>
-<td>
-<jsp:text> Input your card number:</jsp:text>
-<br>
-<input type="number" align="right" border="10" required size="40" name="card_number"
-pattern="[0-9]{16}"><br>
+                            <button onclick="submit" class="btn btn-success ">Register Me</button>
+                            <hr/>
+                            Already Registered? <a href="/login/*">Login here</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 
-<jsp:text> Input card expire date:</jsp:text>
-<br>
-<input type="date" align="right" border="10" required size="40" name="expire_date"><br>
 
-<jsp:text> Pin:</jsp:text>
-<br>
-<input type="password" align="right" border="10" required size="40" name="pin"
-pattern="[0-9]{4}"><br>
-
-<jsp:text> Repeat pin:</jsp:text>
-<br>
-<input type="password" align="right" border="10" required size="40" name="repeat_pin"
-pattern="[0-9]{4}"><br>
-
-<jsp:text> Title for card:</jsp:text>
-<br>
-<input type="text" align="right" border="10" size="40" name="card_title"/><br>
-</td>
-<td>
-<jsp:text> Input your account number:</jsp:text>
-<br>
-<input type="number" align="right" border="10" required size="40" name="account_id"
-pattern="[0-9]{16}"><br>
-
-<jsp:text> Input your account balance:</jsp:text>
-<br>
-<input type="number" align="right" border="10" required size="40" name="balance"
-pattern="[0-9]*\.[0-9]{2}"><br>
-
-<jsp:text> Title for account:</jsp:text>
-<br>
-<input type="text" align="right" border="10" size="40" name="account_title"><br>
-
-<input type="submit" value="Registrate" size="40"/>
-</td>
-</tr>
-</table>
-</form>
-
-<%--<div class="form">--%>
-
-    <%--<ul class="tab-group">--%>
-        <%--<li class="tab active"><a href="#">Register</a></li>--%>
-        <%--<li class="tab"><a href="/login">Log In</a></li>--%>
-    <%--</ul>--%>
-
-    <%--<div class="tab-content">--%>
-        <%--<div id="signup">--%>
-            <%--<h1>Register for Free</h1>--%>
-            <%--<form action="/" method="post">--%>
-                <%--<div class="top-row">--%>
-                    <%--<div class="field-wrap">--%>
-                        <%--<label>--%>
-                            <%--First Name<span class="req">*</span>--%>
-                        <%--</label>--%>
-                        <%--<input type="text" required autocomplete="off"/>--%>
-                    <%--</div>--%>
-                    <%--<div class="field-wrap">--%>
-                        <%--<label>--%>
-                            <%--Last Name<span class="req">*</span>--%>
-                        <%--</label>--%>
-                        <%--<input type="text" required autocomplete="off"/>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
-                <%--<div class="field-wrap">--%>
-                    <%--<label>--%>
-                        <%--Email Address<span class="req">*</span>--%>
-                    <%--</label>--%>
-                    <%--<input type="email" required autocomplete="off"/>--%>
-                <%--</div>--%>
-
-                <%--<div class="field-wrap">--%>
-                    <%--<label>--%>
-                        <%--Set A Password<span class="req">*</span>--%>
-                    <%--</label>--%>
-                    <%--<input type="password" required autocomplete="off"/>--%>
-                <%--</div>--%>
-
-                <%--<button type="submit" class="button button-block"/>--%>
-                <%--Get Started</button>--%>
-
-            <%--</form>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-    <%--<!-- tab-content -->--%>
-
-<%--</div>--%>
-<%--<!-- /form -->--%>
-<%--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>--%>
-<%--<script src="/styles/js/index.js"></script>--%>
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="/styles/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="/styles/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="/styles/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="/styles/assets/js/custom.js"></script>
 
 </body>
 </html>

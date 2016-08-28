@@ -92,4 +92,8 @@ public class User extends Entity implements Serializable{
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getName(){
+        return new StringBuilder(this.getFirstName() + " " + this.getSecondName() + " " + this.getPatronymic()).toString();
+    }
 }

@@ -11,7 +11,8 @@ public final class PageConstant {
 
     }
 
-    public static final String LOGIN_SERVLET = "/";
+    public static final String LOGIN_SERVLET = "/login";
+    public static final String PUT_MONEY_SERVLET = "/put";
     public static final String LOGIN = "/WEB-INF/pages/welcome/login.jsp";
     public static final String REGISTRATION = "/WEB-INF/pages/welcome/registration.jsp";
     public static final String PROFILE = "/WEB-INF/pages/welcome/profile.jsp";
@@ -30,6 +31,7 @@ public final class PageConstant {
 
     public static final String ADMIN_PROFILE = "/WEB-INF/pages/admin/profile.jsp";
     public static final String PAYMENTS_HISTORY = "/WEB-INF/pages/admin/history.jsp";
+    public static final String PAYMENTS_HISTORY_SERVLET = "/WEB-INF/pages/admin/history";
     public static final String USER_MANAGEMENT = "/WEB-INF/pages/admin/users.jsp";
     public static final String USER_MANAGEMENT_SERVLET = "/user/management";
     public static final String UNBLOCK_REQUESTS_CARD = "/WEB-INF/pages/admin/cardUnblockRequests.jsp";

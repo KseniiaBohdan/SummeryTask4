@@ -18,6 +18,8 @@ import java.util.List;
 
 public class BlockCardServlet extends HttpServlet {
 
+    private static final String CARD_NUMBER = "cardNumber";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -31,14 +33,12 @@ public class BlockCardServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CardService cardService = new CardServiceImpl();
-        Long cardNumber = Long.valueOf(req.getParameter("card number"));
+        Long cardNumber = Long.valueOf(req.getParameter(CARD_NUMBER));
         Card card = cardService.getByCardNumber(cardNumber);
         card.setStatus(Status.BLOCKED);
         PrintWriter out = resp.getWriter();
         if (cardService.update(card)) {
-            out.print(true);
         } else {
-            out.print(false);
         }
         out.flush();
         out.close();

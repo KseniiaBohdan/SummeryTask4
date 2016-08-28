@@ -27,4 +27,7 @@ public interface UserService extends Service<User> {
     public List<User> getAll();
 
     public boolean deleteAll();
+
+    List<User> findByName(List<String> name);
+
 }

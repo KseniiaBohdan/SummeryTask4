@@ -26,6 +26,10 @@ public class UserDaoImpl implements UserDao {
             " values (?, ?, ?,?, ?, ?, ?, ?); ";
     private static final String UPDATE_USER = "UPDATE user SET first_name=?, second_name = ?, patronymic = ?, " +
             "email = ?, password = ?, status_id = ?, role_id = ?, phone_number = ?  WHERE id=?";
+    private static final String GET_BY_NAME = "SELECT * FROM user WHERE first_name = ? AND second_name = ? AND " +
+            "patronymic = ?";
+    private static final String FIND_BY_NAME = "SELECT * FROM user WHERE first_name LIKE ? OR second_name LIKE ? OR " +
+            "patronymic LIKE ? AND role_id = ?";
 
 
     public User getByEmail(String email) throws SQLException, ClassNotFoundException {
@@ -41,6 +45,29 @@ public class UserDaoImpl implements UserDao {
             return user;
         }
         return null;
+    }
+
+    public List<User> findByName(String name) {
+        Connection con = ConnectionPool.getConnection();
+        List<User> users = new ArrayList();
+        try {
+            PreparedStatement ps = con.prepareStatement(FIND_BY_NAME);
+            ps.setString(1, "%" + name + "%");
+            ps.setString(2, "%" + name + "%");
+            ps.setString(3, "%" + name + "%");
+            ps.setInt(4, Role.USER.getId());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User u = getUser(rs);
+                users.add(u);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return users;
+        } catch (SQLException e) {
+            return users;
+        }
     }
 
 
@@ -67,18 +94,18 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public boolean create(User user){
+    public boolean create(User user) {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement(CREATE_USER, Statement.RETURN_GENERATED_KEYS);
+            ps = con.prepareStatement(CREATE_USER);
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getSecondName());
             ps.setString(3, user.getPatronymic());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getPassword());
-            ps.setInt(6, 1); //method  get bla bla
-            ps.setInt(7, 2);
+            ps.setInt(6, user.getStatus().getId()); //method  get bla bla
+            ps.setInt(7, user.getRole().getId());
             ps.setString(8, user.getPhoneNumber());
             ps.executeUpdate();
             ps.close();
@@ -89,7 +116,7 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public User getById(Long id){
+    public User getById(Long id) {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = null;
         try {
@@ -109,11 +136,10 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public List<User> getAll(){
+    public List<User> getAll() {
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
         try {
-            ps = con.prepareStatement(GET_ALL);
+            PreparedStatement ps = con.prepareStatement(GET_ALL);
             ResultSet rs = ps.executeQuery();
             List<User> userList = new ArrayList();
             while (rs.next()) {
@@ -129,7 +155,7 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public boolean deleteById(Long id){
+    public boolean deleteById(Long id) {
         Connection con = ConnectionPool.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(DELETE_BY_ID);
@@ -143,7 +169,7 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public boolean deleteAll(){
+    public boolean deleteAll() {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = null;
         try {
@@ -157,7 +183,7 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public User getByCardNumber(long cardNumber){
+    public User getByCardNumber(long cardNumber) {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = null;
         try {
@@ -177,7 +203,7 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public List<User> getByStatus(Integer statusId){
+    public List<User> getByStatus(Integer statusId) {
         List<User> userList = new ArrayList();
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = null;

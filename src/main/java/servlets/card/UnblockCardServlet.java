@@ -19,19 +19,23 @@ import java.util.List;
 
 public class UnblockCardServlet extends HttpServlet{
 
+    private static final String CARD_NUMBER = "cardNumber";
+    private static final String TITLE = "title";
+    private static final String USER = "user";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Long userId = ((User)session.getAttribute("user")).getId();
+        Long userId = ((User)session.getAttribute(USER)).getId();
         List<Card> blockedCards = new CardServiceImpl().getUserCardByStatus(Status.BLOCKED, userId);
-        req.setAttribute("blockedCards", blockedCards );
+        req.setAttribute("cardList", blockedCards );
         req.getRequestDispatcher(PageConstant.UNBLOCK_CARD).include(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Long cardNumber = Long.valueOf(req.getParameter("card number"));
-        String title = req.getParameter("title");
+        Long cardNumber = Long.valueOf(req.getParameter(CARD_NUMBER));
+        String title = req.getParameter(TITLE);
         CardRequest cardRequest = new CardRequest(cardNumber, title);
         CardRequestService crs = new CardRequestServiceImpl();
         crs.create(cardRequest);

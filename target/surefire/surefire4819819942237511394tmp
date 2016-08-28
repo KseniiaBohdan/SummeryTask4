@@ -1,0 +1,7 @@
+#surefire
+#Fri Aug 26 23:24:15 EEST 2016
+maven.tomcat.port-8980=true
+user.dir=C\:\\Users\\hp\\GoogleDrive\\\u0415\u041F\u0410\u041C (\u041A\u0443\u0440\u0441\u044B)\\PaymentSystem
+idea.version=14.1.4
+localRepository=C\:\\Users\\hp\\.m2\\repository
+basedir=C\:\\Users\\hp\\GoogleDrive\\\u0415\u041F\u0410\u041C (\u041A\u0443\u0440\u0441\u044B)\\PaymentSystem

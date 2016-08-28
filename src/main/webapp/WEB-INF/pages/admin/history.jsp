@@ -12,6 +12,17 @@
     <li><a href="/admin/history">Payment History</a></li>
 </ul>
 
+<form name="selectDateForm" method="get" action="/admin/history">
+    From:
+    <input type="date" name="from" size="40"/> <br>
+    To:
+    <input type="date" name="to" size="40"/> <br>
+    <input type="submit" id="select" value="Select" size="40" onclick="document.selectDateForm.submit()"/>
+
+</form>
+
+
+
 <table bgcolor="#deb887" border="2" bordercolor="white">
     <tr>
         <td>Id</td>
@@ -25,7 +36,7 @@
     <c:forEach var="payment" items="${requestScope.paymentList}">
         <tr>
             <td> ${payment.id} </td>
-            <td> ${payment.cardNumberSender} </td>
+            <td> ${payment.cardNumberSender}  </td>
             <!--kak dostat imia i familiu?-->
             <td> ${payment.cardNumberReceiver} </td>
             <td> ${payment.sum} </td>

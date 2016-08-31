@@ -192,7 +192,7 @@ public class UserDaoImpl implements UserDao {
             ResultSet rs = ps.executeQuery();
             Long id = 0L;
             while (rs.next()) {
-                id = rs.getLong(DbFieldConstant.ID);
+                id = rs.getLong(DbFieldConstant.USER_ID);
             }
             rs.close();
             ps.close();

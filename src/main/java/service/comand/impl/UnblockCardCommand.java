@@ -13,14 +13,16 @@ import java.util.Map;
 
 public class UnblockCardCommand implements Command {
 
+    private static final String CARD_NUMBER = "cardNumber";
+
     public Object execute(Context context, Map<String, Object> params) {
-        Long cardNumber = Long.valueOf(params.get("cardNumber").toString());
+        Long cardNumber = Long.valueOf(params.get(CARD_NUMBER).toString());
         CardService cardService = new CardServiceImpl();
         Card card = cardService.getByCardNumber(cardNumber);
         card.setStatus(Status.ACTIVE);
         cardService.update(card);
         CardRequestService cardRequestService = new CardRequestServiceImpl();
-        cardRequestService.DeleteByCarddNumber(cardNumber);
+        cardRequestService.deleteByCardNumber(cardNumber);
         return card;
     }
 }

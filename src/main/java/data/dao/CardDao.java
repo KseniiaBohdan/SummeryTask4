@@ -10,4 +10,6 @@ public interface CardDao extends Dao<Card>{
     List getByAccountId(Long accountId) throws SQLException;
 
     List<Card> getActiveByUserId(Long userId);
+
+    boolean update(List<Card> cards);
 }

@@ -70,10 +70,10 @@ public class CardRequestDaoImpl implements CardRequestDao {
         try {
             PreparedStatement ps = con.prepareStatement(DELETE_BY_CARD_ID);
             ps.setLong(1, cardNumber);
-            ps.executeUpdate();
+            int result = ps.executeUpdate();
             ps.close();
             con.close();
-            return true;
+            return result>0;
         } catch (SQLException e) {
             return false;
         }

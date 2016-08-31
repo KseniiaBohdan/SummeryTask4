@@ -1,5 +1,7 @@
 package servlets.card;
 
+import service.CardRequestService;
+import service.impl.CardRequestServiceImpl;
 import servlets.PageConstant;
 import data.entity.Card;
 import data.entity.Status;
@@ -19,32 +21,30 @@ import java.util.List;
 public class DeleteCardServlet extends HttpServlet{
 
     private static final String CARD_NUMBER = "cardNumber";
+    private static final String USER = "user";
+    private static final String CARD_LIST = "cardList";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         CardService cardService = new CardServiceImpl();
-        Long user_id = ((User)session.getAttribute("user")).getId();
-        List<Card> cardList = cardService.getNotDeletedCardByUserId(Long.valueOf(user_id));
-        req.setAttribute("cardList", cardList);
-
+        Long user_id = ((User)session.getAttribute(USER)).getId();
+        List<Card> cardList = cardService.getByUserId(Long.valueOf(user_id));
+        cardService.removeCardsByStatus(cardList, Status.DELETED);
+        req.setAttribute(CARD_LIST, cardList);
         req.getRequestDispatcher(PageConstant.DELETE_CARD).include(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CardService cardService = new CardServiceImpl();
-        PrintWriter out = resp.getWriter();
         Card card = cardService.getByCardNumber(Long.valueOf(req.getParameter(CARD_NUMBER)));
         card.setStatus(Status.DELETED);
+        new CardRequestServiceImpl().deleteByCardNumber(card.getCardNumber());
         if(cardService.update(card)){
-            out.print("true");
-            out.flush();
-            out.close();
+            resp.sendRedirect(PageConstant.DELETE_CARD_SERVLET);
         }else {
-            out.print("false");
-            out.flush();
-            out.close();
+
         }
 
     }

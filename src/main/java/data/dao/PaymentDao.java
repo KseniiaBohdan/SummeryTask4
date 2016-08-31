@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PaymentDao extends Dao<Payment> {
 
-    List getByUserSenderId(Long userId) throws SQLException;
+    List getByUserSenderId(Long userId);
 
     List getByUserReceiverId(Long userId) throws SQLException;
 }

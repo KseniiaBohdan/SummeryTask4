@@ -2,6 +2,7 @@ package service.impl;
 
 import data.dao.impl.AccountDaoImpl;
 import data.entity.Account;
+import data.entity.Status;
 import service.AccountService;
 
 import java.sql.SQLException;
@@ -12,8 +13,8 @@ public class AccountServiceImpl implements AccountService {
 
     AccountDaoImpl accountDao = new AccountDaoImpl();
 
-    public boolean update(Account account){
-            return accountDao.update(account);
+    public boolean update(Account account) {
+        return accountDao.update(account);
     }
 
     public boolean create(Account account) {
@@ -25,6 +26,10 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public boolean deleteAll() {
+        return false;
+    }
+
+    public boolean update(List<Account> entity) {
         return false;
     }
 
@@ -42,6 +47,18 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public boolean deleteById(Long accountId) {
-            return accountDao.deleteById(accountId);
+        return accountDao.deleteById(accountId);
     }
+
+    public void removeAccountByStatus(List<Account> accountList, Status... status) {
+        for (int i = 0; i < status.length; i++) {
+            for (int j = 0; j < accountList.size(); j++) {
+                if (accountList.get(j).getStatus().equals(status[i])) {
+                    accountList.remove(j);
+                    --j;
+                }
+            }
+        }
+    }
+
 }

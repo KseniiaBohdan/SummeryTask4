@@ -66,6 +66,10 @@ public class UserServiceImpl implements UserService {
         return userDao.deleteAll();
     }
 
+    public boolean update(List<User> entity) {
+        return false;
+    }
+
     public List<User> findByName(List<String> name) {
         List<User> users = userDao.findByName(name.get(0));
         for (int i = 1; i < name.size(); i++) {

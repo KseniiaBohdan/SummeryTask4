@@ -8,6 +8,7 @@ public class CardRequest extends Entity{
     private String title;
 
     public CardRequest(){
+        title = "";
     }
 
     public CardRequest(Long cardNumber, String title){

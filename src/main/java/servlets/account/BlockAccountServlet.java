@@ -18,36 +18,38 @@ import java.util.List;
 
 public class BlockAccountServlet extends HttpServlet {
 
+    private static final String ACCOUNT_LIST = "accountList";
+    private static final String ACCOUNT_ID = "accountId";
+    private static final String USER = "user";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         AccountService accountService = new AccountServiceImpl();
-        Long userId = ((User)session.getAttribute("user")).getId();
+        Long userId = ((User)session.getAttribute(USER)).getId();
         List<Account> accountList = accountService.getByUserId(Long.valueOf(userId));
+        accountService.removeAccountByStatus(accountList, Status.BLOCKED, Status.DELETED);
+
         for (int i = 0; i < accountList.size() ; i++) {
             if(accountList.get(i).getStatus() != Status.ACTIVE){
                 accountList.remove(i);
             }
         }
-        req.setAttribute("accountList", accountList);
-
+        req.setAttribute(ACCOUNT_LIST, accountList);
         req.getRequestDispatcher(PageConstant.BLOCK_ACCOUNT).include(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AccountService accountService = new AccountServiceImpl();
-        Long accountId = Long.valueOf(req.getParameter("account id"));
+        Long accountId = Long.valueOf(req.getParameter(ACCOUNT_ID));
         Account account = accountService.getByAccountId(accountId);
         account.setStatus(Status.BLOCKED);
-        PrintWriter out = resp.getWriter();
         if (accountService.update(account)) {
-            out.print(true);
+            resp.sendRedirect(PageConstant.BLOCK_ACCOUNT_SERVLET);
         } else {
-            out.print(false);
+
         }
-        out.flush();
-        out.close();
     }
 }
 

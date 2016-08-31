@@ -132,11 +132,11 @@
     <servlet>
         <display-name>DoPaymentServlet</display-name>
         <servlet-name>DoPaymentServlet</servlet-name>
-        <servlet-class>servlets.payment.DoPaymentServlet</servlet-class>
+        <servlet-class>servlets.payment.CreatePaymentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DoPaymentServlet</servlet-name>
-        <url-pattern>/do-payment</url-pattern>
+        <url-pattern>/payment/create</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -156,7 +156,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>HistoryServlet</servlet-name>
-        <url-pattern>/history</url-pattern>
+        <url-pattern>/payment/history</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -166,7 +166,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserManagementServlet</servlet-name>
-        <url-pattern>/user/management</url-pattern>
+        <url-pattern>/admin/user/management</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -176,7 +176,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserActionServlet</servlet-name>
-        <url-pattern>/admin/action</url-pattern>
+        <url-pattern>/admin/user/action/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -207,7 +207,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PaymentsHistoryServlet</servlet-name>
-        <url-pattern>/admin/history</url-pattern>
+        <url-pattern>/admin/payment/history</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -217,7 +217,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UnblockRequestsServlet</servlet-name>
-        <url-pattern>/admin/card/unblock-requests</url-pattern>
+        <url-pattern>/admin/card/unblock</url-pattern>
     </servlet-mapping>
 
     <servlet>

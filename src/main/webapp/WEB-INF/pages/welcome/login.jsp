@@ -80,10 +80,7 @@
     </div>
 </div>
 
-<script src="/styles/assets/js/jquery-1.10.2.js"></script>
-<script src="/styles/assets/js/bootstrap.min.js"></script>
-<script src="/styles/assets/js/jquery.metisMenu.js"></script>
-<script src="/styles/assets/js/custom.js"></script>
+<%@ include file="/WEB-INF/pages/fragment/includeJs.jspf"%>
 
 </body>
 </html>

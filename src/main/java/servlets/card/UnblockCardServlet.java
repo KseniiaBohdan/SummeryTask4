@@ -4,7 +4,9 @@ import data.entity.Card;
 import data.entity.CardRequest;
 import data.entity.Status;
 import data.entity.User;
+import org.apache.commons.lang.StringUtils;
 import service.CardRequestService;
+import service.CardService;
 import service.impl.CardRequestServiceImpl;
 import service.impl.CardServiceImpl;
 import servlets.PageConstant;
@@ -17,18 +19,23 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-public class UnblockCardServlet extends HttpServlet{
+public class UnblockCardServlet extends HttpServlet {
 
     private static final String CARD_NUMBER = "cardNumber";
     private static final String TITLE = "title";
     private static final String USER = "user";
+    private static final String CARD_LIST = "cardList";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Long userId = ((User)session.getAttribute(USER)).getId();
-        List<Card> blockedCards = new CardServiceImpl().getUserCardByStatus(Status.BLOCKED, userId);
-        req.setAttribute("cardList", blockedCards );
+        req.setAttribute("unblockRequestResult", session.getAttribute("unblockRequestResult"));
+        session.setAttribute("unblockRequestResult", null);
+        Long userId = ((User) session.getAttribute(USER)).getId();
+        CardService cardService = new CardServiceImpl();
+        List<Card> cardList = cardService.getByUserId(userId);
+        cardService.removeCardsByStatus(cardList, Status.ACTIVE, Status.DELETED);
+        req.setAttribute(CARD_LIST, cardList);
         req.getRequestDispatcher(PageConstant.UNBLOCK_CARD).include(req, resp);
     }
 
@@ -38,7 +45,9 @@ public class UnblockCardServlet extends HttpServlet{
         String title = req.getParameter(TITLE);
         CardRequest cardRequest = new CardRequest(cardNumber, title);
         CardRequestService crs = new CardRequestServiceImpl();
-        crs.create(cardRequest);
-        resp.sendRedirect(PageConstant.UNBLOCK_CARD_SERVLET);
+        if (crs.create(cardRequest)) {
+            req.getSession().setAttribute("unblockRequestResult", StringUtils.EMPTY);
+            resp.sendRedirect(PageConstant.UNBLOCK_CARD_SERVLET);
+        }
     }
 }

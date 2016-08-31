@@ -13,10 +13,10 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li>
-                <a class="active-menu" href="/profile"><i class="fa fa-dashboard fa-3x"></i> Profile</a>
+                <a class="active-menu" href="/profile"><i class="glyphicon glyphicon-user fa-3x"></i> Profile</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-3x"></i> Cards<span
+                <a href="#"><i class="glyphicon glyphicon-credit-card fa-3x"></i> Cards<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
@@ -34,7 +34,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-3x"></i> Accounts<span
+                <a href="#"><i class="glyphicon glyphicon-stop fa-3x"></i> Accounts<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
@@ -49,13 +49,13 @@
                 </ul>
             </li>
             <li>
-                <a href="table.html"><i class="fa fa-table fa-3x"></i> Payment</a>
+                <a href="/payment/create"><i class="glyphicon glyphicon-retweet fa-3x"></i> Create payment</a>
             </li>
             <li>
-                <a href="table.html"><i class="fa fa-table fa-3x"></i> Payments history</a>
+                <a href="/payment/history"><i class="glyphicon glyphicon-list-alt fa-3x"></i> Payments history</a>
             </li>
             <li>
-                <a class="active-menu" href="/logout"><i class="fa fa-dashboard fa-3x"></i> Logout</a>
+                <a class="active-menu" href="/logout"><i class="glyphicon glyphicon-log-out fa-3x"></i> Logout</a>
             </li>
         </ul>
 

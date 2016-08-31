@@ -15,6 +15,10 @@ import java.io.IOException;
 
 public class AddAccountServlet extends HttpServlet {
 
+    private static final String TITLE = "title";
+    private static final String USER = "user";
+    private static final String ID = "accountId";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher(PageConstant.ADD_ACCOUNT).include(req, resp);
@@ -24,17 +28,19 @@ public class AddAccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AccountService accountService = new AccountServiceImpl();
         HttpSession session = req.getSession();
-        Long userId = ((User) session.getAttribute("user")).getId();
+        Long userId = ((User) session.getAttribute(USER)).getId();
         int accountNumber = accountService.getByUserId(userId).size() + 1;
         Account account = new Account();
-        account.setId(Long.valueOf(req.getParameter("id")));
+        account.setId(Long.valueOf(req.getParameter(ID)));
         account.setNumber(accountNumber);
-        account.setTitle(req.getParameter("title"));
+        account.setTitle(req.getParameter(TITLE));
         account.setUserId(userId);
         if (AccountValid(account, accountService)) {
             if (accountService.create(account)) {
-                resp.getWriter().print("OK");
+                resp.sendRedirect(PageConstant.ADD_ACCOUNT_SERVLET);
             }
+        } else {
+
         }
     }
 

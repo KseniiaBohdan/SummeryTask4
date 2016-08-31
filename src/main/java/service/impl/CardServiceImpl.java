@@ -12,12 +12,12 @@ public class CardServiceImpl implements CardService {
 
     CardDaoImpl cardDao = new CardDaoImpl();
 
-    public boolean update(Card card){
-            return cardDao.update(card);
+    public boolean update(Card card) {
+        return cardDao.update(card);
     }
 
     public boolean create(Card card) {
-            return cardDao.create(card);
+        return cardDao.create(card);
     }
 
     public List<Card> getAll() {
@@ -28,7 +28,11 @@ public class CardServiceImpl implements CardService {
         return false;
     }
 
-    public  List getNotDeletedCardByUserId(Long userId){
+    public boolean update(List<Card> cards) {
+        return cardDao.update(cards);
+    }
+
+    public List getNotDeletedCardByUserId(Long userId) {
         return cardDao.getNotDeletedCardByUserId(userId);
     }
 
@@ -42,7 +46,7 @@ public class CardServiceImpl implements CardService {
     }
 
     public List getByAccountId(Long accountId) {
-           return cardDao.getByAccountId(accountId);
+        return cardDao.getByAccountId(accountId);
     }
 
     public boolean deleteByCardNumber(Long cardNumber) {
@@ -55,14 +59,19 @@ public class CardServiceImpl implements CardService {
     }
 
     public Card getByCardNumber(Long cardNumber) {
-            return cardDao.getById(cardNumber);
+        return cardDao.getById(cardNumber);
     }
 
-    public List<Card> getActiveByUserId(Long userId) {
-        return cardDao.getActiveByUserId(userId);
+    public void removeCardsByStatus( List<Card> cardList, Status... status) {
+        for (int i = 0; i < status.length; i++) {
+            for (int j = 0; j < cardList.size(); j++) {
+                if (cardList.get(j).getStatus().equals(status[i])) {
+                    cardList.remove(j);
+                    --j;
+                }
+            }
+        }
     }
 
-    public List<Card> getUserCardByStatus(Status status, Long userId) {
-        return cardDao.getUsersCardByStatus(status, userId);
-    }
+
 }

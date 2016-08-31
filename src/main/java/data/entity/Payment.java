@@ -15,6 +15,8 @@ public class Payment extends Entity implements Serializable{
 
     public Payment(){
         paymentStatus = PaymentStatus.PREPARED;
+        title = "";
+        sum = 0;
     }
 
     public Long getId() {

@@ -168,6 +168,27 @@ public class CardDaoImpl implements CardDao {
         }
     }
 
+    public boolean update(List<Card> cards) {
+        Connection con = ConnectionPool.getConnection();
+        try {
+            PreparedStatement ps = con.prepareStatement(UPDATE);
+            for(Card card : cards) {
+                ps.setLong(1, card.getUserId());
+                ps.setDate(2, card.getExpiryDate());
+                ps.setInt(3, card.getPin());
+                ps.setInt(4, card.getStatus().getId());
+                ps.setString(5, card.getTitle());
+                ps.setLong(6, card.getCardNumber());
+                ps.executeUpdate();
+            }
+            ps.close();
+            con.close();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
     public List getNotDeletedCardByUserId(Long userId) {
         Connection con = ConnectionPool.getConnection();
         PreparedStatement ps = null;

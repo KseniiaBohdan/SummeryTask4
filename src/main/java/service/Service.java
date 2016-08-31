@@ -1,5 +1,7 @@
 package service;
 
+import data.entity.Card;
+
 import java.util.List;
 
 public interface Service <Entity> {
@@ -11,5 +13,5 @@ public interface Service <Entity> {
 
     public boolean deleteAll();
 
-
+    boolean update(List<Entity> entity);
 }

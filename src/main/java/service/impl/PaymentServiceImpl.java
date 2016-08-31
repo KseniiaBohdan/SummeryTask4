@@ -28,13 +28,12 @@ public class PaymentServiceImpl implements PaymentService {
         return false;
     }
 
+    public boolean update(List<Payment> entity) {
+        return false;
+    }
+
     public List getByUserSenderId(Long userId){
-        try {
             return paymentDao.getByUserSenderId(userId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     public List getByCardSenderId(Long cardSenderId) {

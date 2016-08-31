@@ -16,11 +16,11 @@ public class PaymentDaoImpl implements PaymentDao {
 
     private static final String GET_BY_USER_SENDER_ID = "SELECT * FROM payment WHERE card_number_sender IN " +
             "(SELECT card_number FROM card WHERE user_id = ?)";
-    private static final String CREATE = "INSERT INTO payment(number, card_number_receiver, card_number_sender, title, sum, payment_status_id)" +
-            "VALUES (?, ?, ?, ?, ?, ?)";
     private static final String GET_BY_USER_RECEIVER_ID = "SELECT * FROM payment WHERE card_number_receiver IN " +
             "(SELECT card_number FROM card WHERE user_id = ?)";
     private static final java.lang.String GET_ALL = "SELECT * FROM payment";
+    private static final String CREATE = "INSERT INTO payment(number, card_number_receiver, card_number_sender, title, sum, payment_status_id)" +
+            "VALUES (?, ?, ?, ?, ?, ?)";
 
     public boolean update(Payment payment) {
         return false;

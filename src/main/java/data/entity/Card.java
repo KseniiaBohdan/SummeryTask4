@@ -14,6 +14,7 @@ public class Card extends Entity implements Serializable{
 
     public Card() {
         status = Status.ACTIVE;
+        title = "";
     }
 
     public Date getExpiryDate() {

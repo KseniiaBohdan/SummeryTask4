@@ -17,10 +17,27 @@
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="status_account_id_fk" columns="status_id" ref-table="status" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="user_id_account_fk" columns="user_id" ref-table="user" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="account_request_id_fk" table="account_requeat" schema="" catalog="payment_system" columns="account_id"/>
       <exported-key name="account_id_fk" table="card" schema="" catalog="payment_system" columns="account_id"/>
       <index name="id_UNIQUE" unique="true" columns="id"/>
       <index name="payment_status_fk" unique="false" columns="status_id"/>
       <index name="user_id_account_fk" unique="false" columns="user_id"/>
+    </table>
+    <table name="account_requeat" schema="" catalog="payment_system" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="account_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="title" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="account_request_id_fk" columns="account_id" ref-table="account" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="account_request_id_fk_idx" unique="false" columns="account_id"/>
+    </table>
+    <table name="atm" schema="" catalog="payment_system" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="card_number_receiver" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="sum" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="atm_card_number_receiver" columns="card_number_receiver" ref-table="card" ref-schema="" ref-catalog="payment_system" ref-columns="card_number" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="atm_card_number_receiver_idx" unique="false" columns="card_number_receiver"/>
     </table>
     <table name="card" schema="" catalog="payment_system" type="TABLE">
       <column name="card_number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
@@ -34,6 +51,7 @@
       <foreign-key name="account_id_fk" columns="account_id" ref-table="account" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="status_card_id_fk" columns="status_id" ref-table="status" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="user_id_card_fk" columns="user_id" ref-table="user" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="atm_card_number_receiver" table="atm" schema="" catalog="payment_system" columns="card_number_receiver"/>
       <exported-key name="request_card_number_fk" table="card_request" schema="" catalog="payment_system" columns="card_number"/>
       <exported-key name="card_number_receiver_fk" table="payment" schema="" catalog="payment_system" columns="card_number_receiver"/>
       <exported-key name="card_number_sender_fk" table="payment" schema="" catalog="payment_system" columns="card_number_sender"/>

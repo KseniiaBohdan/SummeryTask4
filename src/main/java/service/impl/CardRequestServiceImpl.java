@@ -7,7 +7,7 @@ import service.CardRequestService;
 
 import java.util.List;
 
-public class CardRequestServiceImpl implements CardRequestService{
+public class CardRequestServiceImpl implements CardRequestService {
 
     CardRequestDao cardRequestDao = new CardRequestDaoImpl();
 
@@ -28,7 +28,12 @@ public class CardRequestServiceImpl implements CardRequestService{
         return cardRequestDao.deleteAll();
     }
 
-    public boolean DeleteByCarddNumber(Long cardNumber) {
+    public boolean update(List<CardRequest> entity) {
+        return false;
+    }
+
+    public boolean deleteByCardNumber(Long cardNumber) {
         return cardRequestDao.deleteByCardNumber(cardNumber);
     }
+
 }

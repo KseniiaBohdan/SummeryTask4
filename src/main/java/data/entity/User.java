@@ -15,6 +15,7 @@ public class User extends Entity implements Serializable{
 
     public User() {
         status = Status.ACTIVE;
+        role = Role.USER;
     }
 
     public Long getId() {

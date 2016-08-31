@@ -13,6 +13,7 @@ public class Account extends Entity implements Serializable{
     public Account() {
         status = Status.ACTIVE;
         balance = 0L;
+        title = "";
     }
 
     public Long getUserId() {

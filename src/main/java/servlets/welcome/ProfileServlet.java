@@ -1,5 +1,7 @@
 package servlets.welcome;
 
+import org.apache.log4j.Logger;
+import servlets.EncodingFilter;
 import servlets.PageConstant;
 import data.dto.UserDto;
 import data.entity.*;
@@ -19,6 +21,8 @@ public class ProfileServlet extends HttpServlet {
 
     private static final String USER_MADEL = "userModel";
     private static final String USER = "user";
+    private static final Logger LOGGER = Logger.getLogger(ProfileServlet.class);
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,6 +38,7 @@ public class ProfileServlet extends HttpServlet {
         userDto.setAccounts(accountList);
         userDto.setCards(cardList);
         req.setAttribute(USER_MADEL, userDto);
+        LOGGER.trace("Profile of " + user.getEmail() + " was open");
         req.getRequestDispatcher(PageConstant.PROFILE).include(req, resp);
     }
 }

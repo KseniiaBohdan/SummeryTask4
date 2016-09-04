@@ -17,13 +17,13 @@
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="status_account_id_fk" columns="status_id" ref-table="status" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="user_id_account_fk" columns="user_id" ref-table="user" ref-schema="" ref-catalog="payment_system" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
-      <exported-key name="account_request_id_fk" table="account_requeat" schema="" catalog="payment_system" columns="account_id"/>
+      <exported-key name="account_request_id_fk" table="account_request" schema="" catalog="payment_system" columns="account_id"/>
       <exported-key name="account_id_fk" table="card" schema="" catalog="payment_system" columns="account_id"/>
       <index name="id_UNIQUE" unique="true" columns="id"/>
       <index name="payment_status_fk" unique="false" columns="status_id"/>
       <index name="user_id_account_fk" unique="false" columns="user_id"/>
     </table>
-    <table name="account_requeat" schema="" catalog="payment_system" type="TABLE">
+    <table name="account_request" schema="" catalog="payment_system" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="account_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="title" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12"/>

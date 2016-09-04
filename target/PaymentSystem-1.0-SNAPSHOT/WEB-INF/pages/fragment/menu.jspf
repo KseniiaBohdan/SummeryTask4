@@ -8,28 +8,27 @@
         </button>
     </div>
 </nav>
-<!-- /. NAV TOP -->
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li>
-                <a class="active-menu" href="/profile"><i class="glyphicon glyphicon-user fa-3x"></i> Profile</a>
+                <a class="active-menu" href="/user/profile"><i class="glyphicon glyphicon-user fa-3x"></i> Profile</a>
             </li>
             <li>
                 <a href="#"><i class="glyphicon glyphicon-credit-card fa-3x"></i> Cards<span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/card/add">Add new card</a>
+                        <a href="/user/card/add">Add new card</a>
                     </li>
                     <li>
-                        <a href="/card/block">Block card</a>
+                        <a href="/user/card/block">Block card</a>
                     </li>
                     <li>
-                        <a href="/card/unblock">Unblock card</a>
+                        <a href="/user/card/unblock">Unblock card</a>
                     </li>
                     <li>
-                        <a href="/card/delete">Delete card</a>
+                        <a href="/user/card/delete">Delete card</a>
                     </li>
                 </ul>
             </li>
@@ -38,21 +37,27 @@
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/account/add">Add new account</a>
+                        <a href="/user/account/add">Add new account</a>
                     </li>
                     <li>
-                        <a href="/account/block">Block account</a>
+                        <a href="/user/account/block">Block account</a>
                     </li>
                     <li>
-                        <a href="/account/delete">Delete account</a>
+                        <a href="/user/account/unblock">Unblock account</a>
+                    </li>
+                    <li>
+                        <a href="/user/account/delete">Delete account</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/payment/create"><i class="glyphicon glyphicon-retweet fa-3x"></i> Create payment</a>
+                <a href="/user/payment/create"><i class="glyphicon glyphicon-retweet fa-3x"></i> Create payment</a>
             </li>
             <li>
-                <a href="/payment/history"><i class="glyphicon glyphicon-list-alt fa-3x"></i> Payments history</a>
+                <a href="/user/payment/history"><i class="glyphicon glyphicon-list-alt fa-3x"></i> Payments history</a>
+            </li>
+            <li>
+                <a href="/user/profile/settings"><i class="glyphicon glyphicon-list-alt fa-3x"></i> Profile settings</a>
             </li>
             <li>
                 <a class="active-menu" href="/logout"><i class="glyphicon glyphicon-log-out fa-3x"></i> Logout</a>

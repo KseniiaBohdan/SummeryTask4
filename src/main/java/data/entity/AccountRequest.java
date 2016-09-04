@@ -10,6 +10,11 @@ public class AccountRequest extends Entity{
         title="";
     }
 
+    public AccountRequest(Long accountId, String title) {
+        this.accountId=accountId;
+        this.title=title;
+    }
+
     public Long getId() {
         return id;
     }

@@ -32,19 +32,23 @@ public class UserDaoImpl implements UserDao {
             "patronymic LIKE ? AND role_id = ?";
 
 
-    public User getByEmail(String email) throws SQLException, ClassNotFoundException {
+    public User getByEmail(String email) {
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_BY_EMAIL);
-        ps.setString(1, email);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            User user = getUser(rs);
+        User user = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_BY_EMAIL);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user = getUser(rs);
+            }
             rs.close();
             ps.close();
             con.close();
             return user;
+        } catch (SQLException e) {
+            return user;
         }
-        return null;
     }
 
     public List<User> findByName(String name) {
@@ -224,19 +228,23 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public User getByPhoneNumber(String phoneNumber) throws SQLException {
+    public User getByPhoneNumber(String phoneNumber) {
         Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_BY_PHONE_NUMBER);
-        ps.setString(1, phoneNumber);
-        ResultSet rs = ps.executeQuery();
-        User user = new User();
-        while (rs.next()) {
-            user = getUser(rs);
+        User user = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_BY_PHONE_NUMBER);
+            ps.setString(1, phoneNumber);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user = getUser(rs);
+            }
             rs.close();
             ps.close();
             con.close();
+            return user;
+        } catch (SQLException e) {
+            return user;
         }
-        return user;
     }
 
     public List<User> getAllUsers() throws SQLException {
@@ -245,9 +253,8 @@ public class UserDaoImpl implements UserDao {
         ps.setInt(1, Role.USER.getId());
         ResultSet rs = ps.executeQuery();
         List<User> userList = new ArrayList();
-        User user = new User();
         while (rs.next()) {
-            user = getUser(rs);
+            User user = getUser(rs);
             userList.add(user);
         }
         rs.close();

@@ -6,6 +6,12 @@ public class Atm extends Entity{
     private Long cardNumberReceiver;
     private Long sum;
 
+    public Atm(Long id, Long cardNumberReceiver, Long sum) {
+        this.id = id;
+        this.cardNumberReceiver = cardNumberReceiver;
+        this.sum = sum;
+    }
+
     public Atm() {
         sum=0L;
     }

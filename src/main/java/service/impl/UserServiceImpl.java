@@ -19,25 +19,20 @@ public class UserServiceImpl implements UserService {
         return userDao.deleteById(id);
     }
 
-    public User getByEmail(String email) throws ClassNotFoundException {
-        try {
+    public User getByEmail(String email){
             User user = userDao.getByEmail(email);
             return user;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     public User getByCardNumber(long cardNumber) {
         return userDao.getByCardNumber(cardNumber);
     }
 
-    public List<User> getByStatus(Integer statusId) throws SQLException {
+    public List<User> getByStatus(Integer statusId){
         return userDao.getByStatus(statusId);
     }
 
-    public User getByPhoneNumber(String phoneNumber) throws SQLException {
+    public User getByPhoneNumber(String phoneNumber){
         return userDao.getByPhoneNumber(phoneNumber);
     }
 

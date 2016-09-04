@@ -20,11 +20,11 @@ public class CardRequestDaoImpl implements CardRequestDao {
     private static final String GET_BY_ID = "";
     private static final String DELETE_BY_CARD_ID = "DELETE FROM card_request WHERE card_number = ?";
 
-    public boolean update(CardRequest cardRequest){
+    public boolean update(CardRequest cardRequest) {
         return false;
     }
 
-    public boolean create(CardRequest cardRequest){
+    public boolean create(CardRequest cardRequest) {
         Connection con = ConnectionPool.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(CREATE);
@@ -33,19 +33,19 @@ public class CardRequestDaoImpl implements CardRequestDao {
             int result = ps.executeUpdate();
             ps.close();
             con.close();
-            return (result>0);
+            return (result > 0);
         } catch (SQLException e) {
             return false;
         }
     }
 
-    public List<CardRequest> getAll(){
+    public List<CardRequest> getAll() {
         Connection con = ConnectionPool.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(GET_ALL);
             List<CardRequest> requests = new ArrayList();
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 CardRequest cr = new CardRequest();
                 cr.setId(rs.getLong(DbFieldConstant.ID));
                 cr.setCardNumber(rs.getLong(DbFieldConstant.CARD_NUMBER));
@@ -61,7 +61,7 @@ public class CardRequestDaoImpl implements CardRequestDao {
         }
     }
 
-    public boolean deleteAll(){
+    public boolean deleteAll() {
         return false;
     }
 
@@ -73,7 +73,7 @@ public class CardRequestDaoImpl implements CardRequestDao {
             int result = ps.executeUpdate();
             ps.close();
             con.close();
-            return result>0;
+            return result > 0;
         } catch (SQLException e) {
             return false;
         }

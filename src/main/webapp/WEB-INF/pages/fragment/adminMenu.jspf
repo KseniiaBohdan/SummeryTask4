@@ -23,6 +23,9 @@
             <li>
                 <a href="/admin/card/unblock"><i class="glyphicon glyphicon-envelope fa-3x"></i> Unblock card requests</a>
             </li>
+            <li>
+                <a href="/admin/account/unblock"><i class="glyphicon glyphicon-envelope fa-3x"></i> Unblock account requests</a>
+            </li>
             <%--<li>--%>
                 <%--<a href="#"><i class="glyphicon glyphicon-stop fa-3x"></i> <span--%>
                         <%--class="fa arrow"></span></a>--%>

@@ -14,23 +14,30 @@
         <nav id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Admin profile</h2>
+                    <h1 style="color: black;">
+                        Admin profile
+                    </h1>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}. </h5>
+                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                    </h5>
                 </div>
             </div>
+            <hr/>
 
             <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Admin profile
-                        </div>
                         <div class="panel-body">
-
+                            <h4>Active users: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
+                            <h4>Blocked users: <span class="label label-info">${requestScope.userActiveTotal}</span>
+                            </h4>
+                            <h4>Deleted users: <span class="label label-info">${requestScope.userActiveTotal}</span>
+                            </h4>
+                            <h4>Admins: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
+                            <h4>Operations: <span class="label label-info">${requestScope.operationTotal}</span></h4>
+                            <h4>Total sum: <span class="label label-info">${requestScope.sumTotal}</span></h4>
                         </div>
                     </div>
-
                 </div>
             </div>
         </nav>

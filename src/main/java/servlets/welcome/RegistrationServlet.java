@@ -1,5 +1,7 @@
 package servlets.welcome;
 
+import org.apache.log4j.Logger;
+import servlets.EncodingFilter;
 import servlets.PageConstant;
 import data.entity.Account;
 import data.entity.Card;
@@ -35,6 +37,8 @@ public class RegistrationServlet extends HttpServlet {
     private static final String ACCOUNT_TITLE = "AccountTitle";
     private static final String CARD_TITLE = "CardTitle";
     private static final String USER = "user";
+    private static final Logger LOGGER = Logger.getLogger(RegistrationServlet.class);
+
 
 
     @Override
@@ -45,8 +49,7 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        saveParameter(req);
-        PrintWriter out = resp.getWriter();
+        LOGGER.debug("Registration start");
 
         UserServiceImpl userService = new UserServiceImpl();
         CardServiceImpl cardService = new CardServiceImpl();
@@ -65,34 +68,32 @@ public class RegistrationServlet extends HttpServlet {
         Card card = setCard(req, date);
         Account account = setAccount(req);
 
-        boolean flag = false;
-        if (this.accountValid(account, accountService) && this.cardValid(card, cardService) &&
-                this.userValid(user, userService) && userService.create(user)) {
-            try {
-                Long userId = userService.getByEmail(user.getEmail()).getId();
-                account.setUserId(userId);
-                int accountNumber = accountService.getByUserId(userId).size() + 1;
-                account.setNumber(accountNumber);
-                flag = accountService.create(account);
-                card.setUserId(userId);
-                flag = flag&&cardService.create(card);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
+        boolean flag;
+        if (accountValid(account, accountService) && cardValid(card, cardService) &&
+                userValid(user, userService) && userService.create(user)) {
+            Long userId = userService.getByEmail(user.getEmail()).getId();
+            account.setUserId(userId);
+            int accountNumber = accountService.getByUserId(userId).size() + 1;
+            account.setNumber(accountNumber);
+            flag = accountService.create(account);
+            card.setUserId(userId);
+            flag = flag && cardService.create(card);
+
             if (flag) {
-                HttpSession session = req.getSession();
-                session.setAttribute(USER, user);
-                out.print("successful registration");
+                resp.sendRedirect(PageConstant.LOGIN_SERVLET);
+                LOGGER.trace("New user: " + user.getEmail());
+                LOGGER.debug("Registration ends successfully");
             }
+        } else {
+            resp.sendRedirect(PageConstant.REGISTRATION_SERVLET);
         }
-        out.flush();
-        out.close();
     }
 
     private Account setAccount(HttpServletRequest req) {
         Account account = new Account();
         account.setId(Long.valueOf(req.getParameter(ACCOUNT_NUMBER)));
         account.setTitle(req.getParameter(ACCOUNT_TITLE));
+        LOGGER.debug("Add account");
         return account;
     }
 
@@ -103,6 +104,7 @@ public class RegistrationServlet extends HttpServlet {
         card.setPin(Integer.valueOf(req.getParameter(PIN1)));
         card.setAccountId(Long.valueOf(req.getParameter(ACCOUNT_NUMBER)));
         card.setTitle(req.getParameter(CARD_TITLE));
+        LOGGER.debug("Add card");
         return card;
     }
 
@@ -114,22 +116,15 @@ public class RegistrationServlet extends HttpServlet {
         user.setEmail(req.getParameter(EMAIL));
         user.setPassword(req.getParameter(PASSWORD1));
         user.setPhoneNumber(req.getParameter(PHONE_NUMBER));
+        LOGGER.debug("Add user");
         return user;
     }
 
     private boolean userValid(User user, UserServiceImpl service) {
-        try {
-            if (service.getByEmail(user.getEmail()) == null &&
-                    service.getByPhoneNumber(user.getPhoneNumber()) == null) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (service.getByEmail(user.getEmail()) == null &&
+                service.getByPhoneNumber(user.getPhoneNumber()) == null) {
+            return true;
+        } else {
             return false;
         }
     }
@@ -149,18 +144,4 @@ public class RegistrationServlet extends HttpServlet {
             return false;
         }
     }
-
-    private static void saveParameter(HttpServletRequest req){
-        req.setAttribute(FIRST_NAME,  req.getParameter(FIRST_NAME));
-        req.setAttribute(SECOND_NAME,  req.getParameter(SECOND_NAME));
-        req.setAttribute(PATRONYMIC,  req.getParameter(PATRONYMIC));
-        req.setAttribute(PHONE_NUMBER,  req.getParameter(PHONE_NUMBER));
-        req.setAttribute(EMAIL,  req.getParameter(EMAIL));
-        req.setAttribute(CARD_NUMBER,  req.getParameter(CARD_NUMBER));
-        req.setAttribute(ACCOUNT_NUMBER,  req.getParameter(ACCOUNT_NUMBER));
-        req.setAttribute(EXPIRY_DATE,  req.getParameter(EXPIRY_DATE));
-        req.setAttribute(ACCOUNT_TITLE,  req.getParameter(ACCOUNT_TITLE));
-        req.setAttribute(CARD_TITLE,  req.getParameter(CARD_TITLE));
-    }
-
 }

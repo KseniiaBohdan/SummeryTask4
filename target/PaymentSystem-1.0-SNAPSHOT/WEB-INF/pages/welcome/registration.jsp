@@ -23,6 +23,7 @@
         </div>
     </div>
     <form method="post">
+        <form role="form" method="post" action="/registration/">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
                 <div class="panel panel-default">
@@ -30,7 +31,6 @@
                         <strong> Step 1: About You </strong>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
                             <br/>
 
                             <div class="form-group input-group">
@@ -68,7 +68,6 @@
                                 <input type="password" class="form-control" name="Password2"
                                        placeholder="Retype Password*"/>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -79,7 +78,6 @@
                         <strong> Step 2: Your first card </strong>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
                             <br/>
 
                             <div class="form-group input-group">
@@ -107,7 +105,6 @@
                                 <input type="text" class="form-control" name="CardTitle" placeholder="Title"
                                        value="${requestScope.CardTitle}"/>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -118,7 +115,6 @@
                         <strong> Step 3: Your first account </strong>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
                             <br/>
 
                             <div class="form-group input-group">
@@ -132,15 +128,15 @@
                                        placeholder="Title" value="${requestScope.AccountTitle}"/>
                             </div>
 
-                            <button onclick="submit" class="btn btn-success ">Register Me</button>
+                            <button type="submit" class="btn btn-success ">Register Me</button>
                             <hr/>
                             Already Registered? <a href="/login/*">Login here</a>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+        </form>
 </div>
 
 

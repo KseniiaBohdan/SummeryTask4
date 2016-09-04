@@ -20,18 +20,18 @@ public class UserManagementServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = new UserServiceImpl();
-        List<User> users = userService.getAllUsers();
+        List<User> users = userService.getAll();
         Status[] statuses = Status.values();
         req.setAttribute("statuses", statuses);
 
-        if (StringUtils .isNotBlank(req.getParameter("Name"))) {
-            List<String> name = new ArrayList(Arrays.asList(req.getParameter("Name").split(" ")));
-            if (name.size() != 0 && name!=null) {
-                req.setAttribute("Name", name);
-                removeSameElement(name);
-                users = userService.findByName(name);
-            }
-        }
+//        if (StringUtils .isNotBlank(req.getParameter("Name"))) {
+//            List<String> name = new ArrayList(Arrays.asList(req.getParameter("Name").split(" ")));
+//            if (name.size() != 0 && name!=null) {
+//                req.setAttribute("Name", name);
+//                removeSameElement(name);
+//                users = userService.findByName(name);
+//            }
+//        }
 
         String statusFilter = req.getParameter("filterSelect");
 
@@ -40,11 +40,11 @@ public class UserManagementServlet extends HttpServlet {
             users = filterByStatus(users, statusFilter, userService);
         }
 
-        String sort = req.getParameter("sortSelect");
-        if (StringUtils.isNotBlank(sort)) {
-            req.setAttribute("sortSelect", sort);
-            users = sortBy(users, sort);
-        }
+//        String sort = req.getParameter("sortSelect");
+//        if (StringUtils.isNotBlank(sort)) {
+//            req.setAttribute("sortSelect", sort);
+//            users = sortBy(users, sort);
+//        }
 
         req.setAttribute("userList", users);
         req.getRequestDispatcher(PageConstant.USER_MANAGEMENT).include(req, resp);

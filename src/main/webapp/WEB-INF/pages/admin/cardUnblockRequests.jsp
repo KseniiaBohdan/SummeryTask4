@@ -59,6 +59,13 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <c:if test="${requestScope.cardUnblockResult!=null}">
+                                <br/>
+                                <div class="alert alert-success">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <strong>Operation success!</strong> Card was unblocked.
+                                </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>

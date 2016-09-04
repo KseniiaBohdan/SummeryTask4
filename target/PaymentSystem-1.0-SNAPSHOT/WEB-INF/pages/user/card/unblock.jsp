@@ -75,10 +75,9 @@
                 </c:if>
                 <c:if test="${requestScope.unblockRequestResult !=null}">
                     <br/>
-
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Operation success!</strong>Request was sended.
+                        <strong>Operation success!</strong> Request was sent.
                     </div>
                 </c:if>
             </c:if>

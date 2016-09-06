@@ -1,6 +1,7 @@
 package servlets.user.card;
 
 import data.entity.Status;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import servlets.ContextListener;
 import servlets.PageConstant;
@@ -29,7 +30,8 @@ public class AddCardServlet extends HttpServlet {
     private static final String USER = "user";
     private static final String ACCOUNT_LIST = "accountList";
     private static final String CARD_NUMBER = "cardNumber";
-    private static final String PIN = "pin1";
+    private static final String PIN1 = "pin1";
+    private static final String PIN2 = "pin2";
     private static final String TITLE = "title";
     private static final Logger LOGGER = Logger.getLogger(AddCardServlet.class);
 
@@ -37,6 +39,8 @@ public class AddCardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        req.setAttribute("addCardResult", session.getAttribute("addCardResult"));
+        session.setAttribute("addCardResult", null);
         Long userId = ((User) session.getAttribute(USER)).getId();
         AccountService accountService = new AccountServiceImpl();
         List<Account> accountList = accountService.getByUserId(userId);
@@ -48,27 +52,29 @@ public class AddCardServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.debug("AddCard starts");
-        SimpleDateFormat in = new SimpleDateFormat("yyyy-MM-dd");
-        String parameter = req.getParameter(EXPIRY_DATE);
         java.util.Date date = null;
         try {
-            date = in.parse(parameter);
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter(EXPIRY_DATE));
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        Integer pin1 = Integer.valueOf(req.getParameter(PIN1));
+        Integer pin2 = Integer.valueOf(req.getParameter(PIN2));
 
         HttpSession session = req.getSession();
         Long id = ((User) session.getAttribute(USER)).getId();
         Card card = new Card();
         card.setCardNumber(Long.valueOf(req.getParameter(CARD_NUMBER)));
         card.setUserId(id);
-        card.setExpiryDate(new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()));
-        card.setPin(Integer.valueOf(req.getParameter(PIN)));
+        card.setExpiryDate(date);
+        card.setPin(pin1);
         card.setTitle(req.getParameter(TITLE));
         card.setAccountId(Long.valueOf(req.getParameter(ACCOUNT_ID)));
         CardService cardService = new CardServiceImpl();
-        if (cardValid(card, cardService)) {
+        if (cardValid(card, cardService, pin1, pin2)) {
             if (cardService.create(card)) {
+                req.getSession().setAttribute("addCardResult", StringUtils.EMPTY);
                 resp.sendRedirect(PageConstant.ADD_CARD_SERVLET);
                 LOGGER.debug("AddCard successfully");
             }
@@ -77,8 +83,9 @@ public class AddCardServlet extends HttpServlet {
         }
     }
 
-    private boolean cardValid(Card card, CardService cardService) {
-        if (cardService.getByCardNumber(card.getCardNumber()) == null) {
+    private boolean cardValid(Card card, CardService cardService, Integer p1, Integer p2) {
+        if (cardService.getByCardNumber(card.getCardNumber()) == null
+                && p1.equals(p2)) {
             return true;
         } else {
             return false;

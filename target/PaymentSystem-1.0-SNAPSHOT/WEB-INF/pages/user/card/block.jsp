@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,11 +17,19 @@
 <div id="wrapper">
     <%@ include file="/WEB-INF/pages/fragment/menu.jspf" %>
     <div id="page-wrapper">
-        <div class="form-group">
-            <h1>Select card</h1>
-            <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                <h5 style="color: red">Sorry, but your profile is blocked.</h5>
-            </c:if>
+        <nav id="page-inner">
+            <div class="row ">
+                <div class="col-md-12">
+                    <h2>Block card</h2>
+                    <h5>
+                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <br/></h5>
+                    <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
+                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                    </c:if>
+                    <hr/>
+                </div>
+            </div>
             <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
             <div class="row">
                 <c:forEach var="card" items="${requestScope.cardList}">
@@ -76,17 +85,18 @@
             <button class="btn btn-lg btn-block btn-warning" data-toggle="modal"
                     data-target="#blockCardModal" id="blockBtSab" disabled>Block card
             </button>
-        </div>
-        </c:if>
-        </c:if>
+        </nav>
     </div>
+    </c:if>
+    </c:if>
+</div>
 </div>
 
 
 <div class="modal fade" id="blockCardModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form method="post" action="/card/block">
+            <form method="post" action="/user/card/block">
                 <input type="hidden" name="cardNumber" id="blockCardNumber"/>
 
                 <div class="modal-header">

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -13,12 +14,18 @@
     <%@ include file="/WEB-INF/pages/fragment/menu.jspf" %>
     <div id="page-wrapper">
         <div class="form-group">
-            <h1>Create payment</h1>
-            <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                <h5 style="color: red">Sorry, but your profile is blocked.</h5>
-            </c:if>
-            <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
                 <nav id="page-inner">
+                    <h2 style="color: red">
+                        Create payment
+                    </h2>
+                    <h5>
+                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <br/></h5>
+                    <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
+                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                    </c:if>
+                    <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
+                    <hr/>
                     <div class="container">
                         <div class="row ">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -29,7 +36,7 @@
                                     <div class="panel-body">
 
                                         <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
-                                            <form role="form" method="post" action="/payment/create">
+                                            <form role="form" method="post" action="/user/payment/create">
                                                 <br/>
                                                 Select card
                                                 <div class="form-group input-group">
@@ -71,7 +78,6 @@
                                                 </div>
                                                 <button class="btn btn-primary " onclick="submit">Create payment
                                                 </button>
-                                                <hr/>
                                             </form>
                                         </c:if>
                                     </div>

@@ -30,4 +30,8 @@ public class AtmServiceImpl implements AtmService{
     public boolean update(List<Atm> entity) {
         return false;
     }
+
+    public List<Atm> getByUserId(Long userId) {
+        return atmDao.getByUserId(userId);
+    }
 }

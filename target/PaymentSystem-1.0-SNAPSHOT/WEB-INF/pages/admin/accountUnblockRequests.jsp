@@ -22,7 +22,8 @@
         <div class="col-md-12">
           <h2>Unblock account requests</h2>
           <h5>
-            Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}. </h5>
+            Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+          </h5>
         </div>
       </div>
       <hr/>

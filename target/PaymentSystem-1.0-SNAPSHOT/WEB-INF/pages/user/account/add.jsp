@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,39 +17,53 @@
 <div id="wrapper">
     <%@ include file="/WEB-INF/pages/fragment/menu.jspf" %>
     <div id="page-wrapper">
-        <div class="container">
+        <nav id="page-inner">
             <div class="row ">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <h1 style="color: black">Add account</h1>
+                <div class="col-md-12">
+                    <h2>Add account</h2>
+                    <h5>
+                        Welcome, ${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondName} ${requestScope.userModel.user.patronymic}.
+                        <br/></h5>
                     <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
                         <h5 style="color: red">Sorry, but your profile is blocked.</h5>
                     </c:if>
-                    <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <form role="form" method="post" action="/account/add">
-                                    <br/>
-                                    Account number
-                                    <div class="form-group input-group">
-                                        <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                        <input type="text" required pattern="[0-9]{16}" class="form-control"
-                                               placeholder="Account Number*"
-                                               name="accountId"/>
-                                    </div>
-                                    Title
-                                    <div class="form-group input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                        <input type="text" class="form-control" placeholder="Title" name="title"/>
-                                    </div>
-                                    <button class="btn btn-primary " onclick="submit">Add</button>
-                                    <hr/>
-                                </form>
-                            </div>
-                        </div>
-                    </c:if>
+                    <hr/>
                 </div>
             </div>
-        </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form role="form" method="post" action="/user/account/add">
+                                <br/>
+                                Account number
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                                    <input type="text" required pattern="[0-9]{16}" class="form-control"
+                                           placeholder="Account Number*"
+                                           name="accountId"/>
+                                </div>
+                                Title
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="text" class="form-control" placeholder="Title" name="title"/>
+                                </div>
+                                <button class="btn btn-primary " onclick="submit">Add</button>
+                                <hr/>
+                            </form>
+                        </div>
+                    </div>
+                    <c:if test="${requestScope.addAccountResult !=null}">
+                        <br/>
+
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Operation success!</strong> Account was added.
+                        </div>
+                    </c:if>
+                </c:if>
+            </div>
+        </nav>
     </div>
 </div>
 

@@ -9,43 +9,48 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.jstl.core.Config;
 
 import org.apache.log4j.Logger;
 
 public class EncodingFilter implements Filter {
 
-    private static final Logger LOGER = Logger.getLogger(EncodingFilter.class);
+    private static final Logger LOGGER = Logger.getLogger(EncodingFilter.class);
 
     private String encoding;
 
     public void destroy() {
-        LOGER.debug("Filter destruction starts");
-        LOGER.debug("Filter destruction finished");
+        LOGGER.debug("Filter destruction starts");
+        LOGGER.debug("Filter destruction finished");
     }
 
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
 
-        LOGER.debug("Filter starts");
+        LOGGER.debug("Filter starts");
 
-        HttpServletRequest httpRequest = (HttpServletRequest)request;
-        LOGER.trace("Request uri --> " + httpRequest.getRequestURI());
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+
+        LOGGER.trace("Request uri --> " + httpRequest.getRequestURI());
 
         String reqEncoding = request.getCharacterEncoding();
         if (reqEncoding == null) {
-            LOGER.trace("Request encoding = null, set encoding --> " + encoding);
+            LOGGER.trace("Request encoding = null, set encoding --> " + encoding);
             request.setCharacterEncoding(encoding);
         }
 
-        LOGER.debug("Filter finished");
+        LOGGER.debug("Filter finished");
         chain.doFilter(request, response);
     }
 
     public void init(FilterConfig fConfig) throws ServletException {
-        LOGER.debug("Filter initialization starts");
+        LOGGER.debug("Filter initialization starts");
         encoding = fConfig.getInitParameter("encoding");
-        LOGER.trace("Encoding from web.xml --> " + encoding);
-        LOGER.debug("Filter initialization finished");
+        LOGGER.trace("Encoding from web.xml --> " + encoding);
+        LOGGER.debug("Filter initialization finished");
     }
 
 }

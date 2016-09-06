@@ -1,7 +1,10 @@
 package servlets.user.payment;
 
 import data.dto.PaymentDto;
+import data.entity.Atm;
 import org.apache.log4j.Logger;
+import service.AtmService;
+import service.impl.AtmServiceImpl;
 import servlets.EncodingFilter;
 import servlets.PageConstant;
 import data.entity.Payment;
@@ -24,6 +27,7 @@ public class HistoryServlet extends HttpServlet{
 
     private static final String USER = "user";
     private static final String PAYMENT_MODAL_LIST = "paymentList";
+    private static final String ATM_LIST = "atmList";
     private static final Logger LOGGER = Logger.getLogger(HistoryServlet.class);
 
 
@@ -50,17 +54,21 @@ public class HistoryServlet extends HttpServlet{
             paymentModelList.add(paymentModal);
         }
 
+        List<Atm> atmList = new AtmServiceImpl().getByUserId(user.getId());
+
+        req.setAttribute(ATM_LIST, atmList);
         req.setAttribute(PAYMENT_MODAL_LIST, paymentModelList);
         req.getRequestDispatcher(PageConstant.HISTORY).include(req, resp);
         LOGGER.debug("History end");
     }
 
     private void removeSame(List<Payment> paymentList) {
-        for (int i = 0; i < paymentList.size()-1; i++) {
-            for (int j = 1; j < paymentList.size(); j++) {
-                if(paymentList.get(i).equals(paymentList.get(j))){
+        for (int i = 0; i < paymentList.size(); i++) {
+            for (int j = 0; j < paymentList.size(); j++) {
+                if(paymentList.get(i).equals(paymentList.get(j)) && i!=j){
                     paymentList.remove(j);
                     --j;
+                    --i;
                 }
             }
         }

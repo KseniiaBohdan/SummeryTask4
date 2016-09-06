@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,13 +17,20 @@
 <div id="wrapper">
     <%@ include file="/WEB-INF/pages/fragment/menu.jspf" %>
     <div id="page-wrapper">
-        <div class="form-group">
-            <h1>Select account</h1>
-            <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-            <h5 style="color: red">Sorry, but your profile is blocked.</h5>
-            </c:if>
+        <nav id="page-inner">
+            <div class="row ">
+                <div class="col-md-12">
+                    <h2>Block account</h2>
+                    <h5>
+                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <br/></h5>
+                    <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
+                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                    </c:if>
+                    <hr/>
+                </div>
+            </div>
             <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
-            <div class="row">
                 <div class="col-md-9 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -71,10 +79,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </c:if>
+
 
             <c:if test="${requestScope.accountList.size()==0}">
-            <h1>Sorry, you have not active accounts.</h1>
+                <h1>Sorry, you have not active accounts.</h1>
             </c:if>
             <c:if test="${requestScope.accountList.size()!=0}">
             <div class="col-md-1"></div>
@@ -82,13 +91,13 @@
             <button class="btn btn-lg btn-block btn-warning" data-toggle="modal"
                     data-target="#blockAccountModal" id="blockBtAcc" disabled>Block account
             </button>
-            </c:if>
+
 
             <div class="modal fade" id="blockAccountModal" tabindex="-1" role="dialog"
                  aria-labelledby="gridSystemModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <form method="post" action="/account/block">
+                        <form method="post" action="/user/account/block">
                             <input type="hidden" name="accountId" id="blockAccountId"/>
 
                             <div class="modal-header">
@@ -107,8 +116,10 @@
                     </div>
                 </div>
             </div>
-            </c:if>
-            <%@ include file="/WEB-INF/pages/fragment/includeJs.jspf" %>
+        </nav>
+        </c:if>
+    </div>
+    <%@ include file="/WEB-INF/pages/fragment/includeJs.jspf" %>
 </body>
 </html>
 

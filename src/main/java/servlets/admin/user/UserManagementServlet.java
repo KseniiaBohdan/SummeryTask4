@@ -20,7 +20,9 @@ public class UserManagementServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = new UserServiceImpl();
+        Long userId = ((User)req.getSession().getAttribute("user")).getId();
         List<User> users = userService.getAll();
+        deleteExtra(users, userId);
         Status[] statuses = Status.values();
         req.setAttribute("statuses", statuses);
 
@@ -48,6 +50,15 @@ public class UserManagementServlet extends HttpServlet {
 
         req.setAttribute("userList", users);
         req.getRequestDispatcher(PageConstant.USER_MANAGEMENT).include(req, resp);
+    }
+
+    private void deleteExtra(List<User> users, Long userId) {
+        for (int i = 0; i < users.size(); i++) {
+            if(users.get(i).getId().equals(userId)){
+                users.remove(i);
+                break;
+            }
+        }
     }
 
     private static List<User> sortBy(List<User> users, String sort) {

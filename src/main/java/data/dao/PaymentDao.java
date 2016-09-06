@@ -10,4 +10,6 @@ public interface PaymentDao extends Dao<Payment> {
     List getByUserSenderId(Long userId);
 
     List getByUserReceiverId(Long userId) throws SQLException;
+
+    Payment getById(Long id);
 }

@@ -52,7 +52,7 @@ public class ContextListener implements ServletContextListener {
         if (localesVal == null || localesVal.isEmpty()) {
             LOGGER.warn("'locale' init parameter is empty, the default encoding will be used");
         } else {
-            List<String> locales = new ArrayList<String>();
+            List<String> locales = new ArrayList();
             StringTokenizer st = new StringTokenizer(localesVal);
             while (st.hasMoreTokens()) {
                 String localeName = st.nextToken();

@@ -1,5 +1,6 @@
 package servlets.user.account;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import servlets.ContextListener;
 import servlets.PageConstant;
@@ -25,6 +26,9 @@ public class AddAccountServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        req.setAttribute("addAccountResult", session.getAttribute("addAccountResult"));
+        session.setAttribute("addAccountResult", null);
         req.getRequestDispatcher(PageConstant.ADD_ACCOUNT).include(req, resp);
     }
 
@@ -42,6 +46,7 @@ public class AddAccountServlet extends HttpServlet {
         account.setUserId(userId);
         if (AccountValid(account, accountService)) {
             if (accountService.create(account)) {
+                req.getSession().setAttribute("addAccountResult", StringUtils.EMPTY);
                 resp.sendRedirect(PageConstant.ADD_ACCOUNT_SERVLET);
                 LOGGER.debug("AddAccount ends successfully");
             }

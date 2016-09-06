@@ -2,15 +2,17 @@ package servlets;
 
 public final class PageConstant {
 
-    public static final String UNBLOCK_CARD_SERVLET = "/card/unblock";
-    public static final String CONFIRM_PAYMENT_SERVLET = "/payment/confirm";
+    public static final String UNBLOCK_CARD_SERVLET = "/user/card/unblock";
+    public static final String CONFIRM_PAYMENT_SERVLET = "/user/payment/confirm";
     public static final String PROFILE_SERVLET = "/user/profile";
     public static final String ADMIN_PROFILE_SERVLET = "/admin/profile";
-    public static final String ADD_CARD_SERVLET = "/card/add";
-    public static final String BLOCK_CARD_SERVLET = "/card/block";
-    public static final String ADD_ACCOUNT_SERVLET = "/account/add";
-    public static final String BLOCK_ACCOUNT_SERVLET = "/account/block";
-    public static final String DELETE_CARD_SERVLET = "/card/delete";
+    public static final String ADD_CARD_SERVLET = "/user/card/add";
+    public static final String BLOCK_CARD_SERVLET = "/user/card/block";
+    public static final String ADD_ACCOUNT_SERVLET = "/user/account/add";
+    public static final String BLOCK_ACCOUNT_SERVLET = "/user/account/block";
+    public static final String DELETE_CARD_SERVLET = "/user/card/delete";
+    public static final String USER_PAYMENTS_HISTORY_SERVLET = "/user/payment/history";
+    public static final String PAYMENT_ORDER_SERVLET = "/user/payment/order";
     public static final String REGISTRATION_SERVLET = "/registration";
 
     private PageConstant() {
@@ -20,9 +22,9 @@ public final class PageConstant {
     public static final String LOGIN_SERVLET = "/login";
 
     public static final String PUT_MONEY_SERVLET = "/put";
-    public static final String CREATE_PAYMENT_SERVLET = "/payment/create";
-    public static final String DELETE_ACCOUNT_SERVLET = "/account/delete";
-    public static final String UNBLOCK_ACCOUNT_SERVLET = "/account/unblock";
+    public static final String CREATE_PAYMENT_SERVLET = "/user/payment/create";
+    public static final String DELETE_ACCOUNT_SERVLET = "/user/account/delete";
+    public static final String UNBLOCK_ACCOUNT_SERVLET = "/user/account/unblock";
     public static final String PROFILE_SETTINGS_SERVLET = "/user/profile/settings";
 
     public static final String PAYMENTS_HISTORY_SERVLET = "/admin/history";

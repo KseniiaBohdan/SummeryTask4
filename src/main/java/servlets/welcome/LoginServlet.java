@@ -5,6 +5,7 @@ import data.entity.Status;
 import data.entity.User;
 import org.apache.log4j.Logger;
 import service.impl.UserServiceImpl;
+import service.utils.Password;
 import servlets.EncodingFilter;
 import servlets.PageConstant;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Objects;
 
 public class LoginServlet extends HttpServlet {
@@ -43,7 +45,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter(EMAIL);
-        String password = req.getParameter(PASSWORD);
+        String password = Password.hash(req.getParameter(PASSWORD));
         HttpSession session = req.getSession();
         UserServiceImpl userService = new UserServiceImpl();
 

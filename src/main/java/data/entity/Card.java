@@ -1,7 +1,7 @@
 package data.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class Card extends Entity implements Serializable{
     private Long cardNumber;

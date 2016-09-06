@@ -28,7 +28,7 @@ public class CardDaoImpl implements CardDao {
         try {
             PreparedStatement ps = con.prepareStatement(UPDATE);
             ps.setLong(1, card.getUserId());
-            ps.setDate(2, card.getExpiryDate());
+            ps.setDate(2, new java.sql.Date(card.getExpiryDate().getTime()));
             ps.setInt(3, card.getPin());
             ps.setInt(4, card.getStatus().getId());
             ps.setString(5, card.getTitle());
@@ -48,7 +48,7 @@ public class CardDaoImpl implements CardDao {
             PreparedStatement ps = con.prepareStatement(CREATE);
             ps.setLong(1, card.getCardNumber());
             ps.setLong(2, card.getUserId());
-            ps.setDate(3, card.getExpiryDate());
+            ps.setDate(3, new java.sql.Date(card.getExpiryDate().getTime()));
             ps.setInt(4, card.getPin());
             ps.setInt(5, card.getStatus().getId());
             ps.setString(6, card.getTitle());
@@ -174,7 +174,7 @@ public class CardDaoImpl implements CardDao {
             PreparedStatement ps = con.prepareStatement(UPDATE);
             for(Card card : cards) {
                 ps.setLong(1, card.getUserId());
-                ps.setDate(2, card.getExpiryDate());
+                ps.setDate(2, new java.sql.Date(card.getExpiryDate().getTime()));
                 ps.setInt(3, card.getPin());
                 ps.setInt(4, card.getStatus().getId());
                 ps.setString(5, card.getTitle());

@@ -5,6 +5,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import service.UserService;
 import service.impl.UserServiceImpl;
+import service.utils.Password;
 import servlets.EncodingFilter;
 import servlets.PageConstant;
 
@@ -22,7 +23,6 @@ public class ProfileSettings extends HttpServlet {
     private static final String PHONE_NUMBER = "phoneNumber";
     private static final String USER = "user";
     private static final Logger LOGGER = Logger.getLogger(ProfileSettings.class);
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,7 +56,7 @@ public class ProfileSettings extends HttpServlet {
             a = true;
         }
         if (passwordValid(password, user)) {
-            user.setPassword(password);
+            user.setPassword(Password.hash(password));
             b = true;
         }
         if (phoneNumberValid(phoneNumber, user)) {

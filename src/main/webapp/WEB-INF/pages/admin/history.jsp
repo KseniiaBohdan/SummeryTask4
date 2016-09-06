@@ -22,7 +22,8 @@
                 <div class="col-md-12">
                     <h2>Payments history</h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}. </h5>
+                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                    </h5>
                 </div>
             </div>
             <hr/>
@@ -54,7 +55,7 @@
                                                     ${paymentModel.senderName}
                                             </th>
                                             <th> ${paymentModel.payment.cardNumberReceiver} <br/>
-                                                ${paymentModel.receiverName}
+                                                    ${paymentModel.receiverName}
                                             </th>
                                             <th> ${paymentModel.payment.sum} </th>
                                             <th> ${paymentModel.payment.date} </th>

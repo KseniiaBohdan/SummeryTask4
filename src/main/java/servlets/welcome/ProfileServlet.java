@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 public class ProfileServlet extends HttpServlet {
@@ -32,6 +33,7 @@ public class ProfileServlet extends HttpServlet {
         UserDto userDto = new UserDto();
         List<Card> cardList = cardService.getByUserId(user.getId());
         cardService.removeCardsByStatus(cardList, Status.DELETED);
+        checkExpiryDate(cardList);
         List<Account> accountList = accountService.getByUserId(user.getId());
         accountService.removeAccountByStatus(accountList, Status.DELETED);
         userDto.setUser(user);
@@ -40,5 +42,15 @@ public class ProfileServlet extends HttpServlet {
         req.setAttribute(USER_MADEL, userDto);
         LOGGER.trace("Profile of " + user.getEmail() + " was open");
         req.getRequestDispatcher(PageConstant.PROFILE).include(req, resp);
+    }
+
+    private void checkExpiryDate(List<Card> cardList) {
+        for (int i = 0; i < cardList.size(); i++) {
+            Date currentDate = new Date();
+            if(currentDate.after(cardList.get(i).getExpiryDate()) && cardList.get(i).getStatus().equals(Status.ACTIVE)){
+                cardList.get(i).setStatus(Status.BLOCKED);
+                new CardServiceImpl().update(cardList.get(i));
+            }
+        }
     }
 }

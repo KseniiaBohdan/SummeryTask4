@@ -16,6 +16,8 @@ public class AtmDaoImpl implements AtmDao {
 
     private static final String CREATE = "INSERT INTO atm(card_number_receiver, sum) VALUES (?, ?)";
     private static final String GET_ALL = "SELECT * FROM atm";
+    private static final String GET_BY_USER_ID = "SELECT * FROM atm WHERE card_number_receiver IN " +
+            "(SELECT card_number FROM card WHERE user_id=?)";
 
     public boolean update(Atm atm) {
         return false;
@@ -65,5 +67,27 @@ public class AtmDaoImpl implements AtmDao {
     private void setPreparedStatement(Atm atm, PreparedStatement ps) throws SQLException {
         ps.setLong(1, atm.getCardNumberReceiver());
         ps.setLong(2, atm.getSum());
+    }
+
+    public List<Atm> getByUserId(Long userId) {
+        Connection con = ConnectionPool.getConnection();
+        List<Atm> atmList = new ArrayList();
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_BY_USER_ID);
+            ps.setLong(1, userId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Atm atm = new Atm(rs.getLong(DbFieldConstant.ID),
+                        rs.getLong(DbFieldConstant.CARD_NUMBER_RECEIVER),
+                        rs.getLong(DbFieldConstant.SUM));
+                atmList.add(atm);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return atmList;
+        } catch (SQLException e) {
+            return atmList;
+        }
     }
 }

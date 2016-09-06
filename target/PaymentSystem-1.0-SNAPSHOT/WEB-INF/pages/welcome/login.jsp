@@ -1,6 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%--<fmt:setBundle basename="com.example.i18n.text" />--%>
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="${language}">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,16 +17,21 @@
 
 </head>
 <body>
+
 <div id="wrapper">
     <div id="page-wrapper">
         <nav id="page-inner">
             <div class="row ">
+
+                <a href="LoginServlet?language=en">English</a>
+                <a href="LoginServlet?language=ru">Russian</a>
+
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <br/><br/>
-                    <h2>Terminal</h2>
+                    <h2>${terminal}</h2>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <strong> Put money on your card </strong>
+                            <%--<strong> <fmt:message key="put_money_on_your_card" /> </strong>--%>
                         </div>
                         <div class="panel-body">
                             <form role="form" method="post" action="/put">
@@ -42,8 +52,7 @@
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                     <input type="number" required class="form-control" placeholder="Sum*" name="sum"/>
                                 </div>
-                                <button class="btn btn-primary " type="submit">Put money</button>
-                                <hr/>
+                                <%--<button class="btn btn-primary " type="submit"><fmt:message key="put_money"/></button>--%>
                             </form>
                         </div>
                     </div>
@@ -51,11 +60,11 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <br/><br/>
 
-                    <h2>Login</h2>
+                    <h2><fmt:message key="login"/></h2>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <strong> Enter your email and password </strong>
+                            <%--<strong> <fmt:message key="enter_your_email_and_password"/> </strong>--%>
                         </div>
                         <div class="panel-body">
                             <form role="form" method="post">
@@ -70,17 +79,9 @@
                                     <input type="password" class="form-control" placeholder="Your password"
                                            name="Password"/>
                                 </div>
-                                <%--<div class="form-group">--%>
-                                <%--<label class="checkbox-inline">--%>
-                                <%--<input type="checkbox" /> Remember me--%>
-                                <%--</label>--%>
-                                <%--<span class="pull-right">--%>
-                                <%--<a href="#" >Forget password ? </a>--%>
-                                <%--</span>--%>
-                                <%--</div>--%>
-                                <button class="btn btn-primary " onclick="submit">Login Now</button>
+                                <button class="btn btn-primary " onclick="submit"><fmt:message key="login"/></button>
                                 <hr/>
-                                Not register? <a href="/registration">click here </a>
+                                <%--<fmt:message key="not_register"/>?<a href="/registration"><fmt:message key="click_here"/> </a>--%>
                             </form>
                         </div>
                     </div>
@@ -90,7 +91,7 @@
                 <br/>
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>Operation successful!</strong>
+                    <%--<strong><fmt:message key="operation_successfull"/>!</strong>--%>
                 </div>
             </c:if>
 

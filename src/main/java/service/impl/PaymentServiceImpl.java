@@ -13,7 +13,7 @@ public class PaymentServiceImpl implements PaymentService {
     private static PaymentDao paymentDao = new PaymentDaoImpl();
 
     public boolean update(Payment payment) {
-        return false;
+        return paymentDao.update(payment);
     }
 
     public boolean create(Payment payment) {
@@ -47,6 +47,10 @@ public class PaymentServiceImpl implements PaymentService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public Payment getById(Long id){
+        return paymentDao.getById(id);
     }
 
 }

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,7 +15,9 @@
         <nav id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Profile settings</h1>
+                    <h2>Profile settings</h2>
+                    <h5>Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                    </h5>
                     <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
                         <h5 style="color: red">Sorry, but your profile is blocked.</h5>
                     </c:if>

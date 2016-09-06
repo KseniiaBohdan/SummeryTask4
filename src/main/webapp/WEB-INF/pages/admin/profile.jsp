@@ -14,9 +14,9 @@
         <nav id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 style="color: black;">
+                    <h2>
                         Admin profile
-                    </h1>
+                    </h2>
                     <h5>
                         Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                     </h5>

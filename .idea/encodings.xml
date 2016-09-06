@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/ContextListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/EncodingFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/MySessionListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/PageConstant.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/AdminProfile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/PaymentsHistory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/account/AccountAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/account/UnblockAccountRequest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/card/CardAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/card/UnblockCardRequests.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/user/UserActionServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/ProfileSettings.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/account/AddAccountServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/account/BlockAccountServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/account/DeleteAccountServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/card/AddCardServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/card/BlockCardServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/card/DeleteCardServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/card/UnblockCardServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/payment/ConfirmPayment.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/payment/CreatePaymentServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/payment/GeneratePaymentOrder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/payment/HistoryServlet.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/welcome/LoginServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/welcome/LogoutServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/welcome/ProfileServlet.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/welcome/RegistrationServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/accountUnblockRequests.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/cardUnblockRequests.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/history.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/profile.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/users.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/fragment/adminMenu.jspf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/fragment/includeJs.jspf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/fragment/menu.jspf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/fragment/styles.jspf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/account/add.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/account/block.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/account/delete.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/account/unblock.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/card/add.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/card/block.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/card/delete.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/card/unblock.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/payment/createPayment.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/payment/history.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/profile.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/profileSettings.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/login.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/welcome/registration.jsp" charset="UTF-8" />
   </component>

@@ -22,28 +22,31 @@
                 <div class="col-md-12">
                     <h2>User management</h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}. </h5>
+                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                    </h5>
                 </div>
             </div>
             <hr/>
 
             <div class="row">
                 <div class="col-md-12">
-                        <div class="filterSelect">
-                            <select name="filterSelect" onselect="window.location.href='/admin/user/management'" onchange="window.location.href='/admin/user/management'" class="form-control">
-                                <option value="ALL"
-                                        <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
-                                        ALL
-                                </option>
-                                <c:forEach var="status" items="${requestScope.statuses}">
-                                    <option value="${status.toString()}"
+                    <div>
+                        <select class="form-control"
+                                onchange="window.location.href='/admin/user/management'+this.value">
+                            <option value=""
                                     <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
-                                    ${status.toString()}
-                                    </option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <br>
+                                ALL
+                            </option>
+                            <c:forEach var="status" items="${requestScope.statuses}">
+                                <option value="?filterSelect=${status.toString()}"
+                                        <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
+                                        ${status.toString()}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <br>
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Users
@@ -72,7 +75,7 @@
                                             <th>
                                                 <c:choose>
                                                     <c:when test="${user.status.toString() == 'BLOCKED'}">
-                                                        <button class="btn btn-success" style="width: 29%" type="submit"
+                                                        <button class="btn btn-success" style="width: 32%" type="submit"
                                                                 onclick="location.href='/admin/user/action?userId=${user.id}&action=unblock'">
                                                             Unblock
                                                         </button>
@@ -97,7 +100,7 @@
                                                     </button>
                                                 </c:if>
                                                 <c:if test="${user.role.toString() == 'ADMIN'}">
-                                                    <button class="btn btn-info" style="width: 29%" type="submit"
+                                                    <button class="btn btn-primary" style="width: 29%" type="submit"
                                                             onclick="location.href='/admin/user/action?userId=${user.id}&action=dismiss'">
                                                         Dismiss
                                                     </button>

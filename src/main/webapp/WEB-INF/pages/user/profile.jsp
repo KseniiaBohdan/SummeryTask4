@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,9 +15,10 @@
         <nav id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Profile</h1>
+                    <h2>Profile</h2>
                     <h5>
-                        Welcome, ${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondName} ${requestScope.userModel.user.patronymic}. <br/></h5>
+                        Welcome, ${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondName} ${requestScope.userModel.user.patronymic}.
+                        <br/></h5>
                     <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
                         <h5 style="color: red">Sorry, but your profile is blocked.</h5>
                     </c:if>
@@ -51,7 +53,7 @@
             <br/><br/>
 
             <div class="row">
-                <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Accounts

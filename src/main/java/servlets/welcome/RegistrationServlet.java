@@ -1,6 +1,8 @@
 package servlets.welcome;
 
 import org.apache.log4j.Logger;
+import service.utils.MailSender;
+import service.utils.Password;
 import servlets.EncodingFilter;
 import servlets.PageConstant;
 import data.entity.Account;
@@ -29,17 +31,17 @@ public class RegistrationServlet extends HttpServlet {
     private static final String PATRONYMIC = "Patronymic";
     private static final String PHONE_NUMBER = "PhoneNumber";
     private static final String PASSWORD1 = "Password1";
+    private static final String PASSWORD2 = "Password2";
     private static final String EMAIL = "Email";
     private static final String CARD_NUMBER = "CardNumber";
     private static final String ACCOUNT_NUMBER = "AccountNumber";
     private static final String PIN1 = "Pin1";
+    private static final String PIN2 = "Pin2";
     private static final String EXPIRY_DATE = "ExpiryDate";
     private static final String ACCOUNT_TITLE = "AccountTitle";
     private static final String CARD_TITLE = "CardTitle";
     private static final String USER = "user";
     private static final Logger LOGGER = Logger.getLogger(RegistrationServlet.class);
-
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,11 +57,9 @@ public class RegistrationServlet extends HttpServlet {
         CardServiceImpl cardService = new CardServiceImpl();
         AccountServiceImpl accountService = new AccountServiceImpl();
 
-        SimpleDateFormat in = new SimpleDateFormat("yyyy-MM-dd");
-        String parameter = req.getParameter(EXPIRY_DATE);
         java.util.Date date = null;
         try {
-            date = in.parse(parameter);
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(req.getParameter(EXPIRY_DATE));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -68,18 +68,27 @@ public class RegistrationServlet extends HttpServlet {
         Card card = setCard(req, date);
         Account account = setAccount(req);
 
+        Integer pin1 = Integer.valueOf(req.getParameter(PIN1));
+        Integer pin2 = Integer.valueOf(req.getParameter(PIN2));
+
+        String password1 = req.getParameter(PASSWORD1);
+        String password2 = req.getParameter(PASSWORD2);
+
         boolean flag;
-        if (accountValid(account, accountService) && cardValid(card, cardService) &&
-                userValid(user, userService) && userService.create(user)) {
+        if (accountValid(account, accountService) && cardValid(card, cardService, pin1, pin2) &&
+                userValid(user, userService, password1, password2) && userService.create(user)) {
             Long userId = userService.getByEmail(user.getEmail()).getId();
             account.setUserId(userId);
             int accountNumber = accountService.getByUserId(userId).size() + 1;
             account.setNumber(accountNumber);
             flag = accountService.create(account);
             card.setUserId(userId);
-            flag = flag && cardService.create(card);
+            flag &= cardService.create(card);
 
             if (flag) {
+                MailSender.sendMail(user.getEmail(), "Registration success", "Congratulations! " +
+                        "Your registration was successful! Welcome to our PaymentSystem, now You can execute operations with Your accounts and cards " +
+                        "with the help of our service." + "\n\n" + "Regards,\n" + "The PaymentSystem Team.");
                 resp.sendRedirect(PageConstant.LOGIN_SERVLET);
                 LOGGER.trace("New user: " + user.getEmail());
                 LOGGER.debug("Registration ends successfully");
@@ -100,7 +109,7 @@ public class RegistrationServlet extends HttpServlet {
     private Card setCard(HttpServletRequest req, Date date) {
         Card card = new Card();
         card.setCardNumber(Long.valueOf(req.getParameter(CARD_NUMBER)));
-        card.setExpiryDate(new java.sql.Date(date.getYear(), date.getMonth(), date.getDay()));
+        card.setExpiryDate(date);
         card.setPin(Integer.valueOf(req.getParameter(PIN1)));
         card.setAccountId(Long.valueOf(req.getParameter(ACCOUNT_NUMBER)));
         card.setTitle(req.getParameter(CARD_TITLE));
@@ -114,23 +123,25 @@ public class RegistrationServlet extends HttpServlet {
         user.setSecondName(req.getParameter(SECOND_NAME));
         user.setPatronymic(req.getParameter(PATRONYMIC));
         user.setEmail(req.getParameter(EMAIL));
-        user.setPassword(req.getParameter(PASSWORD1));
+        user.setPassword(Password.hash(req.getParameter(PASSWORD1)));
         user.setPhoneNumber(req.getParameter(PHONE_NUMBER));
         LOGGER.debug("Add user");
         return user;
     }
 
-    private boolean userValid(User user, UserServiceImpl service) {
+    private boolean userValid(User user, UserServiceImpl service, String p1, String p2) {
         if (service.getByEmail(user.getEmail()) == null &&
-                service.getByPhoneNumber(user.getPhoneNumber()) == null) {
+                service.getByPhoneNumber(user.getPhoneNumber()) == null
+                && p1.equals(p2)) {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean cardValid(Card card, CardServiceImpl service) {
-        if (service.getByCardNumber(card.getCardNumber()) == null) {
+    private boolean cardValid(Card card, CardServiceImpl service, Integer pin1, Integer pin2) {
+        if (service.getByCardNumber(card.getCardNumber()) == null
+                && pin1.equals(pin2)) {
             return true;
         } else {
             return false;

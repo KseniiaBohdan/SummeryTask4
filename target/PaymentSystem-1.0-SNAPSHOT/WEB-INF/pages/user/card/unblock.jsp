@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,11 +17,19 @@
 <div id="wrapper">
     <%@ include file="/WEB-INF/pages/fragment/menu.jspf" %>
     <div id="page-wrapper">
-        <div class="form-group">
-            <h1>Select card</h1>
-            <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                <h5 style="color: red">Sorry, but your profile is blocked.</h5>
-            </c:if>
+        <nav id="page-inner">
+            <div class="row ">
+                <div class="col-md-12">
+                    <h2>Unblock card</h2>
+                    <h5>
+                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <br/></h5>
+                    <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
+                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                    </c:if>
+                    <hr/>
+                </div>
+            </div>
             <c:if test="${sessionScope.user.status.toString()!='BLOCKED'}">
                 <div class="row">
                     <c:forEach var="card" items="${requestScope.cardList}">
@@ -75,21 +84,23 @@
                 </c:if>
                 <c:if test="${requestScope.unblockRequestResult !=null}">
                     <br/>
+
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <strong>Operation success!</strong> Request was sent.
                     </div>
                 </c:if>
             </c:if>
-        </div>
+        </nav>
     </div>
+</div>
 </div>
 
 
 <div class="modal fade" id="unblockCardModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form method="post" action="/card/unblock">
+            <form method="post" action="/user/card/unblock">
                 <input type="hidden" name="cardNumber" id="unblockCardNumber"/>
 
                 <div class="modal-header">

@@ -36,8 +36,20 @@ public class CreatePaymentServlet extends HttpServlet {
         Long userId = ((User) session.getAttribute(USER)).getId();
         List<Card> cardList = cardService.getByUserId(Long.valueOf(userId));
         cardService.removeCardsByStatus(cardList, Status.BLOCKED, Status.DELETED);
+        removeBlockAccount(cardList);
         req.setAttribute(CARD_LIST, cardList);
         req.getRequestDispatcher(PageConstant.CREATE_PAYMENT).include(req, resp);
+    }
+
+    private void removeBlockAccount(List<Card> cardList) {
+        for (int i = 0; i <cardList.size(); i++) {
+            Long accountId = cardList.get(i).getAccountId();
+            Status st = new AccountServiceImpl().getByAccountId(accountId).getStatus();
+            if(!st.equals(Status.ACTIVE)){
+                cardList.remove(i);
+                --i;
+            }
+        }
     }
 
     @Override
@@ -65,7 +77,7 @@ public class CreatePaymentServlet extends HttpServlet {
             accountService.update(accountReceiver);
 
             createPayment(req, session, sum, cardNumberSender, cardNumberReceiver);
-            resp.sendRedirect(PageConstant.CONFIRM_PAYMENT_SERVLET);
+            resp.sendRedirect(PageConstant.CREATE_PAYMENT_SERVLET);
             LOGGER.debug("CreatePayment end");
         }else {
             resp.sendRedirect(PageConstant.LOGIN_SERVLET);

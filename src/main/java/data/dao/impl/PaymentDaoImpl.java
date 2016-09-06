@@ -2,6 +2,7 @@ package data.dao.impl;
 
 import constant.dbConstant.DbFieldConstant;
 import data.dao.PaymentDao;
+import data.entity.PaymentStatus;
 import dbConnection.ConnectionPool;
 import data.entity.Payment;
 
@@ -21,12 +22,26 @@ public class PaymentDaoImpl implements PaymentDao {
     private static final java.lang.String GET_ALL = "SELECT * FROM payment";
     private static final String CREATE = "INSERT INTO payment(number, card_number_receiver, card_number_sender, title, sum, payment_status_id)" +
             "VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String GET_BY_ID = "SELECT * FROM payment WHERE id = ?";
+    private static final String UPDATE = "UPDATE payment SET payment_status_id = ?, date = ? WHERE id = ?";
 
     public boolean update(Payment payment) {
-        return false;
+        Connection con = ConnectionPool.getConnection();
+        try {
+            PreparedStatement ps = con.prepareStatement(UPDATE);
+            ps.setInt(1, payment.getPaymentStatus().getId());
+            ps.setDate(2, new java.sql.Date(new java.util.Date().getTime()));
+            ps.setLong(3, payment.getId());
+            int result = ps.executeUpdate();
+            ps.close();
+            con.close();
+            return  result>0;
+        } catch (SQLException e) {
+           return false;
+        }
     }
 
-    public boolean create(Payment payment){
+    public boolean create(Payment payment) {
         Connection con = ConnectionPool.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(CREATE);
@@ -46,16 +61,31 @@ public class PaymentDaoImpl implements PaymentDao {
     }
 
     public Payment getById(Long id) {
-        return null;
+        Connection con = ConnectionPool.getConnection();
+        Payment payment = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_BY_ID);
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                payment = getPayment(rs);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            return payment;
+        } catch (SQLException e) {
+            return null;
+        }
     }
 
-    public List<Payment> getAll(){
+    public List<Payment> getAll() {
         Connection con = ConnectionPool.getConnection();
-        List paymentList = new ArrayList <Payment>();
+        List paymentList = new ArrayList<Payment>();
         try {
             PreparedStatement ps = con.prepareStatement(GET_ALL);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 paymentList.add(getPayment(rs));
             }
             return paymentList;
@@ -72,7 +102,7 @@ public class PaymentDaoImpl implements PaymentDao {
         return false;
     }
 
-    public List getByUserSenderId(Long userId){
+    public List getByUserSenderId(Long userId) {
         Connection con = ConnectionPool.getConnection();
         List paymentList = new ArrayList<Payment>();
         try {
@@ -91,7 +121,7 @@ public class PaymentDaoImpl implements PaymentDao {
         }
     }
 
-    public List<Payment> getByUserReceiverId(Long userId){
+    public List<Payment> getByUserReceiverId(Long userId) {
         Connection con = ConnectionPool.getConnection();
         List paymentList = new ArrayList<Payment>();
         try {

@@ -15,10 +15,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>
-                        Admin profile
+                        <fmt:message key="admin_profile"/>
                     </h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                     </h5>
                 </div>
             </div>
@@ -28,14 +28,14 @@
                 <div class="col-md-9 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h4>Active users: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
-                            <h4>Blocked users: <span class="label label-info">${requestScope.userActiveTotal}</span>
+                            <h4><fmt:message key="active_users"/>: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
+                            <h4><fmt:message key="blocked_users"/>: <span class="label label-info">${requestScope.userActiveTotal}</span>
                             </h4>
-                            <h4>Deleted users: <span class="label label-info">${requestScope.userActiveTotal}</span>
+                            <h4><fmt:message key="deleted_users"/>: <span class="label label-info">${requestScope.userActiveTotal}</span>
                             </h4>
-                            <h4>Admins: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
-                            <h4>Operations: <span class="label label-info">${requestScope.operationTotal}</span></h4>
-                            <h4>Total sum: <span class="label label-info">${requestScope.sumTotal}</span></h4>
+                            <h4><fmt:message key="a_admins"/>: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
+                            <h4><fmt:message key="operations"/>: <span class="label label-info">${requestScope.operationTotal}</span></h4>
+                            <h4><fmt:message key="total_sum"/>: <span class="label label-info">${requestScope.sumTotal}</span></h4>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
@@ -20,12 +21,12 @@
     <div id="page-wrapper">
         <nav id="page-inner">
             <div class="col-md-12">
-                <h2>Payments history</h2>
+                <h2><fmt:message key="menu_jspf.admin.history"/></h2>
                 <h5>
-                    Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                    <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                     <br/></h5>
                 <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                    <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                    <h5 style="color: red"><fmt:message key="sorry_but_your_profile_is_blocked"/></h5>
                 </c:if>
                 <hr/>
             </div>
@@ -33,21 +34,21 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Payments
+                            <fmt:message key="history_jsp.admin.payments"/>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>Number</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                        <th>Sum</th>
-                                        <th>Date</th>
-                                        <th>Title</th>
-                                        <th>Status</th>
-                                        <th>Confim</th>
+                                        <th>#</th>
+                                        <th><fmt:message key="from"/></th>
+                                        <th><fmt:message key="to"/></th>
+                                        <th><fmt:message key="sum"/></th>
+                                        <th><fmt:message key="date"/></th>
+                                        <th><fmt:message key="title"/></th>
+                                        <th><fmt:message key="status"/></th>
+                                        <th><fmt:message key="confirm"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -67,7 +68,7 @@
                                                 <c:if test="${paymentModel.payment.paymentStatus == 'PREPARED'}">
                                                     <button class="btn btn-success" style="width: 80%" type="submit"
                                                             onclick="location.href='/user/payment/confirm?paymentId=${paymentModel.payment.id}'">
-                                                        Confirm
+                                                        <fmt:message key="confirm"/>
                                                     </button>
                                                 </c:if>
                                                 <c:if test="${paymentModel.payment.paymentStatus == 'COMPLETED'}">
@@ -75,7 +76,7 @@
                                                     <input type="hidden" name="paymentModelG" value="${paymentModel.payment.id}"/>
                                                     <button class="btn btn-success" style="width: 90%" type="submit"
                                                             onclick="submit">
-                                                        Generate order
+                                                        <fmt:message key="generate_order"/>
                                                     </button>
                                                     </form>
                                                 </c:if>
@@ -94,15 +95,15 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                ATM
+                                <fmt:message key="atm"/>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th>Sum</th>
-                                            <th>Card number</th>
+                                            <th><fmt:message key="sum"/></th>
+                                            <th><fmt:message key="card_number"/></th>
                                         </tr>
                                         </thead>
                                         <tbody>

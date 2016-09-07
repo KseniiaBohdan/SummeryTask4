@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -12,37 +13,28 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li>
-                <a class="active-menu" href="/admin/profile"><i class="glyphicon glyphicon-user fa-3x"></i> Profile</a>
+                <a class="active-menu" href="/admin/profile"><i class="glyphicon glyphicon-user fa-3x"></i> <fmt:message
+                        key="p_profile"/></a>
             </li>
             <li>
-                <a href="/admin/user/management"><i class="glyphicon glyphicon-align-justify fa-3x"></i> User management</a>
+                <a href="/admin/user/management"><i class="glyphicon glyphicon-align-justify fa-3x"></i> <fmt:message
+                        key="user_management"/></a>
             </li>
             <li>
-                <a href="/admin/payment/history"><i class="glyphicon glyphicon-list-alt fa-3x"></i> History</a>
+                <a href="/admin/payment/history"><i class="glyphicon glyphicon-list-alt fa-3x"></i> <fmt:message
+                        key="h_history"/></a>
             </li>
             <li>
-                <a href="/admin/card/unblock"><i class="glyphicon glyphicon-envelope fa-3x"></i> Unblock card requests</a>
+                <a href="/admin/card/unblock"><i class="glyphicon glyphicon-envelope fa-3x"></i> <fmt:message
+                        key="unblock_card_requests"/></a>
             </li>
             <li>
-                <a href="/admin/account/unblock"><i class="glyphicon glyphicon-envelope fa-3x"></i> Unblock account requests</a>
+                <a href="/admin/account/unblock"><i class="glyphicon glyphicon-envelope fa-3x"></i> <fmt:message
+                        key="unblock_account_requests"/></a>
             </li>
-            <%--<li>--%>
-                <%--<a href="#"><i class="glyphicon glyphicon-stop fa-3x"></i> <span--%>
-                        <%--class="fa arrow"></span></a>--%>
-                <%--<ul class="nav nav-second-level">--%>
-                    <%--<li>--%>
-                        <%--<a href="/account/add"></a>--%>
-                    <%--</li>--%>
-                    <%--<li>--%>
-                        <%--<a href="/account/block"></a>--%>
-                    <%--</li>--%>
-                    <%--<li>--%>
-                        <%--<a href="/account/delete"></a>--%>
-                    <%--</li>--%>
-                <%--</ul>--%>
-            <%--</li>--%>
             <li>
-                <a class="active-menu" href="/logout"><i class="glyphicon glyphicon-log-out fa-3x"></i> Logout</a>
+                <a class="active-menu" href="/logout"><i class="glyphicon glyphicon-log-out fa-3x"></i> <fmt:message
+                        key="l_logout"/></a>
             </li>
         </ul>
 

@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,7 +23,7 @@
     <div class="row text-center  ">
         <div class="col-md-12">
             <br/><br/>
-            <h2> Register</h2>
+            <h2> <fmt:message key="registration_jsp.register"/></h2>
         </div>
     </div>
     <form method="post">
@@ -29,7 +32,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong> Step 1: About You </strong>
+                        <strong> <fmt:message key="registration_jsp.step1"/> </strong>
                     </div>
                     <div class="panel-body">
                             <br/>
@@ -76,7 +79,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong> Step 2: Your first card </strong>
+                        <strong> <fmt:message key="registration_jsp.step2"/> </strong>
                     </div>
                     <div class="panel-body">
                             <br/>
@@ -113,7 +116,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong> Step 3: Your first account </strong>
+                        <strong> <fmt:message key="registration_jsp.step3"/> </strong>
                     </div>
                     <div class="panel-body">
                             <br/>
@@ -129,9 +132,9 @@
                                        placeholder="Title" value="${requestScope.AccountTitle}"/>
                             </div>
 
-                            <button type="submit" class="btn btn-success ">Register Me</button>
+                            <button type="submit" class="btn btn-success "><fmt:message key="register_me"/></button>
                             <hr/>
-                            Already Registered? <a href="/login/*">Login here</a>
+                        <fmt:message key="already_register"/> <a href="/login/*"> <fmt:message key="login_here"/></a>
                     </div>
                 </div>
             </div>

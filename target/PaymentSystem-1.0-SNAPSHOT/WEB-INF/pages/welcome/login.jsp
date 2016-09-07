@@ -1,8 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%--<fmt:setBundle basename="com.example.i18n.text" />--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="${language}">
@@ -23,15 +22,17 @@
         <nav id="page-inner">
             <div class="row ">
 
-                <a href="LoginServlet?language=en">English</a>
-                <a href="LoginServlet?language=ru">Russian</a>
+                <a href="/login?language=en">English</a>
+                <a href="/login?language=ru">Russian</a>
 
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <br/><br/>
-                    <h2>${terminal}</h2>
+
+                    <h2><fmt:message key="terminal"/></h2>
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <%--<strong> <fmt:message key="put_money_on_your_card" /> </strong>--%>
+                            <strong> <fmt:message key="put_money_on_your_card"/> </strong>
                         </div>
                         <div class="panel-body">
                             <form role="form" method="post" action="/put">
@@ -52,7 +53,7 @@
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                     <input type="number" required class="form-control" placeholder="Sum*" name="sum"/>
                                 </div>
-                                <%--<button class="btn btn-primary " type="submit"><fmt:message key="put_money"/></button>--%>
+                                <button class="btn btn-primary " type="submit"><fmt:message key="put_money"/></button>
                             </form>
                         </div>
                     </div>
@@ -64,7 +65,7 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <%--<strong> <fmt:message key="enter_your_email_and_password"/> </strong>--%>
+                            <strong> <fmt:message key="enter_your_email_and_password"/> </strong>
                         </div>
                         <div class="panel-body">
                             <form role="form" method="post">
@@ -81,7 +82,7 @@
                                 </div>
                                 <button class="btn btn-primary " onclick="submit"><fmt:message key="login"/></button>
                                 <hr/>
-                                <%--<fmt:message key="not_register"/>?<a href="/registration"><fmt:message key="click_here"/> </a>--%>
+                                <fmt:message key="not_register"/>? <a href="/registration"><fmt:message key="click_here"/> </a>
                             </form>
                         </div>
                     </div>
@@ -89,9 +90,10 @@
             </div>
             <c:if test="${requestScope.putMoneyResult !=null}">
                 <br/>
+
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <%--<strong><fmt:message key="operation_successfull"/>!</strong>--%>
+                        <strong><fmt:message key="operation_successfull"/>!</strong>
                 </div>
             </c:if>
 

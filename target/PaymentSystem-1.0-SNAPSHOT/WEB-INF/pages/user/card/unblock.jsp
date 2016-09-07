@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
@@ -20,12 +21,12 @@
         <nav id="page-inner">
             <div class="row ">
                 <div class="col-md-12">
-                    <h2>Unblock card</h2>
+                    <h2><fmt:message key="unblock_card"/></h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                         <br/></h5>
                     <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                        <h5 style="color: red"><fmt:message key="sorry_but_your_profile_is_blocked"/></h5>
                     </c:if>
                     <hr/>
                 </div>
@@ -43,12 +44,12 @@
                                     </div>
                                     <div class="col-md-7">
                                         <div class="text-box ">
-                                            <p class="text-muted">Card number:</p>
+                                            <p class="text-muted"><fmt:message key="card_number"/>:</p>
 
                                             <p class="main-text">${card.cardNumber}</p>
 
-                                            <p class="text-muted">Account:${card.accountId}<br/>
-                                                Expiry date: ${card.expiryDate}<br/>
+                                            <p class="text-muted"><fmt:message key="account"/>:${card.accountId}<br/>
+                                                <fmt:message key="expiry_date"/>: ${card.expiryDate}<br/>
                                             </p>
                                         </div>
                                     </div>
@@ -67,19 +68,19 @@
                                     </div>
                                 </div>
                             </div>
-                            Status: ${card.status}<br/>
-                            Title: ${card.title}
+                            <fmt:message key="status"/>: ${card.status}<br/>
+                            <fmt:message key="title"/>: ${card.title}
                         </div>
                     </c:forEach>
                 </div>
                 <c:if test="${requestScope.cardList.size()==0}">
-                    <h1>Sorry, you have not blocked cards.</h1>
+                    <h1><fmt:message key="sorry_you_have_not_blocked_cards"/></h1>
                 </c:if>
                 <c:if test="${requestScope.cardList.size()!=0}">
                     <div class="col-md-1"></div>
                     <br/>
                     <button disabled class="btn btn-lg btn-block btn-warning" data-toggle="modal"
-                            data-target="#unblockCardModal" id="unblockButton">Unblock card
+                            data-target="#unblockCardModal" id="unblockButton"><fmt:message key="unblock_card"/>
                     </button>
                 </c:if>
                 <c:if test="${requestScope.unblockRequestResult !=null}">
@@ -87,7 +88,7 @@
 
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>Operation success!</strong> Request was sent.
+                        <strong><fmt:message key="operation_successfull"/></strong> <fmt:message key="request_was_sent"/>
                     </div>
                 </c:if>
             </c:if>

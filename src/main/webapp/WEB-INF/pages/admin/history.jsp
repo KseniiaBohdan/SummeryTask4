@@ -20,9 +20,9 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Payments history</h2>
+                    <h2><fmt:message key="payments_history"/></h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                     </h5>
                 </div>
             </div>
@@ -32,19 +32,19 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Payments
+                            <fmt:message key="history_jsp.admin.payments"/>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="userTable">
                                     <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                        <th>Sum</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th><fmt:message key="id"/></th>
+                                        <th><fmt:message key="from"/></th>
+                                        <th><fmt:message key="to"/></th>
+                                        <th><fmt:message key="sum"/></th>
+                                        <th><fmt:message key="date"/></th>
+                                        <th><fmt:message key="status"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>

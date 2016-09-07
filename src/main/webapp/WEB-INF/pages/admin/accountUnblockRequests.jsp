@@ -20,9 +20,9 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h2>Unblock account requests</h2>
+          <h2><fmt:message key="unblock_account_requests"/></h2>
           <h5>
-            Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+            <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
           </h5>
         </div>
       </div>
@@ -32,16 +32,16 @@
         <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              Requests
+              <fmt:message key="r_requests"/>
             </div>
             <div class="panel-body">
               <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover" id="userTable">
                   <thead>
                   <tr>
-                    <th>Account</th>
-                    <th>Title</th>
-                    <th>Action</th>
+                    <th><fmt:message key="account"/></th>
+                    <th><fmt:message key="title"/></th>
+                    <th><fmt:message key="action"/></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -52,7 +52,7 @@
                       <th>
                         <button class="btn btn-success" style="width: 100%"
                                 onclick="location.href='/admin/account/action?accountId=${request.accountId}&action=unblock'">
-                          Unblock
+                          <fmt:message key="unblock"/>
                         </button>
                       </th>
                     </tr>
@@ -65,7 +65,7 @@
               <br/>
               <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Operation success!</strong> Account was unblocked.
+                <strong><fmt:message key="operation_successfull"/></strong> <fmt:message key="account_was_unblocked"/>
               </div>
             </c:if>
           </div>

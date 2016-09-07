@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
@@ -15,12 +16,12 @@
         <nav id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Profile</h2>
+                    <h2><fmt:message key="profile"/></h2>
                     <h5>
-                        Welcome, ${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondName} ${requestScope.userModel.user.patronymic}.
+                        <fmt:message key="welcome"/>, ${requestScope.userModel.user.firstName} ${requestScope.userModel.user.secondName} ${requestScope.userModel.user.patronymic}.
                         <br/></h5>
                     <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                        <h5 style="color: red"><fmt:message key="sorry_but_your_profile_is_blocked"/></h5>
                     </c:if>
                 </div>
             </div>
@@ -36,17 +37,17 @@
                 </span>
 
                             <div class="text-box ">
-                                <p class="text-muted">Card number:<br/></p>
+                                <p class="text-muted"><fmt:message key="card_number"/>:<br/></p>
 
                                 <p class="main-text">${cardList.cardNumber}</p>
 
-                                <p class="text-muted">Account:${cardList.accountId}<br/>
-                                    Expiry date: ${cardList.expiryDate}<br/>
+                                <p class="text-muted"><fmt:message key="account"/>:${cardList.accountId}<br/>
+                                    <fmt:message key="expiry_date"/>: ${cardList.expiryDate}<br/>
                                 </p>
                             </div>
                         </div>
-                        Status: ${cardList.status}<br/>
-                        Title: ${cardList.title}
+                        <fmt:message key="status"/>: ${cardList.status}<br/>
+                        <fmt:message key="title"/>: ${cardList.title}
                     </div>
                 </c:forEach>
             </div>
@@ -56,7 +57,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Accounts
+                            <fmt:message key="accounts"/>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -64,10 +65,10 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Account</th>
-                                        <th>Balance</th>
-                                        <th>Status</th>
-                                        <th>Title</th>
+                                        <th><fmt:message key="account"/></th>
+                                        <th><fmt:message key="balance"/></th>
+                                        <th><fmt:message key="status"/></th>
+                                        <th><fmt:message key="title"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>

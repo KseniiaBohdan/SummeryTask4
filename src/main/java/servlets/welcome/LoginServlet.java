@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.jstl.core.Config;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
@@ -28,6 +29,13 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        String language = req.getParameter("language");
+        if(language!=null) {
+            Config.set(session, "javax.servlet.jsp.jstl.fmt.locale", language);
+            session.setAttribute("defaultLocale", language);
+        }
+
         User user = (User)req.getSession().getAttribute(USER);
         if (Objects.nonNull(user)) {
             if (user.getRole().equals(Role.USER)) {
@@ -38,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             }
         }
         req.setAttribute(PUT_MONEY_RESULT, req.getSession().getAttribute(PUT_MONEY_RESULT));
-        req.getSession().setAttribute(PUT_MONEY_RESULT, null);
+        session.setAttribute(PUT_MONEY_RESULT, null);
         req.getRequestDispatcher(PageConstant.LOGIN).include(req, resp);
     }
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
@@ -20,12 +21,12 @@
         <nav id="page-inner">
             <div class="row ">
                 <div class="col-md-12">
-                    <h2>Delete card</h2>
+                    <h2><fmt:message key="delete_card"/></h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                         <br/></h5>
                     <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                        <h5 style="color: red"><fmt:message key="sorry_but_your_profile_is_blocked"/></h5>
                     </c:if>
                     <hr/>
                 </div>
@@ -43,12 +44,12 @@
                                 </div>
                                 <div class="col-md-7">
                                     <div class="text-box ">
-                                        <p class="text-muted">Card number:</p>
+                                        <p class="text-muted"><fmt:message key="card_number"/>:</p>
 
                                         <p class="main-text">${card.cardNumber}</p>
 
-                                        <p class="text-muted">Account:${card.accountId}<br/>
-                                            Expiry date: ${card.expiryDate}<br/>
+                                        <p class="text-muted"><fmt:message key="account"/>:${card.accountId}<br/>
+                                            <fmt:message key="expiry_date"/>: ${card.expiryDate}<br/>
                                         </p>
                                     </div>
 
@@ -68,19 +69,19 @@
                             </div>
 
                         </div>
-                        Status: ${card.status}<br/>
-                        Title: ${card.title}
+                        <fmt:message key="status"/>: ${card.status}<br/>
+                        <fmt:message key="title"/>: ${card.title}
                     </div>
                 </c:forEach>
             </div>
             <c:if test="${requestScope.cardList.size()==0}">
-                <h1>Sorry, you have not cards.</h1>
+                <h1><fmt:message key="sorry_you_have_not_c"/></h1>
             </c:if>
             <c:if test="${requestScope.cardList.size()!=0}">
                 <div class="col-md-1"></div>
                 <br/>
                 <button class="btn btn-block btn-lg btn-danger" data-toggle="modal"
-                        data-target="#deleteCardModal" id="deleteCardBt" disabled>Delete card
+                        data-target="#deleteCardModal" id="deleteCardBt" disabled><fmt:message key="delete_card"/>
                 </button>
             </c:if>
         </nav>
@@ -98,14 +99,14 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="deleteGridSystemModalLabel">Are you sure?</h4>
+                    <h4 class="modal-title" id="deleteGridSystemModalLabel"><fmt:message key="are_you_sure"/></h4>
                 </div>
                 <div class="modal-body">
-                    Do you really want to <b>delete</b> this card?
+                    <fmt:message key="do_you_really_want_to"/><b><fmt:message key="delete"/></b> <fmt:message key="this_card"></fmt:message>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="cancel"/></button>
+                    <button type="submit" class="btn btn-danger"><fmt:message key="d_delete"/></button>
                 </div>
             </form>
         </div>

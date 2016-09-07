@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
@@ -20,12 +21,12 @@
         <nav id="page-inner">
             <div class="row ">
                 <div class="col-md-12">
-                    <h2>Delete account</h2>
+                    <h2><fmt:message key="delete_account"/></h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                         <br/></h5>
                     <c:if test="${sessionScope.user.status.toString()=='BLOCKED'}">
-                        <h5 style="color: red">Sorry, but your profile is blocked.</h5>
+                        <h5 style="color: red"><fmt:message key="sorry_but_your_profile_is_blocked"/></h5>
                     </c:if>
                     <hr/>
                 </div>
@@ -35,7 +36,7 @@
                 <div class="col-md-9 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Accounts
+                            <fmt:message key="accounts"/>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -43,11 +44,11 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Account</th>
-                                        <th>Balance</th>
-                                        <th>Status</th>
-                                        <th>Title</th>
-                                        <th>Check</th>
+                                        <th><fmt:message key="account"/></th>
+                                        <th><fmt:message key="balance"/></th>
+                                        <th><fmt:message key="status"/></th>
+                                        <th><fmt:message key="title"/></th>
+                                        <th><fmt:message key="check"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -81,13 +82,13 @@
                     </div>
                 </div>
                 <c:if test="${requestScope.accountList.size()==0}">
-                    <h5 style="color: red">Sorry, you have not accounts.</h5>
+                    <h5 style="color: red"><fmt:message key="sorry_but_you_have_not_accounts"/></h5>
                 </c:if>
                 <c:if test="${requestScope.accountList.size()!=0}">
                     <div class="col-md-1"></div>
                     <br/>
                     <button class="btn btn-lg btn-block btn-warning" data-toggle="modal"
-                            data-target="#deleteAccountModal" id="deleteAccBt" disabled>Delete account
+                            data-target="#deleteAccountModal" id="deleteAccBt" disabled><fmt:message key="delete_account"/>
                     </button>
                 </c:if>
             </div>
@@ -104,10 +105,10 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="gridSystemModalLabel">Are you sure?</h4>
+                            <h4 class="modal-title" id="gridSystemModalLabel"><fmt:message key="are_you_sure"/></h4>
                         </div>
                         <div class="modal-body">
-                            Do you really want to <b>delete</b> this account?
+                            <fmt:message key="do_you_really_want_to"/> <b><fmt:message key="delete"/></b> <fmt:message key="this_account"/>?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

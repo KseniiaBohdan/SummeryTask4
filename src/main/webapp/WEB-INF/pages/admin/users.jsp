@@ -20,9 +20,9 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>User management</h2>
+                    <h2><fmt:message key="user_management"/></h2>
                     <h5>
-                        Welcome, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                     </h5>
                 </div>
             </div>
@@ -49,19 +49,19 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Users
+                            <fmt:message key="u_users"/>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="userTable">
                                     <thead>
                                     <tr>
-                                        <th> Id</th>
-                                        <th> Name</th>
-                                        <th> Email</th>
-                                        <th> Status</th>
-                                        <th> Phone number</th>
-                                        <th> Action</th>
+                                        <th> <fmt:message key="id"/></th>
+                                        <th> <fmt:message key="name"/></th>
+                                        <th> <fmt:message key="email"/></th>
+                                        <th> <fmt:message key="status"/></th>
+                                        <th> <fmt:message key="phone_number"/></th>
+                                        <th> <fmt:message key="action"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -77,32 +77,32 @@
                                                     <c:when test="${user.status.toString() == 'BLOCKED'}">
                                                         <button class="btn btn-success" style="width: 32%" type="submit"
                                                                 onclick="location.href='/admin/user/action?userId=${user.id}&action=unblock'">
-                                                            Unblock
+                                                            <fmt:message key="unblock"/>
                                                         </button>
                                                     </c:when>
                                                     <c:when test="${user.status.toString() == 'ACTIVE'}">
                                                         <button class="btn btn-warning" style="width: 25%" type="submit"
                                                                 onclick="location.href='/admin/user/action?userId=${user.id}&action=block'">
-                                                            Block
+                                                            <fmt:message key="b_block"/>
                                                         </button>
                                                     </c:when>
                                                 </c:choose>
                                                 <c:if test="${user.status.toString() != 'DELETED'}">
                                                     <button class="btn btn-danger" style="width: 25%" type="submit"
                                                             onclick="location.href='/admin/user/action?userId=${user.id}&action=delete'">
-                                                        Delete
+                                                        <fmt:message key="d_delete"/>
                                                     </button>
                                                 </c:if>
                                                 <c:if test="${user.role.toString() == 'USER' && user.status.toString() == 'ACTIVE'}">
                                                     <button class="btn btn-info" style="width: 31%" type="submit"
                                                             onclick="location.href='/admin/user/action?userId=${user.id}&action=promote'">
-                                                        Promote
+                                                        <fmt:message key="p_promote"/>
                                                     </button>
                                                 </c:if>
                                                 <c:if test="${user.role.toString() == 'ADMIN'}">
                                                     <button class="btn btn-primary" style="width: 29%" type="submit"
                                                             onclick="location.href='/admin/user/action?userId=${user.id}&action=dismiss'">
-                                                        Dismiss
+                                                        <fmt:message key="d_dismiss"/>
                                                     </button>
                                                 </c:if>
                                             </th>

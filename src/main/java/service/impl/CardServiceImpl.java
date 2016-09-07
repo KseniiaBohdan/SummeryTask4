@@ -37,12 +37,7 @@ public class CardServiceImpl implements CardService {
     }
 
     public List getByUserId(Long userId) {
-        try {
             return cardDao.getByUserId(userId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     public List getByAccountId(Long accountId) {
@@ -50,12 +45,7 @@ public class CardServiceImpl implements CardService {
     }
 
     public boolean deleteByCardNumber(Long cardNumber) {
-        try {
             return cardDao.deleteByCardNumber(cardNumber);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
     }
 
     public Card getByCardNumber(Long cardNumber) {

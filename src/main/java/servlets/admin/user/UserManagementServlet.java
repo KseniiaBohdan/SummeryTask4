@@ -4,7 +4,7 @@ import data.entity.Status;
 import data.entity.User;
 import data.UserSort;
 import org.apache.commons.lang.StringUtils;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 import service.UserService;
 import service.impl.UserServiceImpl;
 

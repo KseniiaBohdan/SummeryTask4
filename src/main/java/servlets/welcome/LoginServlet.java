@@ -6,8 +6,7 @@ import data.entity.User;
 import org.apache.log4j.Logger;
 import service.impl.UserServiceImpl;
 import service.utils.Password;
-import servlets.EncodingFilter;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Objects;
 
 public class LoginServlet extends HttpServlet {

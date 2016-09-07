@@ -66,7 +66,7 @@
                                             <th> ${paymentModel.payment.paymentStatus} </th>
                                             <th>
                                                 <c:if test="${paymentModel.payment.paymentStatus == 'PREPARED'}">
-                                                    <button class="btn btn-success" style="width: 80%" type="submit"
+                                                    <button class="btn btn-success" style="width: 100%" type="submit"
                                                             onclick="location.href='/user/payment/confirm?paymentId=${paymentModel.payment.id}'">
                                                         <fmt:message key="confirm"/>
                                                     </button>
@@ -74,7 +74,7 @@
                                                 <c:if test="${paymentModel.payment.paymentStatus == 'COMPLETED'}">
                                                 <form method="post" action="/user/payment/order">
                                                     <input type="hidden" name="paymentModelG" value="${paymentModel.payment.id}"/>
-                                                    <button class="btn btn-success" style="width: 90%" type="submit"
+                                                    <button class="btn btn-success" style="width: 100%" type="submit"
                                                             onclick="submit">
                                                         <fmt:message key="generate_order"/>
                                                     </button>

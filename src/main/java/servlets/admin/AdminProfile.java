@@ -1,13 +1,11 @@
 package servlets.admin;
 
-import data.dao.impl.PaymentDaoImpl;
 import data.entity.*;
 import org.apache.log4j.Logger;
 import service.impl.AtmServiceImpl;
 import service.impl.PaymentServiceImpl;
 import service.impl.UserServiceImpl;
-import servlets.ContextListener;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +46,7 @@ public class AdminProfile extends HttpServlet {
     private int countAdmins(){
         List<User> adminList = new UserServiceImpl().getAll();
         for (int i = 0; i < adminList.size(); i++) {
-            if(adminList.get(i).getRole()!= Role.ADMIN){
+            if(adminList.get(i).getRole()!= Role.ADMIN && adminList.get(i).getStatus()==Status.ACTIVE){
                 adminList.remove(i);
                 --i;
             }

@@ -1,10 +1,8 @@
 package servlets.admin.account;
 
 import data.entity.AccountRequest;
-import data.entity.CardRequest;
 import service.impl.AccountRequestServiceImpl;
-import service.impl.CardRequestServiceImpl;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

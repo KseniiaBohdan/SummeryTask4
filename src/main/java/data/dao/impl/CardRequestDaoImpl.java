@@ -25,14 +25,13 @@ public class CardRequestDaoImpl implements CardRequestDao {
     }
 
     public boolean create(CardRequest cardRequest) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(CREATE);
             ps.setLong(1, cardRequest.getCardNumber());
             ps.setString(2, cardRequest.getTitle());
             int result = ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return (result > 0);
         } catch (SQLException e) {
             return false;
@@ -40,10 +39,10 @@ public class CardRequestDaoImpl implements CardRequestDao {
     }
 
     public List<CardRequest> getAll() {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
+        List<CardRequest> requests = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(GET_ALL);
-            List<CardRequest> requests = new ArrayList();
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 CardRequest cr = new CardRequest();
@@ -52,12 +51,10 @@ public class CardRequestDaoImpl implements CardRequestDao {
                 cr.setTitle(rs.getString(DbFieldConstant.TITLE));
                 requests.add(cr);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return requests;
         } catch (SQLException e) {
-            return null;
+            return requests;
         }
     }
 
@@ -66,16 +63,23 @@ public class CardRequestDaoImpl implements CardRequestDao {
     }
 
     public boolean deleteByCardNumber(Long cardNumber) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(DELETE_BY_CARD_ID);
             ps.setLong(1, cardNumber);
             int result = ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return result > 0;
         } catch (SQLException e) {
             return false;
         }
+    }
+
+    private void closeAll(Connection con, PreparedStatement ps, ResultSet ... rs) throws SQLException {
+        for (int i = 0; i < rs.length; i++) {
+            rs[i].close();
+        }
+        ps.close();
+        conPool.putUnusedConnection(con);
     }
 }

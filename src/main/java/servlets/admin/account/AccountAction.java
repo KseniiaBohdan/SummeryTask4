@@ -2,7 +2,7 @@ package servlets.admin.account;
 
 import org.apache.commons.lang.StringUtils;
 import service.comand.container.CommandContainer;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

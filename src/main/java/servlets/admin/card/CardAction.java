@@ -1,7 +1,7 @@
 package servlets.admin.card;
 
 import org.apache.commons.lang.StringUtils;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 import service.comand.container.CommandContainer;
 
 import javax.servlet.ServletException;

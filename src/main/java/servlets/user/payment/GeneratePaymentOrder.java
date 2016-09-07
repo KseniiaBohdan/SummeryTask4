@@ -12,7 +12,7 @@ import data.dto.PaymentDto;
 import data.entity.Payment;
 import service.impl.PaymentServiceImpl;
 import service.impl.UserServiceImpl;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

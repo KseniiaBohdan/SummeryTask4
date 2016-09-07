@@ -2,8 +2,7 @@ package servlets.user.payment;
 
 import data.entity.*;
 import org.apache.log4j.Logger;
-import servlets.EncodingFilter;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 import service.AccountService;
 import service.CardService;
 import service.PaymentService;

@@ -1,4 +1,4 @@
-package servlets;
+package servlets.constant;
 
 public final class PageConstant {
 

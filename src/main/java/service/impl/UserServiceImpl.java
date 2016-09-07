@@ -19,20 +19,20 @@ public class UserServiceImpl implements UserService {
         return userDao.deleteById(id);
     }
 
-    public User getByEmail(String email){
-            User user = userDao.getByEmail(email);
-            return user;
+    public User getByEmail(String email) {
+        User user = userDao.getByEmail(email);
+        return user;
     }
 
     public User getByCardNumber(long cardNumber) {
         return userDao.getByCardNumber(cardNumber);
     }
 
-    public List<User> getByStatus(Integer statusId){
+    public List<User> getByStatus(Integer statusId) {
         return userDao.getByStatus(statusId);
     }
 
-    public User getByPhoneNumber(String phoneNumber){
+    public User getByPhoneNumber(String phoneNumber) {
         return userDao.getByPhoneNumber(phoneNumber);
     }
 
@@ -49,12 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public List<User> getAllUsers() {
-        try {
-            return userDao.getAllUsers();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return userDao.getAllUsers();
     }
 
     public boolean deleteAll() {
@@ -70,7 +65,7 @@ public class UserServiceImpl implements UserService {
         for (int i = 1; i < name.size(); i++) {
             List<User> temp = userDao.findByName(name.get(i));
             for (int j = 0; j < temp.size(); j++) {
-                if(!users.contains(temp.get(j))){
+                if (!users.contains(temp.get(j))) {
                     users.remove(temp.get(j));
                 }
             }

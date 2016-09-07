@@ -2,8 +2,7 @@ package servlets.user.account;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import servlets.ContextListener;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 import data.entity.Account;
 import data.entity.User;
 import service.AccountService;

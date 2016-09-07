@@ -31,9 +31,8 @@ public class UserDaoImpl implements UserDao {
     private static final String FIND_BY_NAME = "SELECT * FROM user WHERE first_name LIKE ? OR second_name LIKE ? OR " +
             "patronymic LIKE ? AND role_id = ?";
 
-
     public User getByEmail(String email) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         User user = null;
         try {
             PreparedStatement ps = con.prepareStatement(GET_BY_EMAIL);
@@ -42,17 +41,23 @@ public class UserDaoImpl implements UserDao {
             while (rs.next()) {
                 user = getUser(rs);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return user;
         } catch (SQLException e) {
             return user;
         }
     }
 
+    private void closeAll(Connection con, PreparedStatement ps, ResultSet... rs) throws SQLException {
+        for (int i = 0; i < rs.length; i++) {
+            rs[i].close();
+        }
+        ps.close();
+        conPool.putUnusedConnection(con);
+    }
+
     public List<User> findByName(String name) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         List<User> users = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(FIND_BY_NAME);
@@ -65,9 +70,7 @@ public class UserDaoImpl implements UserDao {
                 User u = getUser(rs);
                 users.add(u);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return users;
         } catch (SQLException e) {
             return users;
@@ -76,10 +79,9 @@ public class UserDaoImpl implements UserDao {
 
 
     public boolean update(User user) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
         try {
-            ps = con.prepareStatement(UPDATE_USER);
+            PreparedStatement ps = con.prepareStatement(UPDATE_USER);
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getSecondName());
             ps.setString(3, user.getPatronymic());
@@ -90,8 +92,7 @@ public class UserDaoImpl implements UserDao {
             ps.setString(8, user.getPhoneNumber());
             ps.setLong(9, user.getId());
             ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
@@ -99,10 +100,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     public boolean create(User user) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
         try {
-            ps = con.prepareStatement(CREATE_USER);
+            PreparedStatement ps = con.prepareStatement(CREATE_USER);
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getSecondName());
             ps.setString(3, user.getPatronymic());
@@ -112,8 +112,7 @@ public class UserDaoImpl implements UserDao {
             ps.setInt(7, user.getRole().getId());
             ps.setString(8, user.getPhoneNumber());
             ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
@@ -121,27 +120,24 @@ public class UserDaoImpl implements UserDao {
     }
 
     public User getById(Long id) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
+        User user = null;
         try {
-            ps = con.prepareStatement(GET_BY_ID);
+            PreparedStatement ps = con.prepareStatement(GET_BY_ID);
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
-            User user = new User();
             while (rs.next()) {
                 user = getUser(rs);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return user;
         } catch (SQLException e) {
-            return null;
+            return user;
         }
     }
 
     public List<User> getAll() {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(GET_ALL);
             ResultSet rs = ps.executeQuery();
@@ -150,9 +146,7 @@ public class UserDaoImpl implements UserDao {
                 User user = getUser(rs);
                 userList.add(user);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return userList;
         } catch (SQLException e) {
             return null;
@@ -160,13 +154,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     public boolean deleteById(Long id) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(DELETE_BY_ID);
             ps.setLong(1, id);
             ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
@@ -174,13 +167,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     public boolean deleteAll() {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
         try {
-            ps = con.prepareStatement(DELETE_ALL);
+            PreparedStatement ps = con.prepareStatement(DELETE_ALL);
             ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
@@ -188,19 +179,16 @@ public class UserDaoImpl implements UserDao {
     }
 
     public User getByCardNumber(long cardNumber) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
         try {
-            ps = con.prepareStatement(GET_USER_ID_BY_CARD_NUMBER);
+            PreparedStatement ps = con.prepareStatement(GET_USER_ID_BY_CARD_NUMBER);
             ps.setLong(1, cardNumber);
             ResultSet rs = ps.executeQuery();
             Long id = 0L;
             while (rs.next()) {
                 id = rs.getLong(DbFieldConstant.USER_ID);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return getById(id);
         } catch (SQLException e) {
             return null;
@@ -209,27 +197,24 @@ public class UserDaoImpl implements UserDao {
 
     public List<User> getByStatus(Integer statusId) {
         List<User> userList = new ArrayList();
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
         try {
-            ps = con.prepareStatement(GET_BY_STATUS);
+            PreparedStatement ps = con.prepareStatement(GET_BY_STATUS);
             ps.setInt(1, statusId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = getUser(rs);
                 userList.add(user);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return userList;
         } catch (SQLException e) {
-            return null;
+            return userList;
         }
     }
 
     public User getByPhoneNumber(String phoneNumber) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         User user = null;
         try {
             PreparedStatement ps = con.prepareStatement(GET_BY_PHONE_NUMBER);
@@ -238,29 +223,29 @@ public class UserDaoImpl implements UserDao {
             while (rs.next()) {
                 user = getUser(rs);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return user;
         } catch (SQLException e) {
             return user;
         }
     }
 
-    public List<User> getAllUsers() throws SQLException {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_ALL_USERS);
-        ps.setInt(1, Role.USER.getId());
-        ResultSet rs = ps.executeQuery();
+    public List<User> getAllUsers(){
+        Connection con = conPool.getFreeConnection();
         List<User> userList = new ArrayList();
-        while (rs.next()) {
-            User user = getUser(rs);
-            userList.add(user);
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_ALL_USERS);
+            ps.setInt(1, Role.USER.getId());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = getUser(rs);
+                userList.add(user);
+            }
+            closeAll(con, ps, rs);
+            return userList;
+        } catch (SQLException e) {
+            return userList;
         }
-        rs.close();
-        ps.close();
-        con.close();
-        return userList;
     }
 
     private User getUser(ResultSet rs) throws SQLException {

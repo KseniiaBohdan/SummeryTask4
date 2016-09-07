@@ -29,11 +29,11 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <h4><fmt:message key="active_users"/>: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
-                            <h4><fmt:message key="blocked_users"/>: <span class="label label-info">${requestScope.userActiveTotal}</span>
+                            <h4><fmt:message key="blocked_users"/>: <span class="label label-info">${requestScope.userBlockedTotal}</span>
                             </h4>
-                            <h4><fmt:message key="deleted_users"/>: <span class="label label-info">${requestScope.userActiveTotal}</span>
+                            <h4><fmt:message key="deleted_users"/>: <span class="label label-info">${requestScope.userDeletedTotal}</span>
                             </h4>
-                            <h4><fmt:message key="a_admins"/>: <span class="label label-info">${requestScope.userActiveTotal}</span></h4>
+                            <h4><fmt:message key="a_admins"/>: <span class="label label-info">${requestScope.admins}</span></h4>
                             <h4><fmt:message key="operations"/>: <span class="label label-info">${requestScope.operationTotal}</span></h4>
                             <h4><fmt:message key="total_sum"/>: <span class="label label-info">${requestScope.sumTotal}</span></h4>
                         </div>

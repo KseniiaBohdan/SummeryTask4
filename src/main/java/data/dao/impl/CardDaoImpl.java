@@ -24,7 +24,7 @@ public class CardDaoImpl implements CardDao {
     private static final String GET_BY_STATUS_ID = "SELECT * FROM card WHERE status_id = ? AND user_id = ?";
 
     public boolean update(Card card) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(UPDATE);
             ps.setLong(1, card.getUserId());
@@ -34,16 +34,23 @@ public class CardDaoImpl implements CardDao {
             ps.setString(5, card.getTitle());
             ps.setLong(6, card.getCardNumber());
             ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
         }
     }
 
+    private void closeAll(Connection con, PreparedStatement ps, ResultSet ... rs) throws SQLException {
+        for (int i = 0; i < rs.length; i++) {
+            rs[i].close();
+        }
+        ps.close();
+        conPool.putUnusedConnection(con);
+    }
+
     public boolean create(Card card) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(CREATE);
             ps.setLong(1, card.getCardNumber());
@@ -54,8 +61,7 @@ public class CardDaoImpl implements CardDao {
             ps.setString(6, card.getTitle());
             ps.setLong(7, card.getAccountId());
             ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
@@ -63,7 +69,7 @@ public class CardDaoImpl implements CardDao {
     }
 
     public Card getById(Long id) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         Card card = null;
         try {
             PreparedStatement ps = con.prepareStatement(GET_BY_ID);
@@ -72,9 +78,7 @@ public class CardDaoImpl implements CardDao {
             while (rs.next()) {
                 card = new Card();
                 card = getCard(rs);
-                rs.close();
-                ps.close();
-                con.close();
+                closeAll(con, ps, rs);
             }
             return card;
         } catch (SQLException e) {
@@ -98,37 +102,42 @@ public class CardDaoImpl implements CardDao {
         return null;
     }
 
-    public boolean deleteByCardNumber(Long cardNumber) throws SQLException {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(DELETE_BY_CARD_NUMBER);
-        ps.setLong(1, cardNumber);
-        int result = ps.executeUpdate();
-        ps.close();
-        con.close();
-        return (result > 0);
+    public boolean deleteByCardNumber(Long cardNumber){
+        Connection con = conPool.getFreeConnection();
+        try {
+            PreparedStatement ps = con.prepareStatement(DELETE_BY_CARD_NUMBER);
+            ps.setLong(1, cardNumber);
+            int result = ps.executeUpdate();
+            closeAll(con, ps);
+            return (result > 0);
+        } catch (SQLException e) {
+            return false;
+        }
     }
 
     public boolean deleteAll() {
         return false;
     }
 
-    public List getByUserId(Long userId) throws SQLException {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_BY_USER_ID);
-        ps.setLong(1, userId);
-        ResultSet rs = ps.executeQuery();
+    public List getByUserId(Long userId){
+        Connection con = conPool.getFreeConnection();
         List cardList = new ArrayList<Card>();
-        while (rs.next()) {
-            cardList.add(getCard(rs));
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_BY_USER_ID);
+            ps.setLong(1, userId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                cardList.add(getCard(rs));
+            }
+            closeAll(con, ps, rs);
+            return cardList;
+        } catch (SQLException e) {
+            return cardList;
         }
-        rs.close();
-        ps.close();
-        con.close();
-        return cardList;
     }
 
     public List getByAccountId(Long accountId) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         List cardList = new ArrayList<Card>();
         try {
             PreparedStatement ps = con.prepareStatement(GET_BY_ACCOUNT_ID);
@@ -138,9 +147,7 @@ public class CardDaoImpl implements CardDao {
                 Card card = getCard(rs);
                 cardList.add(card);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return cardList;
         } catch (SQLException e) {
             return cardList;
@@ -148,28 +155,25 @@ public class CardDaoImpl implements CardDao {
     }
 
     public List<Card> getActiveByUserId(Long userId) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
+        List cardList = new ArrayList<Card>();
         try {
-            ps = con.prepareStatement(GET_ACTIVE_CARD_BY_USER_ID);
+            PreparedStatement ps = con.prepareStatement(GET_ACTIVE_CARD_BY_USER_ID);
             ps.setLong(1, userId);
             ps.setInt(2, Status.ACTIVE.getId());
             ResultSet rs = ps.executeQuery();
-            List cardList = new ArrayList<Card>();
             while (rs.next()) {
                 cardList.add(getCard(rs));
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return cardList;
         } catch (SQLException e) {
-            return null;
+            return cardList;
         }
     }
 
     public boolean update(List<Card> cards) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(UPDATE);
             for(Card card : cards) {
@@ -181,8 +185,7 @@ public class CardDaoImpl implements CardDao {
                 ps.setLong(6, card.getCardNumber());
                 ps.executeUpdate();
             }
-            ps.close();
-            con.close();
+           closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
@@ -190,29 +193,26 @@ public class CardDaoImpl implements CardDao {
     }
 
     public List getNotDeletedCardByUserId(Long userId) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
+        List cardList = new ArrayList<Card>();
         try {
-            ps = con.prepareStatement(GET_NOT_DELETED_CARD_BY_USER_ID);
+            PreparedStatement ps = con.prepareStatement(GET_NOT_DELETED_CARD_BY_USER_ID);
             ps.setLong(1, userId);
             ps.setInt(2, Status.DELETED.getId());
             ResultSet rs = ps.executeQuery();
-            List cardList = new ArrayList<Card>();
             while (rs.next()) {
                 cardList.add(getCard(rs));
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return cardList;
         } catch (SQLException e) {
-            return null;
+            return cardList;
         }
     }
 
     public List<Card> getUsersCardByStatus(Status status, Long userId) {
         int statusId = status.getId();
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         List<Card> cards = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(GET_BY_STATUS_ID);
@@ -222,9 +222,7 @@ public class CardDaoImpl implements CardDao {
             while (rs.next()){
                 cards.add(getCard(rs));
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return cards;
         } catch (SQLException e) {
             return cards;

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/main/java/servlets/ContextListener.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/servlets/EncodingFilter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/servlets/MySessionListener.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/servlets/PageConstant.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/AdminProfile.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/PaymentsHistory.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/account/AccountAction.java" charset="UTF-8" />
@@ -12,6 +8,10 @@
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/card/CardAction.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/card/UnblockCardRequests.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/admin/user/UserActionServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/constant/PageConstant.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/filter/EncodingFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/listener/ContextListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/servlets/listener/MySessionListener.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/ProfileSettings.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/account/AddAccountServlet.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/servlets/user/account/BlockAccountServlet.java" charset="UTF-8" />

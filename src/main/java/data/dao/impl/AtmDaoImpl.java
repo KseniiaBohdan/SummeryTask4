@@ -24,32 +24,29 @@ public class AtmDaoImpl implements AtmDao {
     }
 
     public boolean create(Atm atm) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(CREATE);
             setPreparedStatement(atm, ps);
             int result = ps.executeUpdate();
-            ps.close();
-            con.close();
-            return result>0;
+            closeAll(con, ps);
+            return result > 0;
         } catch (SQLException e) {
             return false;
         }
     }
 
     public List<Atm> getAll() {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         List<Atm> atmList = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(GET_ALL);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Atm atm = getAtm(rs);
                 atmList.add(atm);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return atmList;
         } catch (SQLException e) {
             return atmList;
@@ -57,7 +54,9 @@ public class AtmDaoImpl implements AtmDao {
     }
 
     private Atm getAtm(ResultSet rs) throws SQLException {
-        return new Atm(rs.getLong(DbFieldConstant.ID), rs.getLong(DbFieldConstant.CARD_NUMBER_RECEIVER), rs.getLong(DbFieldConstant.SUM));
+        return new Atm(rs.getLong(DbFieldConstant.ID),
+                rs.getLong(DbFieldConstant.CARD_NUMBER_RECEIVER),
+                rs.getLong(DbFieldConstant.SUM));
     }
 
     public boolean deleteAll() {
@@ -65,29 +64,36 @@ public class AtmDaoImpl implements AtmDao {
     }
 
     private void setPreparedStatement(Atm atm, PreparedStatement ps) throws SQLException {
-        ps.setLong(1, atm.getCardNumberReceiver());
-        ps.setLong(2, atm.getSum());
+            ps.setLong(1, atm.getCardNumberReceiver());
+            ps.setLong(2, atm.getSum());
+
     }
 
     public List<Atm> getByUserId(Long userId) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         List<Atm> atmList = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(GET_BY_USER_ID);
             ps.setLong(1, userId);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Atm atm = new Atm(rs.getLong(DbFieldConstant.ID),
                         rs.getLong(DbFieldConstant.CARD_NUMBER_RECEIVER),
                         rs.getLong(DbFieldConstant.SUM));
                 atmList.add(atm);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return atmList;
         } catch (SQLException e) {
             return atmList;
         }
+    }
+
+    private void closeAll(Connection con, PreparedStatement ps, ResultSet... rs) throws SQLException {
+        for (int i = 0; i < rs.length; i++) {
+            rs[i].close();
+        }
+        ps.close();
+        conPool.putUnusedConnection(con);
     }
 }

@@ -34,12 +34,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public List<Account> getByUserId(Long userId) {
-        try {
             return accountDao.getByUserId(userId);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     public Account getByAccountId(Long id) {

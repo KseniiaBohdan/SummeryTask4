@@ -6,8 +6,7 @@ import org.apache.log4j.Logger;
 import service.UserService;
 import service.impl.UserServiceImpl;
 import service.utils.Password;
-import servlets.EncodingFilter;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

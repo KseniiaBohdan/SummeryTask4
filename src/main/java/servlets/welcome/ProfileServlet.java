@@ -1,8 +1,7 @@
 package servlets.welcome;
 
 import org.apache.log4j.Logger;
-import servlets.EncodingFilter;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 import data.dto.UserDto;
 import data.entity.*;
 import service.AccountService;

@@ -5,44 +5,31 @@ import constant.dbConstant.DbUtilConstant;
 import java.sql.*;
 
 import java.util.Vector;
+import java.util.logging.Logger;
 
 public class ConnectionPool {
-    private Vector<Connection> freeConnections;
-    private Vector<Connection> usedConnections;
-    private final static int size = 10;
-
-    /*
-        private static Connection test(){
-            try {
-                Connection con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/payment_system", "root", "root");
-                return con;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
+    private Vector<Connection> freeConnections = new Vector();
+    private Vector<Connection> usedConnections = new Vector();
+    private final static int size = 30;
+    private static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(ConnectionPool.class);
 
 
-        public ConnectionPool(String url, int size, String userName, String password, String driverName) {
-            this.userName = userName;
-            this.driverName = driverName;
-            this.password = password;
-            this.size = size;
-            /*try {
-                Class.forName(this.driverName).newInstance();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
-      /*  this.url = url;
-        for (int i = 0; i < this.size; i++) {
-            freeConnections.addElement(getConnection());
-        }
-*/
-
-    public static Connection getConnection() {
+    public ConnectionPool() {
         try {
             Class.forName(DbUtilConstant.DRIVER).newInstance();
-            Connection con =  DriverManager.getConnection(DbUtilConstant.DB_URL, DbUtilConstant.USER_NAME, DbUtilConstant.PASSWORD);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < size; i++) {
+            freeConnections.addElement(getConnection());
+        }
+    }
+
+
+    private static Connection getConnection() {
+        try {
+            Class.forName(DbUtilConstant.DRIVER).newInstance();
+            Connection con = DriverManager.getConnection(DbUtilConstant.DB_URL, DbUtilConstant.USER_NAME, DbUtilConstant.PASSWORD);
             return con;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,24 +42,27 @@ public class ConnectionPool {
         }
         return null;
     }
-/*
-    public synchronized Connection getFreeConnections() {
+
+    public synchronized Connection getFreeConnection() {
         if (freeConnections.size() > 0) {
-            Connection con = null;
-            con = freeConnections.lastElement();
+            Connection con = freeConnections.lastElement();
             freeConnections.removeElement(con);
             usedConnections.addElement(con);
+            LOGGER.debug("Free Connections : " + freeConnections.size());
+            LOGGER.debug("Used Connections : " + usedConnections.size());
             return con;
         } else {
-            return this.getFreeConnections();
+            return this.getFreeConnection();
         }
     }
 
-    public synchronized boolean putUnUsedConnection(Connection connection) {
+    public synchronized boolean putUnusedConnection(Connection connection) {
         if (!freeConnections.contains(connection) && freeConnections.size() < size) {
             freeConnections.addElement(connection);
+            usedConnections.remove(connection);
             return true;
+        } else {
+            return false;
         }
-        return false;   //exception
-    }*/
+    }
 }

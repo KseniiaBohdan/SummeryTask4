@@ -22,28 +22,25 @@ public class AccountDaoImpl implements AccountDao {
     private static final String UPDATE = "UPDATE account SET balance = ?, status_id = ?, title = ? WHERE id = ?";
 
     public boolean update(Account account) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
         try {
-            ps = con.prepareStatement(UPDATE);
+            PreparedStatement ps = con.prepareStatement(UPDATE);
             ps.setLong(1, account.getBalance());
             ps.setInt(2, account.getStatus().getId());
             ps.setString(3, account.getTitle());
             ps.setLong(4, account.getId());
-            ps.executeUpdate();
-            ps.close();
-            con.close();
-            return true;
+            int result = ps.executeUpdate();
+            closeAll(con, ps);
+            return result>0;
         } catch (SQLException e) {
             return false;
         }
     }
 
     public boolean create(Account account) {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = null;
+        Connection con = conPool.getFreeConnection();
         try {
-            ps = con.prepareStatement(CREATE);
+            PreparedStatement ps = con.prepareStatement(CREATE);
             ps.setLong(1, account.getId());
             ps.setLong(2, account.getBalance());
             ps.setInt(3, account.getNumber());
@@ -51,8 +48,7 @@ public class AccountDaoImpl implements AccountDao {
             ps.setString(5, account.getTitle());
             ps.setLong(6, account.getUserId());
             ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return true;
         } catch (SQLException e) {
             return false;
@@ -62,19 +58,17 @@ public class AccountDaoImpl implements AccountDao {
     public Account getById(Long id) {
         Account account = null;
         try {
-            Connection con = ConnectionPool.getConnection();
+            Connection con = conPool.getFreeConnection();
             PreparedStatement ps = con.prepareStatement(GET_BY_ACCOUNT_ID);
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 account = getAccount(rs);
             }
-            rs.close();
-            ps.close();
-            con.close();
+           closeAll(con, ps, rs);
             return account;
         } catch (SQLException e) {
-            return null;
+            return account;
         }
     }
 
@@ -83,12 +77,13 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     public boolean deleteById(Long id) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(DELETE_BY_ID);
             ps.setLong(1, id);
-            ps.executeUpdate();
-            return true;
+            int result = ps.executeUpdate();
+            closeAll(con, ps);
+            return result>0;
         } catch (SQLException e) {
             return false;
         }
@@ -98,20 +93,22 @@ public class AccountDaoImpl implements AccountDao {
         return false;
     }
 
-    public List<Account> getByUserId(Long userId) throws SQLException {
-        Connection con = ConnectionPool.getConnection();
-        PreparedStatement ps = con.prepareStatement(GET_BY_USER_ID);
-        ps.setLong(1, userId);
-        List accountList = new ArrayList<Account>();
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Account account = getAccount(rs);
-            accountList.add(account);
+    public List<Account> getByUserId(Long userId){
+        Connection con = conPool.getFreeConnection();
+        List<Account> accountList = new ArrayList();
+        try {
+            PreparedStatement ps = con.prepareStatement(GET_BY_USER_ID);
+            ps.setLong(1, userId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Account account = getAccount(rs);
+                accountList.add(account);
+            }
+            closeAll(con, ps, rs);
+            return accountList;
+        } catch (SQLException e) {
+            return accountList;
         }
-        rs.close();
-        ps.close();
-        con.close();
-        return accountList;
     }
 
     private Account getAccount(ResultSet rs) throws SQLException {
@@ -123,5 +120,13 @@ public class AccountDaoImpl implements AccountDao {
         account.setTitle(rs.getString(DbFieldConstant.TITLE));
         account.setUserId(rs.getLong(DbFieldConstant.USER_ID));
         return account;
+    }
+
+    private void closeAll(Connection con, PreparedStatement ps, ResultSet...rs) throws SQLException {
+        for (int i = 0; i < rs.length; i++) {
+            rs[i].close();
+        }
+        ps.close();
+        conPool.putUnusedConnection(con);
     }
 }

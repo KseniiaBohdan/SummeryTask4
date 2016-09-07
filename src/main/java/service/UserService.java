@@ -16,7 +16,7 @@ public interface UserService extends Service<User> {
 
     public User getByCardNumber(long cardNumber);
 
-    public List<User> getByStatus(Integer statusId) throws SQLException;
+    public List<User> getByStatus(Integer statusId);
 
     public User getByPhoneNumber(String phoneNumber) throws SQLException;
 

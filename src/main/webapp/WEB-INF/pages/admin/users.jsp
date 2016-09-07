@@ -75,32 +75,32 @@
                                             <th>
                                                 <c:choose>
                                                     <c:when test="${user.status.toString() == 'BLOCKED'}">
-                                                        <button class="btn btn-success" style="width: 32%" type="submit"
+                                                        <button class="btn btn-success" style="width: 60%" type="submit"
                                                                 onclick="location.href='/admin/user/action?userId=${user.id}&action=unblock'">
                                                             <fmt:message key="unblock"/>
                                                         </button>
                                                     </c:when>
                                                     <c:when test="${user.status.toString() == 'ACTIVE'}">
-                                                        <button class="btn btn-warning" style="width: 25%" type="submit"
+                                                        <button class="btn btn-warning" style="width: 60%" type="submit"
                                                                 onclick="location.href='/admin/user/action?userId=${user.id}&action=block'">
                                                             <fmt:message key="b_block"/>
                                                         </button>
                                                     </c:when>
                                                 </c:choose>
                                                 <c:if test="${user.status.toString() != 'DELETED'}">
-                                                    <button class="btn btn-danger" style="width: 25%" type="submit"
+                                                    <button class="btn btn-danger" style="width: 60%" type="submit"
                                                             onclick="location.href='/admin/user/action?userId=${user.id}&action=delete'">
                                                         <fmt:message key="d_delete"/>
                                                     </button>
                                                 </c:if>
                                                 <c:if test="${user.role.toString() == 'USER' && user.status.toString() == 'ACTIVE'}">
-                                                    <button class="btn btn-info" style="width: 31%" type="submit"
+                                                    <button class="btn btn-info" style="width: 60%" type="submit"
                                                             onclick="location.href='/admin/user/action?userId=${user.id}&action=promote'">
                                                         <fmt:message key="p_promote"/>
                                                     </button>
                                                 </c:if>
                                                 <c:if test="${user.role.toString() == 'ADMIN'}">
-                                                    <button class="btn btn-primary" style="width: 29%" type="submit"
+                                                    <button class="btn btn-primary" style="width: 60%" type="submit"
                                                             onclick="location.href='/admin/user/action?userId=${user.id}&action=dismiss'">
                                                         <fmt:message key="d_dismiss"/>
                                                     </button>

@@ -2,8 +2,7 @@ package servlets.welcome;
 
 import data.entity.User;
 import org.apache.log4j.Logger;
-import servlets.EncodingFilter;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

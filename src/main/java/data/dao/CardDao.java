@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CardDao extends Dao<Card>{
 
-    List getByAccountId(Long accountId) throws SQLException;
+    List getByAccountId(Long accountId);
 
     List<Card> getActiveByUserId(Long userId);
 

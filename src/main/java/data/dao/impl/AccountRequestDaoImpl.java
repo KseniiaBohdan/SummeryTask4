@@ -21,14 +21,13 @@ public class AccountRequestDaoImpl implements AccountRequestDao {
     private static final String GET_ALL= "SELECT * FROM account_request";
 
     public boolean create(AccountRequest accountRequest) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(CREATE);
             ps.setLong(1, accountRequest.getAccountId());
             ps.setString(2, accountRequest.getTitle());
             int result = ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return (result>0);
         } catch (SQLException e) {
             return false;
@@ -36,7 +35,7 @@ public class AccountRequestDaoImpl implements AccountRequestDao {
     }
 
     public List<AccountRequest> getAll() {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         List<AccountRequest> arList = new ArrayList();
         try {
             PreparedStatement ps = con.prepareStatement(GET_ALL);
@@ -45,9 +44,7 @@ public class AccountRequestDaoImpl implements AccountRequestDao {
                 AccountRequest ar = getAccountRequest(rs);
                 arList.add(ar);
             }
-            rs.close();
-            ps.close();
-            con.close();
+            closeAll(con, ps, rs);
             return arList;
         } catch (SQLException e) {
             return arList;
@@ -55,13 +52,12 @@ public class AccountRequestDaoImpl implements AccountRequestDao {
     }
 
     public boolean deleteByAccountId(Long accountId) {
-        Connection con = ConnectionPool.getConnection();
+        Connection con = conPool.getFreeConnection();
         try {
             PreparedStatement ps = con.prepareStatement(DELETE_BY_ACCOUNT_ID);
             ps.setLong(1, accountId);
             int result = ps.executeUpdate();
-            ps.close();
-            con.close();
+            closeAll(con, ps);
             return result>0;
         } catch (SQLException e) {
          return false;
@@ -82,5 +78,13 @@ public class AccountRequestDaoImpl implements AccountRequestDao {
         ar.setAccountId(rs.getLong(DbFieldConstant.ACCOUNT_ID));
         ar.setTitle(rs.getString(DbFieldConstant.TITLE));
         return ar;
+    }
+
+    private void closeAll(Connection con, PreparedStatement ps, ResultSet... rs) throws SQLException {
+        for (int i = 0; i < rs.length; i++) {
+            rs[i].close();
+        }
+        ps.close();
+        conPool.putUnusedConnection(con);
     }
 }

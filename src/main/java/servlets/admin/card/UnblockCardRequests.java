@@ -1,6 +1,6 @@
 package servlets.admin.card;
 
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 import data.entity.CardRequest;
 import service.impl.CardRequestServiceImpl;
 

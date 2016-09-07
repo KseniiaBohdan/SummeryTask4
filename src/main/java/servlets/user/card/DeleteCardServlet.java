@@ -2,8 +2,7 @@ package servlets.user.card;
 
 import org.apache.log4j.Logger;
 import service.impl.CardRequestServiceImpl;
-import servlets.ContextListener;
-import servlets.PageConstant;
+import servlets.constant.PageConstant;
 import data.entity.Card;
 import data.entity.Status;
 import data.entity.User;

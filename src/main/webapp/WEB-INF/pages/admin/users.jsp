@@ -22,7 +22,8 @@
                 <div class="col-md-12">
                     <h2><fmt:message key="user_management"/></h2>
                     <h5>
-                        <fmt:message key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
+                        <fmt:message
+                                key="welcome"/>, ${sessionScope.user.firstName} ${sessionScope.user.secondName} ${sessionScope.user.patronymic}.
                     </h5>
                 </div>
             </div>
@@ -47,6 +48,17 @@
                     </div>
                     <br>
 
+                    <form name="findForm" action="/admin/user/management" method="get">
+                        <h5>Name</h5>
+                        <input name="Name" size="40" type="text" pattern="(([A-Za-z]*){1,}\s{0,}){0,}"/>
+                        <%--<input type="submit" value="Find" size="40" class="form-control"/>--%>
+                            <button class="btn btn-info" type="submit" value="Find">
+                                Find
+                            </button>
+                        <br>
+                        <br>
+                    </form>
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <fmt:message key="u_users"/>
@@ -56,12 +68,12 @@
                                 <table class="table table-striped table-bordered table-hover" id="userTable">
                                     <thead>
                                     <tr>
-                                        <th> <fmt:message key="id"/></th>
-                                        <th> <fmt:message key="name"/></th>
-                                        <th> <fmt:message key="email"/></th>
-                                        <th> <fmt:message key="status"/></th>
-                                        <th> <fmt:message key="phone_number"/></th>
-                                        <th> <fmt:message key="action"/></th>
+                                        <th><fmt:message key="id"/></th>
+                                        <th><fmt:message key="name"/></th>
+                                        <th><fmt:message key="email"/></th>
+                                        <th><fmt:message key="status"/></th>
+                                        <th><fmt:message key="phone_number"/></th>
+                                        <th><fmt:message key="action"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -175,12 +187,6 @@
 <%--<br>--%>
 <%--</form>--%>
 
-<%--<form name="findForm" action="/user/management" method="get">--%>
-<%--Name<br>--%>
-<%--<input name="Name" size="40" type="text" pattern="(([A-Za-z]*){1,}\s{0,}){0,}"/><br>--%>
-<%--<input type="submit" value="Find" size="40"/>--%>
-<%--<br>--%>
-<%--</form>--%>
 
 <%--All users: ${requestScope.userList.size()}--%>
 <%--<table bgcolor="#deb887" border="2" bordercolor="white">--%>

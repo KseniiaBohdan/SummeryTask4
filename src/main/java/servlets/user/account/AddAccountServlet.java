@@ -37,28 +37,22 @@ public class AddAccountServlet extends HttpServlet {
         AccountService accountService = new AccountServiceImpl();
         HttpSession session = req.getSession();
         Long userId = ((User) session.getAttribute(USER)).getId();
-        int accountNumber = accountService.getByUserId(userId).size() + 1;
-        Account account = new Account();
-        account.setId(Long.valueOf(req.getParameter(ID)));
-        account.setNumber(accountNumber);
-        account.setTitle(req.getParameter(TITLE));
-        account.setUserId(userId);
-        if (AccountValid(account, accountService)) {
-            if (accountService.create(account)) {
-                req.getSession().setAttribute("addAccountResult", StringUtils.EMPTY);
-                resp.sendRedirect(PageConstant.ADD_ACCOUNT_SERVLET);
-                LOGGER.debug("AddAccount ends successfully");
-            }
+        Account account = setAccount(req, userId);
+        if (accountService.create(account, userId)) {
+            req.getSession().setAttribute("addAccountResult", StringUtils.EMPTY);
+            resp.sendRedirect(PageConstant.ADD_ACCOUNT_SERVLET);
+            LOGGER.debug("AddAccount ends successfully");
+
         } else {
             resp.sendRedirect(PageConstant.ADD_ACCOUNT_SERVLET);
         }
     }
 
-    private boolean AccountValid(Account account, AccountService accountService) {
-        if (accountService.getByAccountId(account.getId()) == null) {
-            return true;
-        } else {
-            return false;
-        }
+    private Account setAccount(HttpServletRequest req, Long userId) {
+        Account account = new Account();
+        account.setId(Long.valueOf(req.getParameter(ID)));
+        account.setTitle(req.getParameter(TITLE));
+        account.setUserId(userId);
+        return account;
     }
 }

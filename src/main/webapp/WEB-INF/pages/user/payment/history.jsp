@@ -74,7 +74,7 @@
                                                 <c:if test="${paymentModel.payment.paymentStatus == 'COMPLETED'}">
                                                 <form method="post" action="/user/payment/order">
                                                     <input type="hidden" name="paymentModelG" value="${paymentModel.payment.id}"/>
-                                                    <button class="btn btn-success" style="width: 100%" type="submit"
+                                                    <button class="btn btn-info" style="width: 100%" type="submit"
                                                             onclick="submit">
                                                         <fmt:message key="generate_order"/>
                                                     </button>

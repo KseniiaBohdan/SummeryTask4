@@ -46,7 +46,7 @@ public class AdminProfile extends HttpServlet {
     private int countAdmins(){
         List<User> adminList = new UserServiceImpl().getAll();
         for (int i = 0; i < adminList.size(); i++) {
-            if(adminList.get(i).getRole()!= Role.ADMIN && adminList.get(i).getStatus()==Status.ACTIVE){
+            if(adminList.get(i).getRole()!= Role.ADMIN || adminList.get(i).getStatus()!=Status.ACTIVE){
                 adminList.remove(i);
                 --i;
             }

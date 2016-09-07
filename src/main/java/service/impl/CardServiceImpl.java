@@ -1,23 +1,38 @@
 package service.impl;
 
-import data.dao.impl.CardDaoImpl;
 import data.entity.Card;
 import data.entity.Status;
+import db.dao.impl.CardDaoImpl;
+import db.transaction.TransactionManager;
+import db.transaction.TransactionOperation;
+import db.transaction.impl.JdbcTransactionManager;
 import service.CardService;
 
-import java.sql.SQLException;
+import java.sql.Connection;
 import java.util.List;
 
 public class CardServiceImpl implements CardService {
 
     CardDaoImpl cardDao = new CardDaoImpl();
+    private TransactionManager transactionManager = new JdbcTransactionManager();
 
-    public boolean update(Card card) {
-        return cardDao.update(card);
+
+    public boolean update(final Card card) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection) {
+                return cardDao.update(connection, card);
+            }
+        });
     }
 
-    public boolean create(Card card) {
-        return cardDao.create(card);
+    public boolean create(final Card card) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection) {
+                return cardDao.create(connection, card);
+            }
+        });
     }
 
     public List<Card> getAll() {
@@ -28,31 +43,61 @@ public class CardServiceImpl implements CardService {
         return false;
     }
 
-    public boolean update(List<Card> cards) {
-        return cardDao.update(cards);
+    public boolean update(final List<Card> cards) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection) {
+                return cardDao.update(connection, cards);
+            }
+        });
     }
 
-    public List getNotDeletedCardByUserId(Long userId) {
-        return cardDao.getNotDeletedCardByUserId(userId);
+    public List getNotDeletedCardByUserId(final Long userId) {
+        return transactionManager.execute(new TransactionOperation<List>() {
+            @Override
+            public List execute(Connection connection) {
+                return cardDao.getNotDeletedCardByUserId(connection, userId);
+            }
+        });
     }
 
-    public List getByUserId(Long userId) {
-            return cardDao.getByUserId(userId);
+    public List getByUserId(final Long userId) {
+        return transactionManager.execute(new TransactionOperation<List>() {
+            @Override
+            public List execute(Connection connection) {
+                return cardDao.getByUserId(connection, userId);
+            }
+        });
     }
 
-    public List getByAccountId(Long accountId) {
-        return cardDao.getByAccountId(accountId);
+    public List getByAccountId(final Long accountId) {
+        return transactionManager.execute(new TransactionOperation<List>() {
+            @Override
+            public List execute(Connection connection) {
+                return cardDao.getByAccountId(connection, accountId);
+            }
+        });
     }
 
-    public boolean deleteByCardNumber(Long cardNumber) {
-            return cardDao.deleteByCardNumber(cardNumber);
+    public boolean deleteByCardNumber(final Long cardNumber) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection) {
+                return cardDao.deleteByCardNumber(connection, cardNumber);
+            }
+        });
     }
 
-    public Card getByCardNumber(Long cardNumber) {
-        return cardDao.getById(cardNumber);
+    public Card getByCardNumber(final Long cardNumber) {
+        return transactionManager.execute(new TransactionOperation<Card>() {
+            @Override
+            public Card execute(Connection connection) {
+                return cardDao.getById(connection, cardNumber);
+            }
+        });
     }
 
-    public void removeCardsByStatus( List<Card> cardList, Status... status) {
+    public void removeCardsByStatus(List<Card> cardList, Status... status) {
         for (int i = 0; i < status.length; i++) {
             for (int j = 0; j < cardList.size(); j++) {
                 if (cardList.get(j).getStatus().equals(status[i])) {

@@ -1,18 +1,30 @@
 package service.impl;
 
-import data.dao.AtmDao;
-import data.dao.impl.AtmDaoImpl;
+import data.entity.Account;
+import db.dao.AtmDao;
+import db.dao.impl.AtmDaoImpl;
 import data.entity.Atm;
+import db.transaction.TransactionManager;
+import db.transaction.TransactionOperation;
+import db.transaction.impl.JdbcTransactionManager;
 import service.AtmService;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class AtmServiceImpl implements AtmService{
 
     private AtmDao atmDao = new AtmDaoImpl();
+    private TransactionManager transactionManager = new JdbcTransactionManager();
 
-    public boolean create(Atm atm) {
-        return atmDao.create(atm);
+    public boolean create(final Atm atm) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection){
+                return atmDao.create(connection, atm);
+            }
+        });
     }
 
     public boolean update(Atm atm) {
@@ -20,7 +32,12 @@ public class AtmServiceImpl implements AtmService{
     }
 
     public List<Atm> getAll() {
-        return atmDao.getAll();
+        return transactionManager.execute(new TransactionOperation<List<Atm>>() {
+            @Override
+            public List<Atm> execute(Connection connection) {
+                return atmDao.getAll(connection);
+            }
+        });
     }
 
     public boolean deleteAll() {
@@ -31,7 +48,12 @@ public class AtmServiceImpl implements AtmService{
         return false;
     }
 
-    public List<Atm> getByUserId(Long userId) {
-        return atmDao.getByUserId(userId);
+    public List<Atm> getByUserId(final Long userId) {
+        return transactionManager.execute(new TransactionOperation<List<Atm>>() {
+            @Override
+            public List<Atm> execute(Connection connection)  {
+                return atmDao.getByUserId(connection, userId);
+            }
+        });
     }
 }

@@ -14,5 +14,7 @@ public interface AccountService extends Service<Account> {
 
     boolean deleteById(Long account_id);
 
+    boolean create(Account ac, Long userId);
+
     void removeAccountByStatus(List<Account> accountList, Status... status);
 }

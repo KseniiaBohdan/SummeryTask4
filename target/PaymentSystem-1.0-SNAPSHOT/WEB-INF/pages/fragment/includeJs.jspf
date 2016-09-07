@@ -2,3 +2,5 @@
 <script src="/styles/assets/js/bootstrap.min.js"></script>
 <script src="/styles/assets/js/jquery.metisMenu.js"></script>
 <script src="/styles/assets/js/custom.js"></script>
+<%@ taglib uri="/WEB-INF/tag.tld"  prefix="mct"	%>
+

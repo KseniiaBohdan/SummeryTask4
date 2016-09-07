@@ -26,14 +26,14 @@ public class UserManagementServlet extends HttpServlet {
         Status[] statuses = Status.values();
         req.setAttribute("statuses", statuses);
 
-//        if (StringUtils .isNotBlank(req.getParameter("Name"))) {
-//            List<String> name = new ArrayList(Arrays.asList(req.getParameter("Name").split(" ")));
-//            if (name.size() != 0 && name!=null) {
-//                req.setAttribute("Name", name);
-//                removeSameElement(name);
-//                users = userService.findByName(name);
-//            }
-//        }
+        if (StringUtils .isNotBlank(req.getParameter("Name"))) {
+            List<String> name = new ArrayList(Arrays.asList(req.getParameter("Name").split(" ")));
+            if (name.size() != 0 && name!=null) {
+                req.setAttribute("Name", name);
+                removeSameElement(name);
+                users = userService.findByName(name);
+            }
+        }
 
         String statusFilter = req.getParameter("filterSelect");
 

@@ -18,13 +18,24 @@
 <body>
 
 <div id="wrapper">
+    <br/> <br/>
+    <br/>
+    <div class="col-lg-2 col-md-10 col-sm-10 col-xs-10">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <h3 style="color:white;">Select language</h3>
+                <ul class="nav">
+                    <li class="active"></li>
+                    <li><a href="/login?language=ru">Russian</a></li>
+                    <li><a href="/login?language=en">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div id="page-wrapper">
+
         <nav id="page-inner">
             <div class="row ">
-
-                <a href="/login?language=en">English</a>
-                <a href="/login?language=ru">Russian</a>
-
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <br/><br/>
 
@@ -82,7 +93,8 @@
                                 </div>
                                 <button class="btn btn-primary " onclick="submit"><fmt:message key="login"/></button>
                                 <hr/>
-                                <fmt:message key="not_register"/>? <a href="/registration"><fmt:message key="click_here"/> </a>
+                                <fmt:message key="not_register"/>? <a href="/registration"><fmt:message
+                                    key="click_here"/> </a>
                             </form>
                         </div>
                     </div>
@@ -93,7 +105,7 @@
 
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong><fmt:message key="operation_successfull"/>!</strong>
+                    <strong><fmt:message key="operation_successfull"/>!</strong>
                 </div>
             </c:if>
 

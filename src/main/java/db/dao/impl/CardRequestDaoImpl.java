@@ -13,10 +13,8 @@ import java.util.List;
 
 public class CardRequestDaoImpl implements CardRequestDao {
 
-    private static final String UPDATE = "";
     private static final String CREATE = "INSERT INTO card_request (card_number, title) VALUES (?, ?)";
     private static final String GET_ALL = "SELECT * FROM card_request";
-    private static final String GET_BY_ID = "";
     private static final String DELETE_BY_CARD_ID = "DELETE FROM card_request WHERE card_number = ?";
 
     public boolean update(Connection con, CardRequest cardRequest) {

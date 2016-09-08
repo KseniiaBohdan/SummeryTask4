@@ -46,7 +46,7 @@
                                 </p>
                             </div>
                         </div>
-                        <fmt:message key="status"/>: ${cardList.status}<br/>
+                        Status: ${cardList.status}<br/>
                         <fmt:message key="title"/>: ${cardList.title}
                     </div>
                 </c:forEach>
@@ -67,7 +67,7 @@
                                         <th>#</th>
                                         <th><fmt:message key="account"/></th>
                                         <th><fmt:message key="balance"/></th>
-                                        <th><fmt:message key="status"/></th>
+                                        <th>Status</th>
                                         <th><fmt:message key="title"/></th>
                                     </tr>
                                     </thead>
@@ -77,7 +77,7 @@
                                             <th> ${accountList.number} </th>
                                             <th> ${accountList.id} </th>
                                             <th> ${accountList.balance} </th>
-                                            <th> ${accountList.status} </th>
+                                            <th>Status</th>
                                             <th> ${accountList.title} </th>
                                         </tr>
                                     </c:forEach>

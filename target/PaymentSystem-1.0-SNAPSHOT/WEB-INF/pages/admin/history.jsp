@@ -43,8 +43,8 @@
                                         <th><fmt:message key="from"/></th>
                                         <th><fmt:message key="to"/></th>
                                         <th><fmt:message key="sum"/></th>
-                                        <th><fmt:message key="date"/></th>
-                                        <th><fmt:message key="status"/></th>
+                                        <th>Date</th>
+                                        <th>Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>

@@ -106,4 +106,14 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+    public Boolean blockAccount(final Long accountId) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection) throws SQLException {
+                Account account = accountDao.getById(connection, accountId);
+                account.setStatus(Status.BLOCKED);
+                return accountDao.update(connection, account);
+            }
+        });
+    }
 }

@@ -20,16 +20,17 @@ public class UserManagementServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserService userService = new UserServiceImpl();
-        Long userId = ((User)req.getSession().getAttribute("user")).getId();
+        Long userId = ((User) req.getSession().getAttribute("user")).getId();
         List<User> users = userService.getAll();
         deleteExtra(users, userId);
         Status[] statuses = Status.values();
         req.setAttribute("statuses", statuses);
 
-        if (StringUtils .isNotBlank(req.getParameter("Name"))) {
+        req.setAttribute("Name", req.getParameter("Name"));
+
+        if (StringUtils.isNotBlank(req.getParameter("Name"))) {
             List<String> name = new ArrayList(Arrays.asList(req.getParameter("Name").split(" ")));
-            if (name.size() != 0 && name!=null) {
-                req.setAttribute("Name", name);
+            if (name.size() != 0 && name != null) {
                 removeSameElement(name);
                 users = userService.findByName(name);
             }
@@ -39,14 +40,18 @@ public class UserManagementServlet extends HttpServlet {
 
         if (StringUtils.isNotBlank(statusFilter)) {
             req.setAttribute("filterSelect", statusFilter);
-            users = filterByStatus(users, statusFilter, userService);
+            if (req.getParameter("Name") != null) {
+                List<User> userList = new ArrayList<>();
+                for(User u : users){
+                    if(u.getStatus().toString().equals(statusFilter)){
+                        userList.add(u);
+                    }
+                }
+                users = userList;
+            } else {
+                users = filterByStatus(users, statusFilter, userService);
+            }
         }
-
-//        String sort = req.getParameter("sortSelect");
-//        if (StringUtils.isNotBlank(sort)) {
-//            req.setAttribute("sortSelect", sort);
-//            users = sortBy(users, sort);
-//        }
 
         req.setAttribute("userList", users);
         req.getRequestDispatcher(PageConstant.USER_MANAGEMENT).include(req, resp);
@@ -54,7 +59,7 @@ public class UserManagementServlet extends HttpServlet {
 
     private void deleteExtra(List<User> users, Long userId) {
         for (int i = 0; i < users.size(); i++) {
-            if(users.get(i).getId().equals(userId)){
+            if (users.get(i).getId().equals(userId)) {
                 users.remove(i);
                 break;
             }

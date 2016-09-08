@@ -109,4 +109,14 @@ public class CardServiceImpl implements CardService {
     }
 
 
+    public Boolean blockCard(final Long cardId) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection) {
+                Card card = cardDao.getById(connection, cardId);
+                card.setStatus(Status.BLOCKED);
+                return cardDao.update(connection, card);
+            }
+        });
+    }
 }

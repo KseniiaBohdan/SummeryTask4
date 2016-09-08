@@ -1,7 +1,5 @@
 package db.dao;
 
-import db.dbConnection.ConnectionPool;
-
 import java.sql.Connection;
 import java.util.List;
 

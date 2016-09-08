@@ -3,7 +3,6 @@ package db.dao;
 import data.entity.Payment;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 public interface PaymentDao extends Dao<Payment> {

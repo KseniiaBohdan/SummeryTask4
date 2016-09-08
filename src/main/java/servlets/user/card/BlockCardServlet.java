@@ -38,14 +38,10 @@ public class BlockCardServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.debug("BlockCard starts");
-        CardService cardService = new CardServiceImpl();
-        Long cardNumber = Long.valueOf(req.getParameter(CARD_NUMBER));
-        Card card = cardService.getByCardNumber(cardNumber);
-        card.setStatus(Status.BLOCKED);
-        if (cardService.update(card)) {
+        Long cardId = Long.valueOf(req.getParameter(CARD_NUMBER));
+        if (new CardServiceImpl().blockCard(cardId)) {
             resp.sendRedirect(PageConstant.BLOCK_CARD_SERVLET);
-            LOGGER.debug("BlockCard ends successfully");
-        } else {
         }
+        LOGGER.debug("BlockCard ends successfully");
     }
 }

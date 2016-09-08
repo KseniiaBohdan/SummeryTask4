@@ -28,8 +28,6 @@ public class UserDaoImpl implements UserDao {
             " values (?, ?, ?,?, ?, ?, ?, ?); ";
     private static final String UPDATE_USER = "UPDATE user SET first_name=?, second_name = ?, patronymic = ?, " +
             "email = ?, password = ?, status_id = ?, role_id = ?, phone_number = ?  WHERE id=?";
-    private static final String GET_BY_NAME = "SELECT * FROM user WHERE first_name = ? AND second_name = ? AND " +
-            "patronymic = ?";
     private static final String FIND_BY_NAME = "SELECT * FROM user WHERE first_name LIKE ? OR second_name LIKE ? OR " +
             "patronymic LIKE ? AND role_id = ?";
 
@@ -105,7 +103,7 @@ public class UserDaoImpl implements UserDao {
             ps.setString(3, user.getPatronymic());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getPassword());
-            ps.setInt(6, user.getStatus().getId()); //method  get bla bla
+            ps.setInt(6, user.getStatus().getId());
             ps.setInt(7, user.getRole().getId());
             ps.setString(8, user.getPhoneNumber());
             ps.executeUpdate();

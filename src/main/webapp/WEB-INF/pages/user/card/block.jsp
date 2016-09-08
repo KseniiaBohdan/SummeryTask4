@@ -71,7 +71,7 @@
                             </div>
 
                         </div>
-                        <fmt:message key="status"/>: ${card.status}<br/>
+                        Status: ${card.status}<br/>
                         <fmt:message key="title"/>: ${card.title}
                     </div>
                 </c:forEach>

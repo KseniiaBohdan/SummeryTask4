@@ -1,7 +1,9 @@
 package service.impl;
 
 import data.entity.Account;
+import data.entity.Card;
 import db.dao.AtmDao;
+import db.dao.impl.AccountDaoImpl;
 import db.dao.impl.AtmDaoImpl;
 import data.entity.Atm;
 import db.transaction.TransactionManager;
@@ -53,6 +55,23 @@ public class AtmServiceImpl implements AtmService{
             @Override
             public List<Atm> execute(Connection connection)  {
                 return atmDao.getByUserId(connection, userId);
+            }
+        });
+    }
+
+    public Boolean putMoney(final Long cardNumber, final Long sum) {
+        return transactionManager.execute(new TransactionOperation<Boolean>() {
+            @Override
+            public Boolean execute(Connection connection){
+                Card card = new CardServiceImpl().getByCardNumber(cardNumber);
+                Account account = new AccountDaoImpl().getById(connection, card.getAccountId());
+                Long balance = account.getBalance() + sum;
+                account.setBalance(balance);
+                new AccountDaoImpl().update(connection, account);
+                Atm atm = new Atm();
+                atm.setCardNumberReceiver(cardNumber);
+                atm.setSum(sum);
+                return atmDao.create(connection, atm);
             }
         });
     }

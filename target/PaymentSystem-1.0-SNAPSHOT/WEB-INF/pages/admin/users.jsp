@@ -31,30 +31,31 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div>
-                        <select class="form-control"
-                                onchange="window.location.href='/admin/user/management'+this.value">
-                            <option value=""
-                                    <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
-                                ALL
-                            </option>
-                            <c:forEach var="status" items="${requestScope.statuses}">
-                                <option value="?filterSelect=${status.toString()}"
-                                        <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
-                                        ${status.toString()}
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </div>
-                    <br>
-
                     <form name="findForm" action="/admin/user/management" method="get">
+                        <div>
+                            <select name="filterSelect" class="form-control"
+                                    onchange="submit()">
+                                <option value=""
+                                        <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
+                                    ALL
+                                </option>
+                                <c:forEach var="status" items="${requestScope.statuses}">
+                                    <option value="${status.toString()}"
+                                            <c:if test="${requestScope.filterSelect == status.toString()}">selected</c:if>>
+                                            ${status.toString()}
+                                    </option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <br>
+
                         <h5>Name</h5>
-                        <input name="Name" size="40" type="text" pattern="(([A-Za-z]*){1,}\s{0,}){0,}"/>
+                        <input name="Name" size="40" type="text" pattern="(([A-Za-z]*){1,}\s{0,}){0,}"
+                               value="${requestScope.Name}"/>
                         <%--<input type="submit" value="Find" size="40" class="form-control"/>--%>
-                            <button class="btn btn-info" type="submit" value="Find">
-                                Find
-                            </button>
+                        <button class="btn btn-info" type="submit" value="Find">
+                            Find
+                        </button>
                         <br>
                         <br>
                     </form>
@@ -71,15 +72,22 @@
                                         <th><fmt:message key="id"/></th>
                                         <th><fmt:message key="name"/></th>
                                         <th><fmt:message key="email"/></th>
-                                        <th><fmt:message key="status"/></th>
-                                        <th><fmt:message key="phone_number"/></th>
+                                        <th>Status</th>
+                                        <th>Phone number</th>
                                         <th><fmt:message key="action"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach var="user" items="${requestScope.userList}">
                                         <tr class="odd gradeX">
-                                            <th> ${user.id}</th>
+                                            <th> ${user.id}
+                                                <c:if test="${user.status.toString() != 'DELETED'}">
+                                                    <button class="btn btn-info" style="width: 40%" type="submit"
+                                                            onclick="location.href='/admin/user/info?userId=${user.id}'">
+                                                        Info
+                                                    </button>
+                                                </c:if>
+                                            </th>
                                             <th> ${user.firstName} ${user.secondName} ${user.patronymic}</th>
                                             <th> ${user.email}</th>
                                             <th> ${user.status}</th>

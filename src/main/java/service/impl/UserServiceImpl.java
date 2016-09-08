@@ -1,6 +1,9 @@
 package service.impl;
 
+import data.dto.UserDto;
 import data.entity.User;
+import db.dao.impl.AccountDaoImpl;
+import db.dao.impl.CardDaoImpl;
 import db.dao.impl.UserDaoImpl;
 import db.transaction.TransactionManager;
 import db.transaction.TransactionOperation;
@@ -14,6 +17,19 @@ public class UserServiceImpl implements UserService {
 
     private static UserDaoImpl userDao = new UserDaoImpl();
     private TransactionManager transactionManager = new JdbcTransactionManager();
+
+    public UserDto getUserDto(final Long userId){
+        return transactionManager.execute(new TransactionOperation<UserDto>() {
+            @Override
+            public UserDto execute(Connection connection) {
+                UserDto userM = new UserDto();
+                userM.setUser(userDao.getById(connection, userId));
+                userM.setCards(new CardDaoImpl().getByUserId(connection, userId));
+                userM.setAccounts(new AccountDaoImpl().getByUserId(connection, userId));
+                return userM;
+            }
+        });
+    }
 
 
     public User getById(final Long id) {

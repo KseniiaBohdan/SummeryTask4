@@ -189,6 +189,16 @@
     </servlet-mapping>
 
     <servlet>
+        <display-name>UserInfo</display-name>
+        <servlet-name>UserInfo</servlet-name>
+        <servlet-class>servlets.admin.user.UserInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserInfo</servlet-name>
+        <url-pattern>/admin/user/info/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <display-name>CardActionServlet</display-name>
         <servlet-name>CardActionServlet</servlet-name>
         <servlet-class>servlets.admin.card.CardAction</servlet-class>
@@ -196,6 +206,26 @@
     <servlet-mapping>
         <servlet-name>CardActionServlet</servlet-name>
         <url-pattern>/admin/card/action</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <display-name>CardBlock</display-name>
+    <servlet-name>CardBlock</servlet-name>
+    <servlet-class>servlets.admin.card.CardBlock</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>CardBlock</servlet-name>
+        <url-pattern>/admin/user/card/block/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>AccountBlock</display-name>
+        <servlet-name>AccountBlock</servlet-name>
+        <servlet-class>servlets.admin.account.AccountBlock</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountBlock</servlet-name>
+        <url-pattern>/admin/user/account/block/*</url-pattern>
     </servlet-mapping>
 
 

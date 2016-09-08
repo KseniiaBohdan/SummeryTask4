@@ -46,7 +46,7 @@
                                         <th>#</th>
                                         <th><fmt:message key="account"/></th>
                                         <th><fmt:message key="balance"/></th>
-                                        <th><fmt:message key="status"/></th>
+                                        <th>Status</th>
                                         <th><fmt:message key="title"/></th>
                                         <th><fmt:message key="check"/></th>
                                     </tr>

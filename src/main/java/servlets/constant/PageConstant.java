@@ -31,6 +31,8 @@ public final class PageConstant {
     public static final String UNBLOCK_REQUESTS_CARD_SERVLET = "/admin/card/unblock";
     public static final String UNBLOCK_REQUESTS_ACCOUNT_SERVLET = "/admin/account/unblock";
     public static final String USER_MANAGEMENT_SERVLET = "/admin/user/management";
+    public static final String USER_INFO_SERVLET = "/admin/user/info";
+
 
     public static final String LOGIN = "/WEB-INF/pages/welcome/login.jsp";
     public static final String REGISTRATION = "/WEB-INF/pages/welcome/registration.jsp";
@@ -53,5 +55,7 @@ public final class PageConstant {
     public static final String USER_MANAGEMENT = "/WEB-INF/pages/admin/users.jsp";
     public static final String UNBLOCK_REQUESTS_CARD = "/WEB-INF/pages/admin/cardUnblockRequests.jsp";
     public static final String UNBLOCK_REQUESTS_ACCOUNT = "/WEB-INF/pages/admin/accountUnblockRequests.jsp";
+    public static final String USER_INFO = "/WEB-INF/pages/admin/userInfo.jsp";
+
 
 }

@@ -13,7 +13,6 @@ import javax.mail.internet.MimeMessage;
 import org.apache.log4j.Logger;
 
 public class MailSender {
-	// input here your mail credentials
 	private static final String USERNAME = "kseniia.bohdan.payment.system@gmail.com";
 	private static final String PASSWORD = "payment.system2016";
 	private static final Logger LOGGER = Logger.getLogger(MailSender.class);

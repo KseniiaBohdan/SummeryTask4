@@ -24,34 +24,18 @@ public class PutMoneyServlet extends HttpServlet {
     private static final String PIN = "pin";
     private static final Logger LOGGER = Logger.getLogger(PutMoneyServlet.class);
 
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.debug("PutMoneyServlet start");
         Long cardNumber = Long.valueOf(req.getParameter(CARD_NUMBER));
         Long sum = Long.valueOf(req.getParameter(SUM));
         Integer pin = Integer.valueOf(req.getParameter(PIN));
-        AccountService as = new AccountServiceImpl();
         Card card = new CardServiceImpl().getByCardNumber(cardNumber);
         if (card != null && card.getPin().equals(pin)) {
-            Account account = as.getByAccountId(card.getAccountId());
-            Long balance = account.getBalance() + sum;
-            account.setBalance(balance);
-            as.update(account);
-            createAtm(req);
+            new AtmServiceImpl().putMoney(cardNumber, sum);
             req.getSession().setAttribute("putMoneyResult", StringUtils.EMPTY);
             resp.sendRedirect(PageConstant.LOGIN_SERVLET);
             LOGGER.debug("PutMonewServlet ends successfully");
         }
-    }
-
-    private void createAtm(HttpServletRequest req) {
-        Long cardNumber = Long.valueOf(req.getParameter(CARD_NUMBER));
-        Long sum = Long.valueOf(req.getParameter(SUM));
-        Atm atm = new Atm();
-        atm.setCardNumberReceiver(cardNumber);
-        atm.setSum(sum);
-        new AtmServiceImpl().create(atm);
-        LOGGER.debug("Atm was created");
     }
 }

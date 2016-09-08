@@ -5,7 +5,7 @@ import data.entity.Card;
 import java.sql.Connection;
 import java.util.List;
 
-public interface CardDao extends Dao<Card>{
+public interface CardDao extends Dao<Card> {
 
     List getByAccountId(Connection con, Long accountId);
 

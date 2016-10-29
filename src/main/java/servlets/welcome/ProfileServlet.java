@@ -1,6 +1,7 @@
 package servlets.welcome;
 
 import org.apache.log4j.Logger;
+import service.impl.UserServiceImpl;
 import servlets.constant.PageConstant;
 import data.dto.UserDto;
 import data.entity.*;
@@ -29,15 +30,10 @@ public class ProfileServlet extends HttpServlet {
         CardService cardService = new CardServiceImpl();
         AccountService accountService = new AccountServiceImpl();
         User user = (User)req.getSession().getAttribute(USER);
-        UserDto userDto = new UserDto();
-        List<Card> cardList = cardService.getByUserId(user.getId());
-        cardService.removeCardsByStatus(cardList, Status.DELETED);
-        checkExpiryDate(cardList);
-        List<Account> accountList = accountService.getByUserId(user.getId());
-        accountService.removeAccountByStatus(accountList, Status.DELETED);
-        userDto.setUser(user);
-        userDto.setAccounts(accountList);
-        userDto.setCards(cardList);
+        UserDto userDto = new UserServiceImpl().getUserDto(user.getId());
+        cardService.removeCardsByStatus(userDto.getCards(), Status.DELETED);
+        checkExpiryDate(userDto.getCards());
+        accountService.removeAccountByStatus(userDto.getAccounts(), Status.DELETED);
         req.setAttribute(USER_MADEL, userDto);
         LOGGER.trace("Profile of " + user.getEmail() + " was open");
         req.getRequestDispatcher(PageConstant.PROFILE).include(req, resp);

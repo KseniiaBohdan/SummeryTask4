@@ -29,10 +29,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String language = req.getParameter("language");
-        if(language!=null) {
-            Config.set(session, "javax.servlet.jsp.jstl.fmt.locale", language);
-            session.setAttribute("defaultLocale", language);
-        }
+        setLanguage(session, language);
 
         User user = (User)req.getSession().getAttribute(USER);
         if (Objects.nonNull(user)) {
@@ -75,6 +72,13 @@ public class LoginServlet extends HttpServlet {
         return (user != null
                 && user.getStatus() != Status.DELETED
                 && user.getPassword().equals(password));
+    }
+
+    private void setLanguage(HttpSession session, String language) {
+        if(language!=null) {
+            Config.set(session, "javax.servlet.jsp.jstl.fmt.locale", language);
+            session.setAttribute("defaultLocale", language);
+        }
     }
 
 }
